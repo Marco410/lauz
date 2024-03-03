@@ -1,0 +1,12 @@
+:root {
+    --primary: #7364db;
+    --bg: #20222a;
+    --bgDark: #0f0f12;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: var(--primary) !important;
+}
