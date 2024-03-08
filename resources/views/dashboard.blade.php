@@ -32,28 +32,48 @@
       <div class="card" style="background-color: var(--bg)">
         <div class="card-body p-3">
           <div class="row text-center">
-            <div class="col-12 text-center">
-             <h4 class="text-white">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h4>
-            </div>
-            <div class="dropdown-divider text-white" style="background-color: white"></div>
-          <br>
+              <div class="col-12 text-center">
+              <h4 class="text-white">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h4>
+              </div>
+              <div class="dropdown-divider text-white" style="background-color: white"></div>
+              <br>
 
-          <label class="text-secondary">Win RT%</label>
-          <label class="text-secondary">70 W 30L - 70%</label>
-          <div class="progress"  style="background-color: transparent;">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <br>
+              <label class="text-secondary">Win RT%</label>
+              <label class="text-secondary">70 W 30L - 70%</label>
+              <div class="progress"  style="background-color: transparent;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
 
-          <div class="card z-index-2" style="background-color: var(--bg)">
-            <div class="card-body p-3">
-              <div class="chart">
-                <canvas id="chart-line2" class="chart-canvas" height="200"></canvas>
+            <div class="card z-index-2" style="background-color: var(--bg)">
+              <div class="card-body p-3">
+                <div class="chart">
+                  <canvas id="chart-line2" class="chart-canvas" height="200"></canvas>
+                </div>
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div style="padding: 20px" id='calendar'></div>
+            </div>
 
+            <div class="col-sm-3">
+              <label class="text-secondary" style="font-size: 10px !important;">Bad day</label>
+            </div>
+            <div class="col-sm-6 text-center">
+              <br>
+              <div class="progress"  style="background-color: transparent;">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <label class="text-secondary ">17 W 17L - 50%</label>
+            </div>
+            <div class="col-sm-3">
+              <label class="text-secondary" style="font-size: 10px !important;">Good day</label>
+            </div>
+        
           </div>
         </div>
       </div>
@@ -269,6 +289,97 @@
       </div>
     </div>
 
+    <div class="col-sm-12 mt-4">
+      <div class="card" style="width: 100%; height: 100px; background-color: var(--bg)">
+        <div class="card-body p-3">
+
+          <div class="row">
+            <div class="col-sm-2">
+              <select name="how_often_invest" class="form-select">
+                <option selected value="Account">Account</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select name="how_often_invest" class="form-select">
+                <option selected value="Direction">Direction</option>
+              </select>
+            </div>
+
+            <div class="col-sm-2">
+              <select name="how_often_invest" class="form-select">
+                <option selected value="Winning/Loses">Winning/Loses</option>
+              </select>
+            </div>
+
+            <div class="col-sm-1">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background-color: var(--bg)">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <ul class="nav nav-pills nav-fill mb-3 bg-transparent" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link mb-0 px-0 py-1 active " style="color: var(--primary);font-weight: bold;" data-bs-toggle="tab" data-bs-target="#pills-home"
+                          role="tab" >
+                          <span class="ms-1">Overview</span>
+                      </a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link mb-0 px-0 py-1 " style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-profile"
+                    role="tab" >
+                      <span class="ms-1">Trades</span>
+                      </a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-contact"
+                    role="tab" >
+                      <span class="ms-1">Period Analysis</span>
+                      </a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-ai"
+                      role="tab" >
+                        <span class="ms-1">Notes</span>
+                        </a>
+                    </li>
+
+            
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                    @include('dashboard.views.overview')
+                  </div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                    @include('dashboard.views.trades')
+                  </div>
+                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                    @include('dashboard.views.period')
+                  </div>
+                  <div class="tab-pane fade" id="pills-ai" role="tabpanel" aria-labelledby="pills-ai-tab" tabindex="0">
+                    @include('dashboard.views.notes')
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
 {{--     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card" style="background-color: var(--bg)">
         <div class="card-body p-3">
@@ -402,7 +513,7 @@
       </div>
     </div>
   </div> --}}
-  <div class="row mt-4">
+{{--   <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card z-index-2" style="background-color: var(--bg)">
         <div class="card-body p-3">
@@ -519,23 +630,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-7">
-      <div class="card z-index-2" style="background-color: var(--bg)">
-        <div class="card-header pb-0" style="background-color: var(--bg)">
-          <h6>Sales overview</h6>
-          <p class="text-sm">
-            <i class="fa fa-arrow-up text-success"></i>
-            <span class="font-weight-bold">4% more</span> in 2021
-          </p>
-        </div>
-        <div class="card-body p-3">
-          <div class="chart">
-            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    
+  </div> --}}
  {{--  <div class="row my-4">
     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
       <div class="card" style="background-color: var(--bg)">
@@ -886,7 +982,7 @@
 @push('dashboard')
   <script>
     window.onload = function() {
-      var ctx = document.getElementById("chart-bars").getContext("2d");
+   /*    var ctx = document.getElementById("chart-bars").getContext("2d");
 
       new Chart(ctx, {
         type: "bar",
@@ -950,7 +1046,7 @@
             },
           },
         },
-      });
+      }); */
 
 
       var ctx2 = document.getElementById("chart-line").getContext("2d");
@@ -970,7 +1066,7 @@
       new Chart(ctx2, {
         type: "line",
         data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec","Ene"],
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
           datasets: [{
               label: "Mobile apps",
               tension: 0.4,
@@ -980,7 +1076,7 @@
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230, 500,100],
+              data: [50, 40, 300, 220, 500, 250, 400, 230],
               maxBarThickness: 6
 
             },
@@ -993,7 +1089,7 @@
               borderWidth: 3,
               backgroundColor: gradientStroke2,
               fill: true,
-              data: [30, 90, 40, 140, 290, 290, 340, 230, 400,100],
+              data: [30, 90, 40, 140, 290, 290, 340, 230],
               maxBarThickness: 6
             },
           ],
@@ -1053,7 +1149,7 @@
             },
           },
         },
-      });
+      }); 
 
       var options = {
           responsive: true,
@@ -1210,6 +1306,427 @@
         }
       },
       });
+
+
+      var ctx4 = document.getElementById("chart-bar").getContext("2d");
+
+        const labels2 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
+        const data2 = {
+          labels: labels2,
+          datasets: [
+            {
+              label: 'Dataset 1',
+              data: [11, 16, 10, 5, 14],
+              backgroundColor: [
+                'rgba(203,22,159,0.7)',
+                'rgba(103,62,159,0.7)',
+                'rgba(253,112,159,0.7)',
+                'rgba(23,12,159,0.7)',
+                'rgba(33,102,159,0.7)'
+              ],
+              borderColor : 'transparent',
+            }
+          ]
+        };
+        new Chart(ctx4, {
+          type: "bar",
+          data: data2,
+          options: {
+          responsive: true,
+          scales: {
+            r: {
+              pointLabels: {
+                display: true,
+                centerPointLabels: true,
+                font: {
+                  size: 12
+                },
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.2)',
+              }
+            }
+          },
+          plugins: {
+            legend: false,
+            title: {
+              display: false,
+              text: 'Chart.js Polar Area Chart With Centered Point Labels'
+            }
+          }
+        },
+        });
+
+          var ctx5 = document.getElementById("pie-bar").getContext("2d");
+
+          const labels3 = ['Risk', 'CAG'];
+          const data3 = {
+            labels: labels3,
+            datasets: [
+              {
+                label: 'Dataset 1',
+                data: [11, 16],
+                backgroundColor: [
+                  'rgba(23,12,159,0.7)',
+                'rgba(33,102,159,0.7)'
+                ],
+                borderColor : 'transparent',
+              }
+            ]
+          };
+          new Chart(ctx5, {
+            type: "pie",
+            data: data3,
+            options: {
+            responsive: true,
+            plugins: {
+              legend: false,
+            }
+          },
+          });
+
+
+          var ctx6 = document.getElementById("pie-bar2").getContext("2d");
+
+          const labels4 = ['MNQ', 'MES','MYM','BTC'];
+          const data4 = {
+            labels: labels4,
+            datasets: [
+              {
+                label: 'Dataset 1',
+                data: [3000, 1000,500,200],
+                backgroundColor: [
+                  'rgba(203,22,159,0.7)',
+                  'rgba(103,62,159,0.7)',
+                  'rgba(23,12,159,0.7)',
+                'rgba(33,102,159,0.7)'
+                ],
+                borderColor : 'transparent',
+              }
+            ]
+          };
+          new Chart(ctx6, {
+            type: "pie",
+            data: data4,
+            options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'right',
+              },
+            }
+          },
+          });
+
+
+
+
+          var ctx7 = document.getElementById("chart-line3").getContext("2d");
+
+          var gradientStroke3 = ctx7.createLinearGradient(0, 230, 0, 50);
+
+          gradientStroke3.addColorStop(1, 'rgba(203,12,159,0.2)');
+          gradientStroke3.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+          gradientStroke3.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+          var gradientStroke4 = ctx7.createLinearGradient(0, 230, 0, 50);
+
+          gradientStroke4.addColorStop(1, 'rgba(20,23,39,0.2)');
+          gradientStroke4.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+          gradientStroke4.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+          new Chart(ctx7, {
+            type: "line",
+            data: {
+              labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+              datasets: [{
+                  label: "Mobile apps",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  pointRadius: 0,
+                  borderColor: "#cb0c9f",
+                  borderWidth: 3,
+                  backgroundColor: gradientStroke3,
+                  fill: true,
+                  data: [50, 40, 300, 220, 500, 250, 400, 230],
+                  maxBarThickness: 6
+
+                },
+                {
+                  label: "Websites",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  pointRadius: 0,
+                  borderColor: "#FFFFF",
+                  borderWidth: 3,
+                  backgroundColor: gradientStroke4,
+                  fill: true,
+                  data: [30, 90, 40, 140, 290, 290, 340, 230],
+                  maxBarThickness: 6
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: false,
+                }
+              },
+              interaction: {
+                intersect: false,
+                mode: 'index',
+              },
+              scales: {
+                y: {
+                  grid: {
+                    drawBorder: false,
+                    display: true,
+                    drawOnChartArea: true,
+                    drawTicks: false,
+                    borderDash: [5, 5]
+                  },
+                  ticks: {
+                    display: true,
+                    padding: 10,
+                    color: '#b2b9bf',
+                    font: {
+                      size: 11,
+                      family: "Open Sans",
+                      style: 'normal',
+                      lineHeight: 2
+                    },
+                  }
+                },
+                x: {
+                  grid: {
+                    drawBorder: false,
+                    display: false,
+                    drawOnChartArea: false,
+                    drawTicks: false,
+                    borderDash: [5, 5]
+                  },
+                  ticks: {
+                    display: true,
+                    color: '#b2b9bf',
+                    padding: 20,
+                    font: {
+                      size: 11,
+                      family: "Open Sans",
+                      style: 'normal',
+                      lineHeight: 2
+                    },
+                  }
+                },
+              },
+            },
+          }); 
+
+
+          var ctx8 = document.getElementById("chart-bar2").getContext("2d");
+
+        const labels5 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
+        const data5 = {
+          labels: labels5,
+          datasets: [
+            {
+              label: 'Dataset 1',
+              data: [11, 16, 10, 5, 14],
+              backgroundColor: [
+                'rgba(203,22,159,0.7)',
+                'rgba(103,62,159,0.7)',
+                'rgba(253,112,159,0.7)',
+                'rgba(23,12,159,0.7)',
+                'rgba(33,102,159,0.7)'
+              ],
+              borderColor : 'transparent',
+            }
+          ]
+        };
+        new Chart(ctx8, {
+          type: "bar",
+          data: data5,
+          options: {
+          responsive: true,
+          scales: {
+            r: {
+              pointLabels: {
+                display: true,
+                centerPointLabels: true,
+                font: {
+                  size: 12
+                },
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.2)',
+              }
+            }
+          },
+          plugins: {
+            legend: false,
+            title: {
+              display: false,
+              text: 'Chart.js Polar Area Chart With Centered Point Labels'
+            }
+          }
+        },
+        });
+
+
+        var ctx9 = document.getElementById("chart-line4").getContext("2d");
+
+        var gradientStroke4 = ctx9.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke4.addColorStop(1, 'rgba(203,12,159,0.2)');
+        gradientStroke4.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke4.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+        var gradientStroke5 = ctx9.createLinearGradient(0, 230, 0, 50);
+
+        gradientStroke5.addColorStop(1, 'rgba(20,23,39,0.2)');
+        gradientStroke5.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke5.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+        new Chart(ctx9, {
+          type: "line",
+          data: {
+            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+            datasets: [{
+                label: "Mobile apps",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "#cb0c9f",
+                borderWidth: 3,
+                backgroundColor: gradientStroke4,
+                fill: true,
+                data: [50, 40, 300, 220, 500, 250, 400, 230],
+                maxBarThickness: 6
+
+              },
+              {
+                label: "Websites",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "#FFFFF",
+                borderWidth: 3,
+                backgroundColor: gradientStroke5,
+                fill: true,
+                data: [30, 90, 40, 140, 290, 290, 340, 230],
+                maxBarThickness: 6
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              }
+            },
+            interaction: {
+              intersect: false,
+              mode: 'index',
+            },
+            scales: {
+              y: {
+                grid: {
+                  drawBorder: false,
+                  display: true,
+                  drawOnChartArea: true,
+                  drawTicks: false,
+                  borderDash: [5, 5]
+                },
+                ticks: {
+                  display: true,
+                  padding: 10,
+                  color: '#b2b9bf',
+                  font: {
+                    size: 11,
+                    family: "Open Sans",
+                    style: 'normal',
+                    lineHeight: 2
+                  },
+                }
+              },
+              x: {
+                grid: {
+                  drawBorder: false,
+                  display: false,
+                  drawOnChartArea: false,
+                  drawTicks: false,
+                  borderDash: [5, 5]
+                },
+                ticks: {
+                  display: true,
+                  color: '#b2b9bf',
+                  padding: 20,
+                  font: {
+                    size: 11,
+                    family: "Open Sans",
+                    style: 'normal',
+                    lineHeight: 2
+                  },
+                }
+              },
+            },
+          },
+        }); 
+
+
+
+        var ctx10 = document.getElementById("chart-bar3").getContext("2d");
+
+        const labels7 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
+        const data7 = {
+          labels: labels7,
+          datasets: [
+            {
+              label: 'Dataset 1',
+              data: [11, 16, 10, 5, 14],
+              backgroundColor: [
+                'rgba(203,22,159,0.7)',
+                'rgba(103,62,159,0.7)',
+                'rgba(253,112,159,0.7)',
+                'rgba(23,12,159,0.7)',
+                'rgba(33,102,159,0.7)'
+              ],
+              borderColor : 'transparent',
+            }
+          ]
+        };
+        new Chart(ctx10, {
+          type: "bar",
+          data: data7,
+          options: {
+          responsive: true,
+          scales: {
+            r: {
+              pointLabels: {
+                display: true,
+                centerPointLabels: true,
+                font: {
+                  size: 12
+                },
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.2)',
+              }
+            }
+          },
+          plugins: {
+            legend: false,
+            title: {
+              display: false,
+              text: 'Chart.js Polar Area Chart With Centered Point Labels'
+            }
+          }
+        },
+        });
+
     }
   </script>
 @endpush

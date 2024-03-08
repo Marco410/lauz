@@ -10,3 +10,31 @@
 .btn-primary:visited {
     background-color: var(--primary) !important;
 }
+
+.fc-toolbar-title {
+    font-size: 20px !important;
+    color: white !important;
+}
+
+.fc-today-button {
+    font-size: 10px !important;
+}
+
+.fc-button-group {
+    font-size: 10px !important;
+}
+
+.fc-col-header-cell-cushion {
+    color: white !important;
+    font-size: 11px !important;
+}
+
+.fc-daygrid-day-number {
+    color: gray !important;
+    font-size: 11px !important;
+}
+
+.ql-snow {
+    background-color: white !important;
+    border-radius: 8px !important;
+}

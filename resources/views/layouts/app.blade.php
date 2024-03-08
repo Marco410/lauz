@@ -26,6 +26,29 @@
   <!-- CSS Files -->
   <link id="pageMainStyle" href="../assets/css/style.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        themeSystem: 'bootstrap5'
+      });
+      calendar.render();
+
+      var calendarEl2 = document.getElementById('calendar2');
+      var calendar2 = new FullCalendar.Calendar(calendarEl2, {
+        initialView: 'dayGridMonth',
+        themeSystem: 'bootstrap5'
+      });
+      calendar2.render();
+    });
+
+  </script>
 </head>
 
 <body class="g-sidenav-show {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }}" style="background-color: {{ (\Request::is('login','register','verify-email','welcome-lauz') ? 'var(--bg)' : 'var(--bgDark)') }} ">
@@ -64,9 +87,15 @@
     }
   </script>
 
-  <!-- Github buttons -->
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
+
+  <script>
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      placeholder: 'Write here...',
+    });
+  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
 

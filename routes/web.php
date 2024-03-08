@@ -41,9 +41,17 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard');
 	})->name('dashboard');
 
-	Route::get('billing', function () {
-		return view('billing');
-	})->name('billing');
+	Route::get('my-accounts', function () {
+		return view('my-accounts');
+	})->name('my-accounts');
+
+	Route::get('import-trades', function () {
+		return view('import-trades');
+	})->name('import-trades');
+
+	Route::get('leader-strategys', function () {
+		return view('leader-strategys');
+	})->name('leader-strategys');
 
 	Route::get('profile', function () {
 		return view('profile');
