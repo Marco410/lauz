@@ -1,7 +1,13 @@
 :root {
-    --primary: #7364db;
-    --bg: #20222a;
-    --bgDark: #0f0f12;
+    --primary: #61f2c6;
+    --third: #2f2e3e;
+    --green: #4ee0b6;
+    --red: #fa4a5c;
+    --blue: #70bcfe;
+    --bg: #202229;
+    --bgDark: #0f0f13;
+    --bgTable: #23232a;
+    --textGray: #919192;
 }
 
 .btn-primary,
@@ -37,4 +43,8 @@
 .ql-snow {
     background-color: white !important;
     border-radius: 8px !important;
+}
+
+.table > :not(caption) > * > * {
+    border-color: var(--third) !important;
 }

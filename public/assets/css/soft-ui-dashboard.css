@@ -16716,9 +16716,7 @@ hr.horizontal.gray-light {
     right: 0;
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link {
-    margin: 0 1rem;
-    padding-bottom: 0.675rem;
-    padding-top: 0.675rem;
+    margin: 0rem 1.5rem 0rem 0.5rem;
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link .nav-link-text,
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link .sidenav-mini-icon,
@@ -17337,10 +17335,10 @@ hr.horizontal.gray-light {
         padding: 1.5rem;
     }
     .sidenav.fixed-start + .main-content {
-        margin-left: 17.125rem;
+        margin-left: 14rem;
     }
     .sidenav.fixed-end + .main-content {
-        margin-right: 17.125rem;
+        margin-right: 14rem;
     }
 }
 .sidenav .navbar-heading .docs-mini {
@@ -17404,7 +17402,7 @@ hr.horizontal.gray-light {
     color: #344767;
 }
 .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
-    background-image: linear-gradient(310deg, #cb0c9f, #cb0c9f);
+    background-image: linear-gradient(310deg, var(--primary), var(--primary));
 }
 .navbar-vertical
     .navbar-nav

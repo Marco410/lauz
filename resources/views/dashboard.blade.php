@@ -18,7 +18,7 @@
   </div>
   @endif
   @if(session('success'))
-      <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+      <div class="m-3  alert alert-success alert-dismissible fade show" data-timeout="5000" id="alert-success" role="alert">
           <span class="alert-text text-white">
           {{ session('success') }}</span>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
@@ -91,14 +91,12 @@
               <div class="row justify-content-end">
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
-                    <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
-                    <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
               </div>
@@ -112,118 +110,118 @@
                 <div class="col-sm-9">
                   <br>
                   <br>
-                  <div class="card mb-4 bg-secondary" >
+                  <div class="card mb-4" style="background-color: var(--bgTable)" >
                     <div class="card-body px-0 pt-0 pb-2" >
                       <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th style="padding: 10px; border-radius: 15px 0px 0px 0px" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Year</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Ene</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Feb</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Mar</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Abr</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">May</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Jun</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Jul</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Ago</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Sep</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Oct</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Nov</th>
-                              <th style="padding: 10px;" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Dic</th>
-                              <th style="padding: 10px; border-radius: 0px 15px 0px 0px" class="text-white bg-dark text-xxs font-weight-bolder opacity-7">Total</th>
+                              <th style="padding: 10px; border-radius: 15px 0px 0px 0px" class="text-white text-xxs font-weight-bolder opacity-7">Year</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Ene</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Feb</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Mar</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Abr</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">May</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Jun</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Jul</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Ago</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Sep</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Oct</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Nov</th>
+                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Dic</th>
+                              <th style="padding: 10px; border-radius: 0px 15px 0px 0px" class="text-white text-xxs font-weight-bolder opacity-7">Total</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <td>
-                                <small class="text-xxs text-white">2020</small>
+                                <small class="text-xxs" style="color: var(--textGray)" >2020</small>
                               </td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
-                              <td><small class="text-xxs text-white">-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
                             </tr>
                             <tr>
                               <td>
-                                <small class="text-xxs text-white">2021</small>
+                                <small class="text-xxs" style="color: var(--textGray)" >2021</small>
                               </td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>7.7K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
                             </tr>
                             <tr>
                               <td>
-                                <small class="text-xxs text-white">2022</small>
+                                <small class="text-xxs" style="color: var(--textGray)" >2022</small>
                               </td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>7.7K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
                             </tr>
                             <tr>
                               <td>
-                                <small class="text-xxs text-white">2023</small>
+                                <small class="text-xxs" style="color: var(--textGray)" >2023</small>
                               </td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>7.7K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
                             </tr>
                             <tr>
                               <td>
-                                <small class="text-xxs text-white">2024</small>
+                                <small class="text-xxs" style="color: var(--textGray)" >2024</small>
                               </td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs text-white"><label class="text-success" >+</label>7.7K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
                             </tr>
                           </tbody>
                         </table>
@@ -240,41 +238,7 @@
                   <h5 class="text-white mb-4">Overview</h5>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-primary" style=" height: 90px; width: 130px;">
-                      <h6 class="text-white">Net P&L</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-secondary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">Annual Return</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-primary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">DrawDown</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-secondary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">Profit Factor</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-primary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">Avg Win/loss</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-secondary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">Q. Trades</h6>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <div class="card text-center justify-content-center bg-gradient-primary" style="height: 90px; width: 130px;">
-                      <h6 class="text-white">CAGR</h6>
-                    </div>
-                  </div>
+                  @include('dashboard.views.overview_first')
                 </div>
               </div>
             </div>
@@ -290,10 +254,10 @@
     </div>
 
     <div class="col-sm-12 mt-4">
-      <div class="card" style="width: 100%; height: 100px; background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bg)">
         <div class="card-body p-3">
 
-          <div class="row">
+          <div class="row mb-4">
             <div class="col-sm-2">
               <select name="how_often_invest" class="form-select">
                 <option selected value="Account">Account</option>
@@ -311,47 +275,41 @@
               </select>
             </div>
 
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+                <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
               </div>
             </div>
-            <div class="col-sm-1">
+            <div class="col-sm-2">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+                <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="card" style="background-color: var(--bg)">
-        <div class="card-body">
-          <div class="row">
+          <div class="row mt-4">
             <div class="col-sm-12">
               <ul class="nav nav-pills nav-fill mb-3 bg-transparent" id="pills-tab" role="tablist">
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 active " style="color: var(--primary);font-weight: bold;" data-bs-toggle="tab" data-bs-target="#pills-home"
+                      <a class="nav-link mb-0 px-0 py-1 active " style="color: var(--blue);font-weight: bold;" data-bs-toggle="tab" data-bs-target="#pills-home"
                           role="tab" >
                           <span class="ms-1">Overview</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 " style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-profile"
+                      <a class="nav-link mb-0 px-0 py-1 " style="color: var(--blue); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-profile"
                     role="tab" >
                       <span class="ms-1">Trades</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-contact"
+                    <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--blue); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-contact"
                     role="tab" >
                       <span class="ms-1">Period Analysis</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--primary); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-ai"
+                      <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--blue); font-weight: bold;"  data-bs-toggle="tab" data-bs-target="#pills-ai"
                       role="tab" >
                         <span class="ms-1">Notes</span>
                         </a>
@@ -981,6 +939,15 @@
 @endsection
 @push('dashboard')
   <script>
+    let alert_list = document.querySelectorAll('.alert')
+    alert_list.forEach(function(alert) {
+        new bootstrap.Alert(alert);
+
+        let alert_timeout = alert.getAttribute('data-timeout');
+        setTimeout(() => {
+            bootstrap.Alert.getInstance(alert).close();
+        }, +alert_timeout);
+    });
     window.onload = function() {
    /*    var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -1524,7 +1491,7 @@
           }); 
 
 
-          var ctx8 = document.getElementById("chart-bar2").getContext("2d");
+        var ctx8 = document.getElementById("chart-bar2").getContext("2d");
 
         const labels5 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
         const data5 = {

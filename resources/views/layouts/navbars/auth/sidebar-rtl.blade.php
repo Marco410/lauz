@@ -11,7 +11,7 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link " href="{{ url('dashboard') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -31,7 +31,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('tables') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>office</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -51,7 +51,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('billing') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>credit-card</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -71,7 +71,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('virtual-reality') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>box-3d-50</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -92,7 +92,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="{{ url('rtl') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>settings</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -113,7 +113,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('profile') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -134,7 +134,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('sign-in') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -154,7 +154,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ url('sign-up') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
+          <div class="icon icon-shape icon-sm shadow bg-white text-center ms-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>spaceship</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -180,7 +180,7 @@
     <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
       <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
       <div class="card-body text-start p-3 w-100">
-        <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+        <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center ">
           <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
         </div>
         <div class="docs-info">

@@ -49,6 +49,9 @@
     });
 
   </script>
+<script src="https://code.jscharting.com/latest/jscharting.js"></script>
+<script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
+
 </head>
 
 <body class="g-sidenav-show {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }}" style="background-color: {{ (\Request::is('login','register','verify-email','welcome-lauz') ? 'var(--bg)' : 'var(--bgDark)') }} ">
@@ -76,6 +79,7 @@
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   @stack('rtl')
   @stack('dashboard')
+  @stack('dashboard_chart_bar')
   @stack('landing')
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -97,6 +101,7 @@
   </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+
 </body>
 
 </html>
