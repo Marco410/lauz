@@ -4442,7 +4442,7 @@ fieldset:disabled .btn {
     background-clip: border-box;
     background-color: #fff;
     border: 0 solid rgba(0, 0, 0, 0.125);
-    border-radius: 1rem;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -8003,7 +8003,7 @@ fieldset:disabled .btn {
     word-break: break-word !important;
 }
 .text-primary {
-    color: #cb0c9f !important;
+    color: var(--primary) !important;
 }
 .text-secondary {
     color: #8392ab !important;
@@ -8018,7 +8018,7 @@ fieldset:disabled .btn {
     color: #fbcf33 !important;
 }
 .text-danger {
-    color: #ea0606 !important;
+    color: var(--red) !important;
 }
 .text-light {
     color: #e9ecef !important;
@@ -8036,7 +8036,7 @@ fieldset:disabled .btn {
     color: #6c757d !important;
 }
 .bg-primary {
-    background-color: #cb0c9f !important;
+    background-color: var(--primary) !important;
 }
 .bg-secondary {
     background-color: #8392ab !important;
@@ -16685,7 +16685,7 @@ hr.horizontal.gray-light {
     bottom: 0;
     box-shadow: none;
     display: block;
-    max-width: 15.625rem !important;
+    max-width: 14rem !important;
     overflow-y: auto;
     padding: 0;
     position: fixed;
@@ -16716,7 +16716,8 @@ hr.horizontal.gray-light {
     right: 0;
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link {
-    margin: 0rem 1.5rem 0rem 0.5rem;
+    margin: 0rem 0rem 0rem 0.1rem;
+    color: white;
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link .nav-link-text,
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link .sidenav-mini-icon,
@@ -17393,13 +17394,11 @@ hr.horizontal.gray-light {
     background-image: linear-gradient(310deg, #e9ecef, #e9ecef);
 }
 .navbar-vertical .navbar-nav .nav-link.active {
-    border-radius: 0.5rem;
-    box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
     font-weight: 600;
 }
 .navbar-vertical .navbar-nav > .nav-item .nav-link.active {
-    background-color: #fff;
-    color: #344767;
+    border-left: 3px solid var(--primary);
+    border-radius: 2px;
 }
 .navbar-vertical .navbar-nav > .nav-item .nav-link.active .icon {
     background-image: linear-gradient(310deg, var(--primary), var(--primary));

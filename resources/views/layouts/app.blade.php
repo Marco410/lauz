@@ -46,6 +46,14 @@
         themeSystem: 'bootstrap5'
       });
       calendar2.render();
+
+
+      var calendarEl3 = document.getElementById('calendar-overview');
+      var calendarOverview = new FullCalendar.Calendar(calendarEl3, {
+        initialView: 'dayGridMonth',
+        themeSystem: 'bootstrap5'
+      });
+      calendarOverview.render();
     });
 
   </script>

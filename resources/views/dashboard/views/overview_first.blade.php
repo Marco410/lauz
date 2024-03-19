@@ -1,56 +1,56 @@
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <p class="text-white " style="font-size: 14px;">Net P&L</p>
-                <h7 class="text-danger" style="font-size: 13px;"><i class="fas fa-arrow-down text-danger" ></i> -60%</h7>
+                <h6 class="text-white " style="font-size: 17px;">Net P&L</h6>
+                <h5 class="text-primary"> $2.500</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">Annual Return</h6>
-                <h7 class="text-success" style="font-size: 13px;"><i class="fas fa-arrow-up text-success" ></i> +20%</h7>
+                <h6 class="text-white" style="font-size: 17px;">Annual Return</h6>
+                <h5 class="text-primary"> $2.500</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">DrawDown</h6>
-                <h7 class="text-danger" style="font-size: 13px;"><i class="fas fa-arrow-down text-danger" ></i> -30%</h7>
+                <h6 class="text-white" style="font-size: 17px;">DrawDown</h6>
+                <h5 class="text-danger"> $2.500</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">Profit Factor</h6>
-                <h7 class="text-success" style="font-size: 13px;"><i class="fas fa-arrow-up text-success" ></i> +40%</h7>
+                <h6 class="text-white" style="font-size: 17px;">Profit Factor</h6>
+                <h5 class="text-primary">1.4</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">Avg Win/loss</h6>
-                <h7 class="text-danger" style="font-size: 13px;"><i class="fas fa-arrow-down text-danger" ></i> -10%</h7>
+                <h6 class="text-white" style="font-size: 17px;">Avg Win/loss</h6>
+                <h5 class="text-primary">2.0</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">Q. Trades</h6>
-                <h7 class="text-danger" style="font-size: 13px;"><i class="fas fa-arrow-down text-danger" ></i> -60%</h7>
+                <h6 class="text-white" style="font-size: 17px;">Q. Trades</h6>
+                <h5 class="text-primary">350</h5>
             </div>
         </div>
     </div>
-    <div class="card text-center rounded-4 justify-content-center m-2 px-2 border border-white " style="height: 100px; width: 100%; background-color: var(--bgDark);">
+    <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 14px;">CAGR</h6>
-                <h7 class="text-success" style="font-size: 13px;"><i class="fas fa-arrow-up text-success" ></i> +60%</h7>
+                <h6 class="text-white" style="font-size: 17px;">CAGR</h6>
+                <h5 class="text-primary">5%</h5>
             </div>
         </div>
     </div>

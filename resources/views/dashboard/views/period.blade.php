@@ -69,8 +69,8 @@
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
@@ -84,8 +84,8 @@
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
@@ -99,8 +99,8 @@
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
@@ -149,3 +149,162 @@
     </div>
 
  </div>
+
+
+@push('dashboard_chart_bar')
+<script>
+   var ctx7 = document.getElementById("chart-line3").getContext("2d");
+
+   var gradientStroke3 = ctx7.createLinearGradient(92, 237, 193, 50);
+
+  gradientStroke3.addColorStop(1, 'rgba(92,237,194,0.2)');
+  gradientStroke3.addColorStop(0.1, 'rgba(92,237,194,0.0)');
+  gradientStroke3.addColorStop(0, 'rgba(92,237,194,0)'); 
+
+    new Chart(ctx7, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+        datasets: [{
+            label: "Mobile apps",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#3C655D",
+            borderWidth: 3,
+            backgroundColor: gradientStroke3,
+            fill: true,
+            data: [50, 40, 300, 220, 500, 250, 400, 230],
+            maxBarThickness: 6
+
+          },
+
+        ],
+      },
+      options: options
+    }); 
+
+    var ctx8 = document.getElementById("chart-bar2").getContext("2d");
+
+    const labels55 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic'];
+    const data55 = {
+      labels: labels55,
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
+          backgroundColor: [
+                'rgba(219,67,94,1)',
+              ],
+          borderColor : 'transparent',
+        }
+      ]
+    };
+    new Chart(ctx8, {
+      type: "bar",
+      data: data55,
+      options: {
+      responsive: true,
+      scales: {
+        r: {
+          pointLabels: {
+            display: true,
+            centerPointLabels: true,
+            font: {
+              size: 12
+            },
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.2)',
+          }
+        }
+      },
+      plugins: {
+        legend: false,
+        title: {
+          display: false,
+          text: 'Chart.js Polar Area Chart With Centered Point Labels'
+        }
+      }
+    },
+    });
+
+    var ctx9 = document.getElementById("chart-line4").getContext("2d");
+
+    var gradientStroke4 = ctx9.createLinearGradient(92, 237, 193, 50);
+
+    gradientStroke4.addColorStop(1, 'rgba(92,237,194,0.2)');
+    gradientStroke4.addColorStop(0.1, 'rgba(92,237,194,0.0)');
+    gradientStroke4.addColorStop(0, 'rgba(92,237,194,0)'); 
+
+
+      new Chart(ctx9, {
+        type: "line",
+        data: {
+          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+          datasets: [{
+              label: "Mobile apps",
+              tension: 0.4,
+              borderWidth: 0,
+              pointRadius: 0,
+              borderColor: "#3C655D",
+              borderWidth: 3,
+              backgroundColor: gradientStroke4,
+              fill: true,
+              data: [50, 40, 300, 220, 500, 250, 400, 230],
+              maxBarThickness: 6
+
+            },
+      
+          ],
+        },
+        options:options,
+      }); 
+
+
+      var ctx10 = document.getElementById("chart-bar3").getContext("2d");
+
+        const labels7 =['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic'];
+        const data7 = {
+          labels: labels7,
+          datasets: [
+            {
+              label: 'Dataset 1',
+              data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
+              backgroundColor: [
+                'rgba(219,67,94,1)',
+              ],
+              borderColor : 'transparent',
+            }
+          ]
+        };
+        new Chart(ctx10, {
+          type: "bar",
+          data: data7,
+          options: {
+          responsive: true,
+          scales: {
+            r: {
+              pointLabels: {
+                display: true,
+                centerPointLabels: true,
+                font: {
+                  size: 12
+                },
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.2)',
+              }
+            }
+          },
+          plugins: {
+            legend: false,
+            title: {
+              display: false,
+              text: 'Chart.js Polar Area Chart With Centered Point Labels'
+            }
+          }
+        },
+        });
+</script>
+@endpush

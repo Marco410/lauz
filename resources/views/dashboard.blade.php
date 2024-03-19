@@ -27,59 +27,73 @@
       </div>
   @endif
   <div class="row">
+    <div class="col-sm-12 mb-4">
+      <h5 class="font-weight-bolder mb-0 text-capitalize text-white">{{ str_replace('-', ' ', Request::path()) }}</h5>
+    </div>
 
     <div class="col-sm-3">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
-          <div class="row text-center">
+          <div class="row ">
               <div class="col-12 text-center">
-              <h4 class="text-white">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h4>
+                <h5 class="text-white mt-2 mb-3">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h5>
               </div>
-              <div class="dropdown-divider text-white" style="background-color: white"></div>
+              <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
               <br>
 
-              <label class="text-secondary">Win RT%</label>
-              <label class="text-secondary">70 W 30L - 70%</label>
+              <h6 class="text-white">Win RT%</h6>
+              <div class="d-flex justify-content-center gap-2">
+                <h6 class="text-primary" style="font-size: 13px">70 W</h6>
+                <h6 class="text-white" style="font-size: 13px">/</h6>
+                <h6 class="text-danger" style="font-size: 14px"> 30 W</h6>
+              </div>
               <div class="progress"  style="background-color: transparent;">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="d-flex justify-content-center mt-2">
+                <h6 class="text-primary" style="font-size: 13px">70 %</h6>
               </div>
               <br>
-
-            <div class="card z-index-2" style="background-color: var(--bg)">
-              <div class="card-body p-3">
+              <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
+              <h6 class="text-white">Cum Net Profit</h6>
+              
+              <div class="mt-4 mb-4" style="">
                 <div class="chart">
                   <canvas id="chart-line2" class="chart-canvas" height="200"></canvas>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+            <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
+            <div class="row">
             <div class="col-sm-12">
-              <div style="padding: 20px" id='calendar'></div>
+              <h6 class="text-white">Calendar</h6>
+              <img src="{{ asset('assets/img/dashboard/calendar.png') }}" class="text-center" width="100%" alt="calendar">
             </div>
 
-            <div class="col-sm-3">
-              <label class="text-secondary" style="font-size: 10px !important;">Bad day</label>
+            <div class="d-flex justify-content-between" style="padding-left: 50px; padding-right: 50px">
+              <label class="text-white" style="font-size: 12px !important;">Bad day</label>
+              <label class="text-white" style="font-size: 12px !important;">Good day</label>
             </div>
-            <div class="col-sm-6 text-center">
-              <br>
+            <div class="col-sm-6 offset-sm-3 text-center ">
               <div class="progress"  style="background-color: transparent;">
-                <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-              <label class="text-secondary ">17 W 17L - 50%</label>
+              <div class="d-flex justify-content-center gap-2 mt-2">
+                <h6 class="text-primary" style="font-size: 13px">70 W</h6>
+                <h6 class="text-white" style="font-size: 13px">/</h6>
+                <h6 class="text-danger" style="font-size: 13px"> 30 W</h6>
+                <h6 class="text-primary" style="font-size: 10px">70 %</h6>
+              </div>
             </div>
-            <div class="col-sm-3">
-              <label class="text-secondary" style="font-size: 10px !important;">Good day</label>
-            </div>
-        
+
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-4">
@@ -91,7 +105,7 @@
               <div class="row justify-content-end">
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+                    <input type="date" class="form-control datepicker-input" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -104,8 +118,9 @@
             <div class="col-sm-12">
               <div class="row">
                 <div class="col-sm-3">
-                  <h4 class="text-secondary">TPI</h4>
-                  <canvas id="polar-area" class="chart-canvas" height="500"></canvas>
+                  <h4 class="text-white">TPI</h4>
+                  @include('dashboard.views.tpi')
+
                 </div>
                 <div class="col-sm-9">
                   <br>
@@ -137,19 +152,19 @@
                               <td>
                                 <small class="text-xxs" style="color: var(--textGray)" >2020</small>
                               </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" >-</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
+                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
                             </tr>
                             <tr>
                               <td>
@@ -247,14 +262,14 @@
         </div>
       </div>
       <div class="col-sm-12 mt-4 mb-4">
-        <div class="card justify-content-center text-center" style="width: 100%; height: 100px; background-color: var(--bg)">
+        <div class="card justify-content-center text-center" style="width: 100%; height: 100px; background-color: var(--bgDark)">
           <h4 class="text-white">Adds Section</h4>
         </div>
       </div>
     </div>
 
     <div class="col-sm-12 mt-4">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
 
           <div class="row mb-4">
@@ -339,7 +354,7 @@
     </div>
 
 {{--     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
@@ -361,7 +376,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
@@ -383,7 +398,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
@@ -405,7 +420,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
@@ -429,7 +444,7 @@
   </div> --}}
 {{--   <div class="row mt-4">
     <div class="col-lg-7 mb-lg-0 mb-4">
-      <div class="card" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-lg-6">
@@ -456,7 +471,7 @@
       </div>
     </div>
     <div class="col-lg-5">
-      <div class="card h-100 p-3" style="background-color: var(--bg)">
+      <div class="card h-100 p-3" style="background-color: var(--bgDark)">
         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../assets/img/ivancik.jpg');">
           <span class="mask bg-gradient-dark"></span>
           <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
@@ -473,7 +488,7 @@
   </div> --}}
 {{--   <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4">
-      <div class="card z-index-2" style="background-color: var(--bg)">
+      <div class="card z-index-2" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
@@ -592,8 +607,8 @@
   </div> --}}
  {{--  <div class="row my-4">
     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-      <div class="card" style="background-color: var(--bg)">
-        <div class="card-header pb-0" style="background-color: var(--bg)">
+      <div class="card" style="background-color: var(--bgDark)">
+        <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <div class="row">
             <div class="col-lg-6 col-7">
               <h6>Projects</h6>
@@ -866,8 +881,8 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6">
-      <div class="card h-100" style="background-color: var(--bg)">
-        <div class="card-header pb-0" style="background-color: var(--bg)">
+      <div class="card h-100" style="background-color: var(--bgDark)">
+        <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6>Orders overview</h6>
           <p class="text-sm">
             <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
@@ -1016,107 +1031,7 @@
       }); */
 
 
-      var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-      gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-      var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-      gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-      new Chart(ctx2, {
-        type: "line",
-        data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-          datasets: [{
-              label: "Mobile apps",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: "#cb0c9f",
-              borderWidth: 3,
-              backgroundColor: gradientStroke1,
-              fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230],
-              maxBarThickness: 6
-
-            },
-            {
-              label: "Websites",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: "#FFFFF",
-              borderWidth: 3,
-              backgroundColor: gradientStroke2,
-              fill: true,
-              data: [30, 90, 40, 140, 290, 290, 340, 230],
-              maxBarThickness: 6
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            }
-          },
-          interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          scales: {
-            y: {
-              grid: {
-                drawBorder: false,
-                display: true,
-                drawOnChartArea: true,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                padding: 10,
-                color: '#b2b9bf',
-                font: {
-                  size: 11,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-            x: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawOnChartArea: false,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                color: '#b2b9bf',
-                padding: 20,
-                font: {
-                  size: 11,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-          },
-        },
-      }); 
 
       var options = {
           responsive: true,
@@ -1132,6 +1047,7 @@
           },
           scales: {
             y: {
+              beginAtZero:true,
               grid: {
                 drawBorder: false,
                 display: true,
@@ -1144,7 +1060,7 @@
                 padding: 10,
                 color: '#b2b9bf',
                 font: {
-                  size: 11,
+                  size: 8,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2
@@ -1155,544 +1071,62 @@
               grid: {
                 drawBorder: false,
                 display: false,
-                drawOnChartArea: false,
                 drawTicks: false,
                 borderDash: [5, 5]
               },
               ticks: {
                 display: true,
                 color: '#b2b9bf',
-                padding: 20,
+                padding: 10,
                 font: {
-                  size: 11,
+                  size: 8,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2
                 },
               }
             },
+    
           },
         };
 
 
       var ctx3 = document.getElementById("chart-line2").getContext("2d");
 
-      var gradientStroke1 = ctx3.createLinearGradient(0, 230, 0, 50);
+      var gradientStroke1 = ctx3.createLinearGradient(92, 237, 193, 50);
 
-      gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-      gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); 
+      gradientStroke1.addColorStop(1, 'rgba(92,237,194,0.2)');
+      gradientStroke1.addColorStop(0.1, 'rgba(92,237,194,0.0)');
+      gradientStroke1.addColorStop(0, 'rgba(92,237,194,0)'); 
 
-      var gradientStroke2 = ctx3.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-      gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-      gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); 
       new Chart(ctx3, {
         type: "line",
         data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug"],
+          labels: ["Ene","Feb","Mar","Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov","Dec"],
           datasets: [{
               label: "Risk 1",
-              tension: 0.1,
+              tension: 0.5,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#cb0c9f",
-              borderWidth: 3,
+              borderColor: "#3C655D",
+              borderWidth: 1,
               backgroundColor: gradientStroke1,
               fill: true,
-              data: [150, 240, 380, 200, 200],
+              data: [20,18, 14, 11, 14, 11,12, 15, 16,17,17,18],
+
               maxBarThickness: 6
 
-            },
-            {
-              label: "Risk 2",
-              tension: 0.1,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: "#FFFFF",
-              borderWidth: 3,
-              backgroundColor: gradientStroke2,
-              fill: true,
-              data: [130, 110, 40, 240, 90],
-              maxBarThickness: 6
             },
           ],
         },
         options: options,
       });
 
-      var ctx4 = document.getElementById("polar-area").getContext("2d");
-
-      const DATA_COUNT = 5;
-      const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
-
-      const labels = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
-      const data = {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Dataset 1',
-            data: [11, 16, 10, 5, 14],
-            backgroundColor: [
-              'rgba(203,22,159,0.7)',
-              'rgba(103,62,159,0.7)',
-              'rgba(253,112,159,0.7)',
-              'rgba(23,12,159,0.7)',
-              'rgba(33,102,159,0.7)'
-            ],
-            borderColor : 'transparent',
-          }
-        ]
-      };
-      new Chart(ctx4, {
-        type: "polarArea",
-        data: data,
-        options: {
-        responsive: true,
-        scales: {
-          r: {
-            pointLabels: {
-              display: true,
-              centerPointLabels: true,
-              font: {
-                size: 12
-              },
-            },
-            grid: {
-              color: 'rgba(255,255,255,0.2)',
-            }
-          }
-        },
-        plugins: {
-          legend: false,
-          title: {
-            display: false,
-            text: 'Chart.js Polar Area Chart With Centered Point Labels'
-          }
-        }
-      },
-      });
-
-
-      var ctx4 = document.getElementById("chart-bar").getContext("2d");
-
-        const labels2 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
-        const data2 = {
-          labels: labels2,
-          datasets: [
-            {
-              label: 'Dataset 1',
-              data: [11, 16, 10, 5, 14],
-              backgroundColor: [
-                'rgba(203,22,159,0.7)',
-                'rgba(103,62,159,0.7)',
-                'rgba(253,112,159,0.7)',
-                'rgba(23,12,159,0.7)',
-                'rgba(33,102,159,0.7)'
-              ],
-              borderColor : 'transparent',
-            }
-          ]
-        };
-        new Chart(ctx4, {
-          type: "bar",
-          data: data2,
-          options: {
-          responsive: true,
-          scales: {
-            r: {
-              pointLabels: {
-                display: true,
-                centerPointLabels: true,
-                font: {
-                  size: 12
-                },
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.2)',
-              }
-            }
-          },
-          plugins: {
-            legend: false,
-            title: {
-              display: false,
-              text: 'Chart.js Polar Area Chart With Centered Point Labels'
-            }
-          }
-        },
-        });
-
-          var ctx5 = document.getElementById("pie-bar").getContext("2d");
-
-          const labels3 = ['Risk', 'CAG'];
-          const data3 = {
-            labels: labels3,
-            datasets: [
-              {
-                label: 'Dataset 1',
-                data: [11, 16],
-                backgroundColor: [
-                  'rgba(23,12,159,0.7)',
-                'rgba(33,102,159,0.7)'
-                ],
-                borderColor : 'transparent',
-              }
-            ]
-          };
-          new Chart(ctx5, {
-            type: "pie",
-            data: data3,
-            options: {
-            responsive: true,
-            plugins: {
-              legend: false,
-            }
-          },
-          });
-
-
-          var ctx6 = document.getElementById("pie-bar2").getContext("2d");
-
-          const labels4 = ['MNQ', 'MES','MYM','BTC'];
-          const data4 = {
-            labels: labels4,
-            datasets: [
-              {
-                label: 'Dataset 1',
-                data: [3000, 1000,500,200],
-                backgroundColor: [
-                  'rgba(203,22,159,0.7)',
-                  'rgba(103,62,159,0.7)',
-                  'rgba(23,12,159,0.7)',
-                'rgba(33,102,159,0.7)'
-                ],
-                borderColor : 'transparent',
-              }
-            ]
-          };
-          new Chart(ctx6, {
-            type: "pie",
-            data: data4,
-            options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'right',
-              },
-            }
-          },
-          });
+      
 
 
 
-
-          var ctx7 = document.getElementById("chart-line3").getContext("2d");
-
-          var gradientStroke3 = ctx7.createLinearGradient(0, 230, 0, 50);
-
-          gradientStroke3.addColorStop(1, 'rgba(203,12,159,0.2)');
-          gradientStroke3.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-          gradientStroke3.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-          var gradientStroke4 = ctx7.createLinearGradient(0, 230, 0, 50);
-
-          gradientStroke4.addColorStop(1, 'rgba(20,23,39,0.2)');
-          gradientStroke4.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-          gradientStroke4.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-          new Chart(ctx7, {
-            type: "line",
-            data: {
-              labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-              datasets: [{
-                  label: "Mobile apps",
-                  tension: 0.4,
-                  borderWidth: 0,
-                  pointRadius: 0,
-                  borderColor: "#cb0c9f",
-                  borderWidth: 3,
-                  backgroundColor: gradientStroke3,
-                  fill: true,
-                  data: [50, 40, 300, 220, 500, 250, 400, 230],
-                  maxBarThickness: 6
-
-                },
-                {
-                  label: "Websites",
-                  tension: 0.4,
-                  borderWidth: 0,
-                  pointRadius: 0,
-                  borderColor: "#FFFFF",
-                  borderWidth: 3,
-                  backgroundColor: gradientStroke4,
-                  fill: true,
-                  data: [30, 90, 40, 140, 290, 290, 340, 230],
-                  maxBarThickness: 6
-                },
-              ],
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false,
-                }
-              },
-              interaction: {
-                intersect: false,
-                mode: 'index',
-              },
-              scales: {
-                y: {
-                  grid: {
-                    drawBorder: false,
-                    display: true,
-                    drawOnChartArea: true,
-                    drawTicks: false,
-                    borderDash: [5, 5]
-                  },
-                  ticks: {
-                    display: true,
-                    padding: 10,
-                    color: '#b2b9bf',
-                    font: {
-                      size: 11,
-                      family: "Open Sans",
-                      style: 'normal',
-                      lineHeight: 2
-                    },
-                  }
-                },
-                x: {
-                  grid: {
-                    drawBorder: false,
-                    display: false,
-                    drawOnChartArea: false,
-                    drawTicks: false,
-                    borderDash: [5, 5]
-                  },
-                  ticks: {
-                    display: true,
-                    color: '#b2b9bf',
-                    padding: 20,
-                    font: {
-                      size: 11,
-                      family: "Open Sans",
-                      style: 'normal',
-                      lineHeight: 2
-                    },
-                  }
-                },
-              },
-            },
-          }); 
-
-
-        var ctx8 = document.getElementById("chart-bar2").getContext("2d");
-
-        const labels5 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
-        const data5 = {
-          labels: labels5,
-          datasets: [
-            {
-              label: 'Dataset 1',
-              data: [11, 16, 10, 5, 14],
-              backgroundColor: [
-                'rgba(203,22,159,0.7)',
-                'rgba(103,62,159,0.7)',
-                'rgba(253,112,159,0.7)',
-                'rgba(23,12,159,0.7)',
-                'rgba(33,102,159,0.7)'
-              ],
-              borderColor : 'transparent',
-            }
-          ]
-        };
-        new Chart(ctx8, {
-          type: "bar",
-          data: data5,
-          options: {
-          responsive: true,
-          scales: {
-            r: {
-              pointLabels: {
-                display: true,
-                centerPointLabels: true,
-                font: {
-                  size: 12
-                },
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.2)',
-              }
-            }
-          },
-          plugins: {
-            legend: false,
-            title: {
-              display: false,
-              text: 'Chart.js Polar Area Chart With Centered Point Labels'
-            }
-          }
-        },
-        });
-
-
-        var ctx9 = document.getElementById("chart-line4").getContext("2d");
-
-        var gradientStroke4 = ctx9.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke4.addColorStop(1, 'rgba(203,12,159,0.2)');
-        gradientStroke4.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke4.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-        var gradientStroke5 = ctx9.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke5.addColorStop(1, 'rgba(20,23,39,0.2)');
-        gradientStroke5.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke5.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-        new Chart(ctx9, {
-          type: "line",
-          data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-            datasets: [{
-                label: "Mobile apps",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#cb0c9f",
-                borderWidth: 3,
-                backgroundColor: gradientStroke4,
-                fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230],
-                maxBarThickness: 6
-
-              },
-              {
-                label: "Websites",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#FFFFF",
-                borderWidth: 3,
-                backgroundColor: gradientStroke5,
-                fill: true,
-                data: [30, 90, 40, 140, 290, 290, 340, 230],
-                maxBarThickness: 6
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-              }
-            },
-            interaction: {
-              intersect: false,
-              mode: 'index',
-            },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5]
-                },
-                ticks: {
-                  display: true,
-                  padding: 10,
-                  color: '#b2b9bf',
-                  font: {
-                    size: 11,
-                    family: "Open Sans",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                  borderDash: [5, 5]
-                },
-                ticks: {
-                  display: true,
-                  color: '#b2b9bf',
-                  padding: 20,
-                  font: {
-                    size: 11,
-                    family: "Open Sans",
-                    style: 'normal',
-                    lineHeight: 2
-                  },
-                }
-              },
-            },
-          },
-        }); 
-
-
-
-        var ctx10 = document.getElementById("chart-bar3").getContext("2d");
-
-        const labels7 = ['Risk', 'CAG', 'CAG', 'CAG', 'Cons'];
-        const data7 = {
-          labels: labels7,
-          datasets: [
-            {
-              label: 'Dataset 1',
-              data: [11, 16, 10, 5, 14],
-              backgroundColor: [
-                'rgba(203,22,159,0.7)',
-                'rgba(103,62,159,0.7)',
-                'rgba(253,112,159,0.7)',
-                'rgba(23,12,159,0.7)',
-                'rgba(33,102,159,0.7)'
-              ],
-              borderColor : 'transparent',
-            }
-          ]
-        };
-        new Chart(ctx10, {
-          type: "bar",
-          data: data7,
-          options: {
-          responsive: true,
-          scales: {
-            r: {
-              pointLabels: {
-                display: true,
-                centerPointLabels: true,
-                font: {
-                  size: 12
-                },
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.2)',
-              }
-            }
-          },
-          plugins: {
-            legend: false,
-            title: {
-              display: false,
-              text: 'Chart.js Polar Area Chart With Centered Point Labels'
-            }
-          }
-        },
-        });
+ 
 
     }
   </script>

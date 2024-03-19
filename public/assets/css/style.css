@@ -1,13 +1,24 @@
+/* 
+
+--primary: #61f3c6; rgba(86,227,186,1)
+--blue: #73BAF9; rgba(115,186,249,1)
+--yellow: #F7D970; rgba(247,217,112,1)
+--red: #FD4961; rgba(253,73,97,1)
+--gray #918F97 ; 145,143,151;
+
+
+*/
+
 :root {
-    --primary: #61f2c6;
+    --primary: #61f3c6;
     --third: #2f2e3e;
     --green: #4ee0b6;
-    --red: #fa4a5c;
-    --blue: #70bcfe;
-    --bg: #202229;
-    --bgDark: #0f0f13;
-    --bgTable: #23232a;
-    --textGray: #919192;
+    --red: #db435e;
+    --blue: #79a9d7;
+    --bg: #2a2b30;
+    --bgDark: #25232a;
+    --bgTable: #2a2b30;
+    --textGray: #c0bfc6;
 }
 
 .btn-primary,
@@ -46,5 +57,83 @@
 }
 
 .table > :not(caption) > * > * {
-    border-color: var(--third) !important;
+    border-color: var(--blue) !important;
+}
+
+.form-control {
+    background-color: var(--bgTable) !important;
+    border: 0.3px solid white !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+    color: white !important;
+    display: block;
+    font-weight: 400;
+    padding: 0.5rem 0.75rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    width: 100%;
+}
+
+.form-control[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+select {
+    background-color: var(--bgTable) !important;
+    color: white !important;
+    border: 0.3px solid white !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23ffffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important;
+}
+
+.nav-fill .nav-item,
+.nav-fill > .nav-link {
+    flex: none !important;
+    width: 200px !important;
+}
+.nav.nav-pills .nav-link {
+    color: var(--textGray) !important;
+}
+
+.nav.nav-pills .nav-link.active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid var(--primary) !important;
+    border-radius: 2px !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+    width: 60% !important;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.listContainer .li {
+    display: flex;
+    align-self: start;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.listContainer .li:hover {
+    background-color: var(--textGray);
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.boxSpan {
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
 }
