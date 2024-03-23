@@ -28,7 +28,7 @@
   @endif
   <div class="row">
     <div class="col-sm-12 mb-4">
-      <h5 class="font-weight-bolder mb-0 text-capitalize text-white">{{ str_replace('-', ' ', Request::path()) }}</h5>
+      <h4 class="font-weight-bolder mb-0 text-capitalize text-white">My Performance</h4>
     </div>
 
     <div class="col-sm-3">
@@ -36,16 +36,16 @@
         <div class="card-body p-3">
           <div class="row ">
               <div class="col-12 text-center">
-                <h5 class="text-white mt-2 mb-3">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h5>
+                <h4 class="font-weight-bolder text-white mt-2 mb-3">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h4>
               </div>
-              <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
+              <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
               <br>
 
-              <h6 class="text-white">Win RT%</h6>
+              <h5 class="font-weight-bolder text-white">Win RT%</h5>
               <div class="d-flex justify-content-center gap-2">
-                <h6 class="text-primary" style="font-size: 13px">70 W</h6>
-                <h6 class="text-white" style="font-size: 13px">/</h6>
-                <h6 class="text-danger" style="font-size: 14px"> 30 W</h6>
+                <h6 class="text-primary" style="font-size: 15px">70 W</h6>
+                <h6 class="text-white" style="font-size: 15px">/</h6>
+                <h6 class="text-danger" style="font-size: 15px"> 30 W</h6>
               </div>
               <div class="progress"  style="background-color: transparent;">
                 <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
@@ -55,39 +55,38 @@
                 <h6 class="text-primary" style="font-size: 13px">70 %</h6>
               </div>
               <br>
-              <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
-              <h6 class="text-white">Cum Net Profit</h6>
+              <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
+              <h5 class="text-white">Cum Net Profit</h5>
               
-              <div class="mt-4 mb-4" style="">
-                <div class="chart">
-                  <canvas id="chart-line2" class="chart-canvas" height="200"></canvas>
+            <div class="mt-4 mb-4" style="">
+              <div class="chart">
+                <canvas id="chart-line2" class="chart-canvas" height="150"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
+          <div class="row">
+              <div class="col-sm-12">
+                <h5 class="text-white">Calendar</h5>
+                <img src="{{ asset('assets/img/dashboard/calendar.png') }}" class="text-center" width="100%" alt="calendar">
+              </div>
+
+              <div class="d-flex justify-content-between" style="padding-left: 50px; padding-right: 50px">
+                <label class="text-white" style="font-size: 12px !important;">Bad day</label>
+                <label class="text-white" style="font-size: 12px !important;">Good day</label>
+              </div>
+              <div class="col-sm-6 offset-sm-3 text-center ">
+                <div class="progress"  style="background-color: transparent;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="d-flex justify-content-center gap-2 mt-2">
+                  <h6 class="text-primary" style="font-size: 11px">70 W</h6>
+                  <h6 class="text-white" style="font-size: 11px">/</h6>
+                  <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
+                  <h6 class="text-primary" style="font-size: 11px">70 %</h6>
                 </div>
               </div>
-            </div>
-            <div class="dropdown-divider text-white" style="background-color: var(--bg)"></div>
-            <div class="row">
-            <div class="col-sm-12">
-              <h6 class="text-white">Calendar</h6>
-              <img src="{{ asset('assets/img/dashboard/calendar.png') }}" class="text-center" width="100%" alt="calendar">
-            </div>
-
-            <div class="d-flex justify-content-between" style="padding-left: 50px; padding-right: 50px">
-              <label class="text-white" style="font-size: 12px !important;">Bad day</label>
-              <label class="text-white" style="font-size: 12px !important;">Good day</label>
-            </div>
-            <div class="col-sm-6 offset-sm-3 text-center ">
-              <div class="progress"  style="background-color: transparent;">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              <div class="d-flex justify-content-center gap-2 mt-2">
-                <h6 class="text-primary" style="font-size: 13px">70 W</h6>
-                <h6 class="text-white" style="font-size: 13px">/</h6>
-                <h6 class="text-danger" style="font-size: 13px"> 30 W</h6>
-                <h6 class="text-primary" style="font-size: 10px">70 %</h6>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
@@ -131,20 +130,20 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th style="padding: 10px; border-radius: 15px 0px 0px 0px" class="text-white text-xxs font-weight-bolder opacity-7">Year</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Ene</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Feb</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Mar</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Abr</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">May</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Jun</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Jul</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Ago</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Sep</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Oct</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Nov</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Dic</th>
-                              <th style="padding: 10px; border-radius: 0px 15px 0px 0px" class="text-white text-xxs font-weight-bolder opacity-7">Total</th>
+                              <th style="padding: 10px; border-radius: 15px 0px 0px 0px" class="text-white text-sm font-weight-bolder">Year</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Ene</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Feb</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Mar</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Abr</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">May</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Jun</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Jul</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Ago</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Sep</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Oct</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Nov</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Dic</th>
+                              <th style="padding: 10px; border-radius: 0px 15px 0px 0px" class="text-white text-sm font-weight-bolder">Total</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -250,7 +249,7 @@
             <div class="col-sm-12">
               <div class="row">
                 <div class="col-sm-12 text-center ">
-                  <h5 class="text-white mb-4">Overview</h5>
+                  <h4 class="font-weight-bolder text-white mb-4">Overview</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                   @include('dashboard.views.overview_first')
@@ -263,43 +262,51 @@
       </div>
       <div class="col-sm-12 mt-4 mb-4">
         <div class="card justify-content-center text-center" style="width: 100%; height: 100px; background-color: var(--bgDark)">
-          <h4 class="text-white">Adds Section</h4>
+          <h4 class="font-weight-bolder text-white">ADDS</h4>
         </div>
       </div>
     </div>
 
     <div class="col-sm-12 mt-4">
-      <div class="card" style="background-color: var(--bgDark)">
+      <div class="card" style="background-color: var(--bg)">
         <div class="card-body p-3">
 
           <div class="row mb-4">
-            <div class="col-sm-2">
-              <select name="how_often_invest" class="form-select">
-                <option selected value="Account">Account</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select name="how_often_invest" class="form-select">
-                <option selected value="Direction">Direction</option>
-              </select>
-            </div>
-
-            <div class="col-sm-2">
-              <select name="how_often_invest" class="form-select">
-                <option selected value="Winning/Loses">Winning/Loses</option>
-              </select>
-            </div>
-
-            <div class="col-sm-2">
-              <div class="input-group mb-3">
-                <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+            <div class="col-sm-9">
+              <div class="row">
+                <div class="col-sm-4">
+                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+                    <option selected value="Account">Account</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+                    <option selected value="Direction">Direction</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+                    <option selected value="Winning/Loses">Winning/Loses</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="col-sm-2">
-              <div class="input-group mb-3">
-                <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+            <div class="col-sm-3">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2" style="background-color: var(--bgDark) !important;">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2" style="background-color: var(--bgDark) !important;">
+                  </div>
+                </div>
               </div>
             </div>
+
+           
           </div>
 
           <div class="row mt-4">
@@ -1065,14 +1072,21 @@
                   style: 'normal',
                   lineHeight: 2
                 },
-              }
+              },
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawTicks: false,
+                borderDash: [2, 1],
+                color:'#4b4b51'
+              },
             },
             x: {
               grid: {
                 drawBorder: false,
                 display: false,
                 drawTicks: false,
-                borderDash: [5, 5]
+                borderDash: [5, 5],
               },
               ticks: {
                 display: true,
@@ -1093,12 +1107,6 @@
 
       var ctx3 = document.getElementById("chart-line2").getContext("2d");
 
-      var gradientStroke1 = ctx3.createLinearGradient(92, 237, 193, 50);
-
-      gradientStroke1.addColorStop(1, 'rgba(92,237,194,0.2)');
-      gradientStroke1.addColorStop(0.1, 'rgba(92,237,194,0.0)');
-      gradientStroke1.addColorStop(0, 'rgba(92,237,194,0)'); 
-
       new Chart(ctx3, {
         type: "line",
         data: {
@@ -1108,14 +1116,12 @@
               tension: 0.5,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3C655D",
-              borderWidth: 1,
-              backgroundColor: gradientStroke1,
+              borderColor: "#3bd3a9",
+              borderWidth: 0.7,
+              backgroundColor: "rgba(92,237,194,0.15)",
               fill: true,
-              data: [20,18, 14, 11, 14, 11,12, 15, 16,17,17,18],
-
+              data: [20,15, 14, 11, 16, 11,13, 15, 17,18,19,20],
               maxBarThickness: 6
-
             },
           ],
         },

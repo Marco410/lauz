@@ -2,7 +2,7 @@
     <div class="col-sm-8">
      <div class="row">
       <div class="d-flex justify-content-between" >
-        <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+        <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
             <div class="row">
                 <div class="col-sm-12">
                     <h6 class="text-white " style="font-size: 15px;">Net P&L</h6>
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+        <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 15px;">Annual Return</h6>
@@ -18,7 +18,7 @@
               </div>
           </div>
       </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 15px;">DrawDown</h6>
@@ -26,7 +26,7 @@
               </div>
           </div>
       </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 15px;">Profit Factor</h6>
@@ -34,7 +34,7 @@
               </div>
           </div>
       </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 15px;">Avg Win/Loss</h6>
@@ -42,7 +42,7 @@
               </div>
           </div>
       </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bg);">
+      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white " style="font-size: 15px;">Q.Trades</h6>
@@ -52,8 +52,8 @@
     </div>
     </div>
        <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bg)">
-          <div class="card-header pb-0" style="background-color: var(--bg)">
+        <div class="card z-index-2" style="background-color: var(--bgDark)">
+          <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net Cumulative P&L</h6>
           </div>
           <div class="card-body p-3 ">
@@ -64,8 +64,8 @@
         </div>
       </div>
       <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bg)">
-          <div class="card-header pb-0" style="background-color: var(--bg)">
+        <div class="card z-index-2" style="background-color: var(--bgDark)">
+          <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net P&L</h6>
           </div>
           <div class="card-body p-3 ">
@@ -77,8 +77,8 @@
       </div>
 
       <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bg)">
-          <div class="card-header pb-0" style="background-color: var(--bg)">
+        <div class="card z-index-2" style="background-color: var(--bgDark)">
+          <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Trades for Direction</h6>
           </div>
           <div class="card-body">
@@ -87,19 +87,29 @@
                     <div class="chart" >
                         <div class="position-relative">
                           <canvas id="pie-bar" class="chart-canvas" height="60"></canvas>
-                          <h4 class="position-absolute  start-50 translate-middle" style="bottom: 50px; color:var(--textGray)">345</h4>
+                          <h4 class="position-absolute  start-50 translate-middle" style="bottom: 25px; color:var(--textGray)">345</h4>
                         </div>
                       </div>
                 </div>
                 <div class="col-sm-5">
                     <h6 class="text-primary" >Longs: 100</h6>
-                    <label class="text-secondary">70 W 30L - 70%</label>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <h6 class="text-primary" style="font-size: 11px">70 W</h6>
+                      <h6 class="text-white" style="font-size: 11px">/</h6>
+                      <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
+                      <h6 class="text-primary" style="font-size: 11px">70 %</h6>
+                    </div>
                     <div class="progress"  style="background-color: transparent;">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                       <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <br>
-                    <label class="text-secondary">70 W 30L - 70%</label>
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                      <h6 class="text-primary" style="font-size: 11px">70 W</h6>
+                      <h6 class="text-white" style="font-size: 11px">/</h6>
+                      <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
+                      <h6 class="text-primary" style="font-size: 11px">70 %</h6>
+                    </div>
                     <div class="progress"  style="background-color: transparent;">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                       <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
@@ -111,12 +121,12 @@
       </div>
 
       <div class="col-lg-6 mt-4">
-        <div class="card" style="background-color: var(--bg)">
+        <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-11">
                     <h6 class="text-white">Trades for Instrument</h6>
-                    <div class="row">
+                    <div class="row mt-4">
                       <div class="col-sm-5 mt-4 p-3">
                         <div id="legend-container"></div>
                       </div>
@@ -139,68 +149,69 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="card mb-4" style="background-color: var(--bgTable)" >
+                <div class="card mb-4" style="background-color: var(--bgDark)" >
                     <div class="card-body px-0 pt-0 pb-2" >
                       <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Performance</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">All Trades</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Longs</th>
-                              <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Shorts</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Performance</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">All Trades</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Longs</th>
+                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Shorts</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td><small class="text-xxs" style="color: var(--textGray);">Total Net Profit</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">$5.000</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">3000</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">2000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Total Net Profit</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$5.000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">3000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">2000</small></td>
                             </tr>
                             <tr>
-                              <td><small class="text-xxs" style="color: var(--textGray);">Max DrawDown</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">-$2.000</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">-500</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">-2000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Max DrawDown</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$2.000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-500</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-2000</small></td>
                              </tr>
                             <tr>
-                              <td><small class="text-xxs" style="color: var(--textGray);">Profit Factor</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">1.4</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">1.2</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">1.5</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Profit Factor</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.4</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.2</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.5</small></td>
                              
                             </tr>
                             <tr>
-                              <td><small class="text-xxs" style="color: var(--textGray);">Avg Win Trade</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">$61</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">$59</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">$62</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Avg Win Trade</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$61</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$59</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$62</small></td>
                             </tr>
                             <tr>
-                              <td><small class="text-xxs" style="color: var(--textGray);">Max. Consec. Win</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">4</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">3</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray);">7</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Max. Consec. Win</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">4</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">3</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">7</small></td>
                             </tr>
                             <tr>
-                                <td><small class="text-xxs" style="color: var(--textGray);">Largest Win Trade</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">$316</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">$80</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">$360</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Largest Win Trade</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$316</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$80</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$360</small></td>
                               </tr>
                               <tr>
-                                <td><small class="text-xxs" style="color: var(--textGray);">Largest Lose Trade</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">-$200</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">-$200</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">-$60</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Largest Lose Trade</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$200</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$200</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$60</small></td>
                               </tr>
                               <tr>
-                                <td><small class="text-xxs" style="color: var(--textGray);">Avg time in Market</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">12.61 min</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">13.44min</small></td>
-                                <td><small class="text-xxs" style="color: var(--textGray);">10.12min</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Avg time in Market</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">12.61 min</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">13.44min</small></td>
+                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">10.12min</small></td>
                               </tr>
+                             
                           </tbody>
                         </table>
                       </div>
@@ -208,7 +219,7 @@
                   </div>
             </div>
             <div class="col-sm-12">
-                <div class="card mb-4" style="background-color: var(--bgTable)" >
+                <div class="card mb-4" style="background-color: var(--bgDark);height: 315px;" >
                     <div class="card-body p-4" >
                       <div id='calendar'></div>
                     </div>
@@ -255,7 +266,14 @@
                   style: 'normal',
                   lineHeight: 2
                 },
-              }
+              },
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawTicks: false,
+                borderDash: [2, 1],
+                color:'#4b4b51'
+              },
             },
             x: {
               grid: {
@@ -281,12 +299,6 @@
         };
       var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-      var gradientStroke1 = ctx2.createLinearGradient(92, 237, 193, 50);
-
-      gradientStroke1.addColorStop(1, 'rgba(92,237,194,0.2)');
-      gradientStroke1.addColorStop(0.1, 'rgba(92,237,194,0.0)');
-      gradientStroke1.addColorStop(0, 'rgba(92,237,194,0)'); 
-
       new Chart(ctx2, {
         type: "line",
         data: {
@@ -296,9 +308,9 @@
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3C655D",
-              borderWidth: 3,
-              backgroundColor: gradientStroke1,
+              borderColor: "#3bd3a9",
+              borderWidth: 0.7,
+              backgroundColor: "rgba(92,237,194,0.15)",
               fill: true,
               data: [50, 40, 300, 220, 500, 250, 400, 230],
               maxBarThickness: 6
@@ -312,16 +324,14 @@
 
       var ctx4 = document.getElementById("chart-bar").getContext("2d");
 
-        const labels2 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic'];
+        const labels2 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic','Ene','Feb','Mar','Jul', 'Ago', 'Sep',];
         const data2 = {
           labels: labels2,
           datasets: [
             {
               label: 'Dataset 1',
-              data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
-              backgroundColor: [
-                'rgba(219,67,94,1)',
-              ],
+              data: [10,18, 16, 10, 5, 14,20,15,8,12,24,5,16, 10, 5,8,12,24],
+              backgroundColor: '#ff4861',
               borderColor : 'transparent',
             }
           ]
@@ -343,7 +353,7 @@
               },
               ticks: {
                 display: true,
-                padding: 10,
+                padding: 5,
                 color: '#c0bfc6',
                 font: {
                   size: 8,
@@ -441,8 +451,6 @@
               }
 
               const items = chart.options.plugins.legend.labels.generateLabels(chart);
-              console.log("items");
-              console.log(items);
 
               items.forEach(item => {
                 const li = document.createElement('li');

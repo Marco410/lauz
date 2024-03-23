@@ -17,9 +17,10 @@ const data = {
       label: 'Dataset 1',
       data: [120, 90, 85, 90, 88,60],
       backgroundColor: [
-        'rgba(121,169,215,0.6)',
+        'rgba(112,187,253,0.6)',
       ],
-      borderColor : 'transparent',
+      borderColor: "rgba(112,187,253,1)",
+      borderWidth: 1,
     }
   ]
 };

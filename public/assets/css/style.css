@@ -1,24 +1,36 @@
 /* 
-
 --primary: #61f3c6; rgba(86,227,186,1)
 --blue: #73BAF9; rgba(115,186,249,1)
 --yellow: #F7D970; rgba(247,217,112,1)
 --red: #FD4961; rgba(253,73,97,1)
 --gray #918F97 ; 145,143,151;
-
-
 */
 
 :root {
-    --primary: #61f3c6;
+    --primary: #61f2c6;
+    --primary200: #3bd3a9;
     --third: #2f2e3e;
     --green: #4ee0b6;
-    --red: #db435e;
-    --blue: #79a9d7;
-    --bg: #2a2b30;
-    --bgDark: #25232a;
-    --bgTable: #2a2b30;
-    --textGray: #c0bfc6;
+    --red: #ff4861;
+    --blue: #70bbfd;
+    --bg: #323239;
+    --bgDark: #232329;
+    --bgTable: #323239;
+    --bg300: #4b4b51;
+    --textGray: #e0e0e0;
+}
+
+@font-face {
+    font-family: "Inter Bold";
+    src: url("../fonts/inter-bold.ttf");
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: "Inter Light";
+    src: url("../fonts/Inter-Light.otf");
+    font-weight: 300;
 }
 
 .btn-primary,
@@ -28,44 +40,21 @@
     background-color: var(--primary) !important;
 }
 
-.fc-toolbar-title {
-    font-size: 20px !important;
-    color: white !important;
-}
-
-.fc-today-button {
-    font-size: 10px !important;
-}
-
-.fc-button-group {
-    font-size: 10px !important;
-}
-
-.fc-col-header-cell-cushion {
-    color: white !important;
-    font-size: 11px !important;
-}
-
-.fc-daygrid-day-number {
-    color: gray !important;
-    font-size: 11px !important;
-}
-
 .ql-snow {
     background-color: white !important;
     border-radius: 8px !important;
 }
 
 .table > :not(caption) > * > * {
-    border-color: var(--blue) !important;
+    border-color: var(--bg300) !important;
 }
 
 .form-control {
     background-color: var(--bgTable) !important;
-    border: 0.3px solid white !important;
+    border: 0.3px solid transparent !important;
     border-radius: 8px !important;
-    font-size: 12px !important;
-    line-height: 12px !important;
+    font-size: 15px !important;
+    line-height: 15px !important;
     color: white !important;
     display: block;
     font-weight: 400;
@@ -81,9 +70,11 @@
 select {
     background-color: var(--bgTable) !important;
     color: white !important;
-    border: 0.3px solid white !important;
-    font-size: 12px !important;
-    line-height: 12px !important;
+    border: 0.3px solid transparent !important;
+    font-size: 15px !important;
+    line-height: 15px !important;
+    font-weight: 400 !important;
+    font-family: "Inter Light";
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23ffffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important;
 }
 
@@ -136,4 +127,71 @@ select {
     width: 10px;
     margin-right: 5px;
     border-radius: 10px;
+}
+
+.table tbody {
+    font-family: "Inter Light";
+    font-size: 17px;
+}
+
+.fc .fc-scrollgrid {
+    border: none !important;
+}
+
+.fc-scroller .fc-scroller-liquid-absolute {
+    overflow: hidden !important;
+}
+
+.fc-toolbar-title {
+    font-size: 9px !important;
+    color: white !important;
+}
+
+.fc-today-button {
+    font-size: 6px !important;
+}
+
+.fc-button-group {
+    font-size: 5px !important;
+}
+
+.fc-col-header-cell-cushion {
+    color: white !important;
+    font-size: 7px !important;
+}
+
+.fc-daygrid-day-number {
+    color: gray !important;
+    font-size: 6px !important;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 4px !important;
+}
+.fc-event-main {
+    font-size: 4px !important;
+    cursor: pointer !important;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border: 1px solid var(--bg300) !important;
+}
+
+.fc .fc-daygrid-day-top {
+    justify-content: center !important;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    min-height: 0px !important;
+}
+.fc-daygrid-block-event .fc-event-time,
+.fc-daygrid-block-event .fc-event-title {
+    padding: 0px !important;
+}
+
+tbody tr th.fc-col-header-cell {
+    background-color: var(--bg) !important;
+    padding: 0px !important;
+    margin: 0 !important;
 }

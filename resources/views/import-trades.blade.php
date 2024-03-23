@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-      <div class="card mb-4 " style="background-color: var(--bg)" >
+      <div class="card mb-4 " style="background-color: var(--bgDark)" >
         <div class="card-body p-5" >
           <div class="row">
                 <div class="col-sm-12">
@@ -21,7 +21,7 @@
                     <br>
                   <label style="cursor: pointer;" >Sync your Broker</label>
                   </div>
-                  <div class="btn" style="width: 100%; height: 200px; border-radius: 0px 8px 8px 0px; flex-direction: column;justify-content: center; align-items: center;cursor: pointer; background-color:var(--third)" class=" text-center ">
+                  <div class="btn" style="width: 100%; height: 200px; border-radius: 0px 8px 8px 0px; flex-direction: column;justify-content: center; align-items: center;cursor: pointer; background-color:var(--bg)" class=" text-center ">
                     <br>
                     <br>
                     <br>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-sm-12">
-      <div class="card mb-4 " style="background-color: var(--bg)" >
+      <div class="card mb-4 " style="background-color: var(--bgDark)" >
         <div class="card-body p-5" >
           <div class="row">
                 <div class="col-sm-12">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="col-sm-12">
-      <div class="card mb-4 " style="background-color: var(--bg)" >
+      <div class="card mb-4 " style="background-color: var(--bgDark)" >
         <div class="card-body p-5" >
           <div class="row">
                 <div class="col-sm-6">

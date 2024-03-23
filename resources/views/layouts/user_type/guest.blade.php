@@ -14,5 +14,5 @@
             </div>
         @endif
         @yield('content')        
-        @include('layouts.footers.guest.footer')
+       {{--  @include('layouts.footers.guest.footer') --}}
     @endif

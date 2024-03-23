@@ -2,20 +2,20 @@
   <div class="col-sm-12 mb-4">
     <div class="row">
       <div class="col-sm-4">
-        <select name="how_often_invest" class="form-select">
+        <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
           <option selected value="Period">Period</option>
         </select>
       </div>
       <div class="col-sm-4">
-        <select name="how_often_invest" class="form-select">
+        <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
           <option selected value="Instrument">Instrument</option>
         </select>
       </div>
     </div>
   </div>
   <div class="col-sm-4 mt-4">
-    <div class="card z-index-2" style="background-color: var(--bg)">
-      <div class="card-header pb-0" style="background-color: var(--bg)">
+    <div class="card z-index-2" style="background-color: var(--bgDark)">
+      <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Cum Net Profit</h6>
       </div>
       <div class="card-body p-3 ">
@@ -27,8 +27,8 @@
   </div>
 
   <div class="col-sm-4 mt-4">
-    <div class="card z-index-2" style="background-color: var(--bg)">
-      <div class="card-header pb-0" style="background-color: var(--bg)">
+    <div class="card z-index-2" style="background-color: var(--bgDark)">
+      <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Net Profit</h6>
       </div>
       <div class="card-body p-3 ">
@@ -48,7 +48,7 @@
         <label class="text-white text-right">Days Traded: 17 W 17L - 50%/label>
       </div>
       <div class="col-sm-12">
-          <div class="card mb-4" style="background-color: var(--bgTable)" >
+          <div class="card mb-4" style="background-color: var(--bgDark)" >
               <div class="card-body px-0 pt-0 pb-2" >
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0">
@@ -119,8 +119,8 @@
   </div>
 
     <div class="col-sm-4 mt-4">
-      <div class="card z-index-2" style="background-color: var(--bg)">
-        <div class="card-header pb-0" style="background-color: var(--bg)">
+      <div class="card z-index-2" style="background-color: var(--bgDark)">
+        <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Cum Max Drawdown</h6>
         </div>
         <div class="card-body p-3 ">
@@ -132,8 +132,8 @@
     </div>
 
     <div class="col-sm-4 mt-4">
-      <div class="card z-index-2" style="background-color: var(--bg)">
-        <div class="card-header pb-0" style="background-color: var(--bg)">
+      <div class="card z-index-2" style="background-color: var(--bgDark)">
+        <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Max Drawdown</h6>
         </div>
         <div class="card-body p-3 ">
@@ -144,8 +144,18 @@
       </div>
     </div>
 
+{{--     <div class="col-sm-4" >
+      <div class="card" style="background-color: var(--bgDark)">
+        <div style="padding: 20px" id='calendar2'></div>
+      </div>
+    </div> --}}
+
     <div class="col-sm-4">
-      <div style="padding: 20px" id='calendar2'></div>
+        <div class="card mb-4" style="background-color: var(--bgDark);height: 315px;" >
+            <div class="card-body p-4" >
+              <div id='calendar2'></div>
+            </div>
+        </div>
     </div>
 
  </div>

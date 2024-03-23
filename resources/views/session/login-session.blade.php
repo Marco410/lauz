@@ -4,54 +4,67 @@
 
   <main class="main-content  mt-0">
     <section>
-      <div class="page-header min-vh-75">
+      <div class="page-header">
         <div class="container">
           <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8">
-                <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome back here</h3>
-                </div>
+            <div class="col-sm-5 d-flex flex-column mx-auto">
+              <div class="card card-plain mt-8" style="background-color: var(--bgDark); padding: 50px;  ">
                 <div class="card-body">
+                  <div style="border-left: 2px solid var(--primary);border-radius: 0px;padding: 0px;padding-left: 10px; margin-bottom: 20px">
+                      <h3 class="font-weight-bolder text-white" style="margin-bottom: 0px; font-size: 27px">Welcome to <strong style="color:var(--primary)">LAUZ</strong></h3>
+                      <small class="text-white" style="font-family: 'Inter Light'; font-size: 11.5px">Analyzing and optimizing ypur investments</small>
+                  </div>
                   <form role="form" method="POST" action="/session">
                     @csrf
-                    <label style="color: white;">Email</label>
-                    <div class="mb-3">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="admin@lauz.io" aria-label="Email" aria-describedby="email-addon">
-                      @error('email')
-                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                      @enderror
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <label style="color: white;">Email</label>
+                        <div class="mb-3">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text border-none" style="background-color: var(--bgTable); border:none;" id="basic-addon1"> <i class="fas fa-user" style="color:var(--bg300)" ></i> </span>
+                            <input type="email" style="padding-left: 15px; border-radius:0px 8px 8px 0px !important;font-size: 14px !important" class="form-control" name="email" id="email" value="admin@lauz.io" placeholder="Enter your email" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          @error('email')
+                          <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                          @enderror
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+
+                        <label style="color: white;">Password</label>
+                        <div>
+                          <div class="input-group">
+                            <span class="input-group-text border-none" style="background-color: var(--bgTable); border:none;" id="basic-addon2"> <i class="fas fa-key" style="color:var(--bg300)" ></i> </span>
+                            <input type="password" style="padding-left: 15px; border-radius:0px 8px 8px 0px !important;font-size: 14px !important" class="form-control" name="password" id="password" value="secret" placeholder="Enter your password" aria-label="Username" aria-describedby="basic-addon2">
+                          </div>
+                          @error('password')
+                          <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                          @enderror
+                        </div>
+                      </div>
+                      <div class="mt-1">
+                        <small class="text-primary float-right" style="font-size: 10px; font-weight: 100;font-family: 'Inter Light'; float: right !important;">Forgot password?</small>
+                      </div>
                     </div>
-                    <label style="color: white;">Password</label>
-                    <div class="mb-3">
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="secret" aria-label="Password" aria-describedby="password-addon">
-                      @error('password')
-                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                      @enderror
+   
+                    <div class="form-check mt-4">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="background-color: var(--bgTable)">
+                      <label class="form-check-label text-white mt-1" for="flexCheckDefault">
+                        Remember me
+                      </label>
                     </div>
-                   {{--  <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div> --}}
                     <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <button type="submit" class="btn btn-primary w-100 mt-4 mb-0">Sign in</button>
+                        </div>
+                        <div class="col-sm-6">
+                          <a type="button" href="register"  class="btn btn-outline-primary w-100 mt-4 mb-0">Create Account</a>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                <small class="text-muted">Forgot you password? Reset you password 
-                  <a href="/login/forgot-password" class="text-info text-gradient font-weight-bold">here</a>
-                </small>
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="register" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
               </div>
             </div>
           </div>

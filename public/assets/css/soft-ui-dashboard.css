@@ -27,7 +27,7 @@
     --bs-light: #e9ecef;
     --bs-dark: #344767;
     --bs-white: #fff;
-    --bs-font-sans-serif: "Open Sans";
+    --bs-font-sans-serif: "Inter Bold";
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(
@@ -46,6 +46,7 @@
         scroll-behavior: smooth;
     }
 }
+
 body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2414,6 +2415,7 @@ textarea.form-control-sm {
 }
 .form-check-input[type="checkbox"] {
     border-radius: 0.35rem;
+    border: none !important;
 }
 .form-check-input[type="radio"] {
     border-radius: 50%;
@@ -2432,7 +2434,7 @@ textarea.form-control-sm {
 }
 .form-check-input:checked[type="checkbox"],
 .form-check-input:checked[type="radio"] {
-    background-image: linear-gradient(310deg, #141727, #3a416f);
+    background-image: linear-gradient(310deg, var(--primary), var(--primary));
 }
 .form-check-input[type="checkbox"]:indeterminate {
     background-color: #cb0c9f;
@@ -3300,25 +3302,25 @@ fieldset:disabled .btn {
     color: #000;
 }
 .btn-outline-primary {
-    border-color: #cb0c9f;
-    color: #cb0c9f;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 .btn-outline-primary:hover {
-    background-color: #cb0c9f;
-    border-color: #cb0c9f;
-    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff !important;
 }
 .btn-check:focus + .btn-outline-primary,
 .btn-outline-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(203, 12, 159, 0.5);
+    box-shadow: 0 0 0 0.2rem var(--primary200);
 }
 .btn-check:active + .btn-outline-primary,
 .btn-check:checked + .btn-outline-primary,
 .btn-outline-primary.active,
 .btn-outline-primary.dropdown-toggle.show,
 .btn-outline-primary:active {
-    background-color: #cb0c9f;
-    border-color: #cb0c9f;
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
 }
 .btn-check:active + .btn-outline-primary:focus,
@@ -3326,12 +3328,12 @@ fieldset:disabled .btn {
 .btn-outline-primary.active:focus,
 .btn-outline-primary.dropdown-toggle.show:focus,
 .btn-outline-primary:active:focus {
-    box-shadow: 0 0 0 0.2rem rgba(203, 12, 159, 0.5);
+    box-shadow: 0 0 0 0.2rem var(--primary200);
 }
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
     background-color: transparent;
-    color: #cb0c9f;
+    color: var(--primary);
 }
 .btn-outline-secondary {
     border-color: #8392ab;
@@ -15308,7 +15310,7 @@ fieldset:disabled .btn {
     padding: 1.5rem;
 }
 .card .card-body {
-    font-family: Open Sans;
+    font-family: "Inter Bold";
     padding: 1.5rem;
 }
 .card.card-plain {

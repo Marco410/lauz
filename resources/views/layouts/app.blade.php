@@ -36,24 +36,43 @@
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        themeSystem: 'bootstrap5'
+        themeSystem: 'bootstrap5',
+        height:'100%',
+        events: [
+          {
+            title: 'All Day Event',
+            start: '2024-03-01',
+            color: "#ff4861"
+          },
+          {
+            title: 'Lauz event',
+            start: '2024-03-03',
+            end:'2024-03-05'
+          },
+          {
+            title: 'Lauz event 2',
+            start: '2024-03-22',
+            end:'2024-03-26',
+            color:'#61f2c6'
+          },
+        ],
+        eventColor: '#70bbfd',
+        eventClick(event){
+          console.log(event);
+        }
+        
       });
       calendar.render();
 
       var calendarEl2 = document.getElementById('calendar2');
       var calendar2 = new FullCalendar.Calendar(calendarEl2, {
         initialView: 'dayGridMonth',
-        themeSystem: 'bootstrap5'
+        themeSystem: 'bootstrap5',
+        height:'100%',
       });
       calendar2.render();
 
 
-      var calendarEl3 = document.getElementById('calendar-overview');
-      var calendarOverview = new FullCalendar.Calendar(calendarEl3, {
-        initialView: 'dayGridMonth',
-        themeSystem: 'bootstrap5'
-      });
-      calendarOverview.render();
     });
 
   </script>

@@ -8,7 +8,7 @@
                 </a> --}}
             </div>
             <div class="ms-md-1 pe-md-2 d-flex align-items-center">
-                <input type="text" class="form-control" style="border: none !important;" placeholder="Search...">
+                <input type="text" class="form-control" style="border: none !important; color:var(--textGray); font-size: 15px;" placeholder="Search...">
             </div>
             <ul class="navbar-nav justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -24,14 +24,14 @@
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="d-flex py-1 align-items-center">
                         <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-4" style="border-radius: 100px;">
                         </div>
-                        <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm text-white font-weight-normal mb-1">
-                            {{ auth()->user()->name }} {{ auth()->user()->last_name }}
-                        </h6>
+                        <div class="d-flex flex-column justify-content-center ">
+                            <h6 class="font-weight-normal mb-1" style="color: var(--textGray); font-size: 12px;">
+                                {{ auth()->user()->name }} {{ auth()->user()->last_name }}
+                            </h6>
                         </div>
-                        <i style="margin-left: 15px" class="fas fa-chevron-down text-white"></i>
+                        <i style="margin-left: 20px; color: var(--textGray);font-size: 12px;" class="fas fa-chevron-down me-4"></i>
                     </div>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">

@@ -1,30 +1,30 @@
 <div class="row p-4 m-4">
     <div class="col-sm-12">
-      <div class="card mb-4" style="background-color: var(--bgTable)" >
+      <div class="card mb-4" style="background-color: var(--bgDark)" >
         <div class="card-body px-0 pt-0 pb-2" >
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Trade nu</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Instrum</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Account</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Strategy</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Market</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Q</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Entry p</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Exit pr</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Entry time</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Exit time</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Entry n</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Exit na</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Profit</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Cum. net</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Commis</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">MAE</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">MFE</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">ETD</th>
-                  <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Bars</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Trade nu</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Instrum</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Account</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Strategy</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Market</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Q</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Entry p</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Exit pr</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Entry time</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Exit time</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Entry n</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Exit na</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Profit</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Cum. net</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Commis</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">MAE</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">MFE</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">ETD</th>
+                  <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Bars</th>
                 </tr>
               </thead>
               <tbody>

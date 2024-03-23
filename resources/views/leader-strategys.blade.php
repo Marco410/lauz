@@ -10,45 +10,45 @@
     </div>
     <div class="d-flex flex-row-reverse">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--textGray)">All</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--textGray)">Futures</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--textGray)">Stocks</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--textGray)">Forex</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--textGray)">Cryptos</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">All</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Futures</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Stocks</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Forex</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Cryptos</button>
       </div>
     </div>
 
     <div class="col-sm-12">
-      <div class="card mb-4" style="background-color: var(--bgTable);" >
+      <div class="card mb-4" style="background-color: var(--bgDark);" >
           <div class="card-body px-0 pt-0 pb-2" >
             <div class="table-responsive p-0">
               <table class="table align-items-center mb-0">
                 <thead>
                       <tr>
-                          <th  style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7"></th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Strategy</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">
-                          <select name="how_often_invest" class="form-select">
+                          <th  style="padding: 10px;" class="text-white text-xs font-weight-bolder"></th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Strategy</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
+                          <select name="how_often_invest" class="form-select" >
                             <option selected value="Account">Annual Return</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Max DrawDown</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Strategy age</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Risk Level</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Q Trades</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Action</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Q Trades</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Action</th>
                       </tr>
                     </thead>
                     <tbody>

@@ -5,19 +5,19 @@
 <div class="row">
     <div class="col-sm-10">
         <h2 class="text-white">My sync Accounts</h2>
-        <div class="card mb-4" style="background-color: var(--bgTable)" >
+        <div class="card mb-4" style="background-color: var(--bgDark)" >
             <div class="card-body px-0 pt-0 pb-2" >
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                        <th  style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7"></th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Account</th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Broker</th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Strategy name</th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">initial balance</th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Action</th>
+                        <th  style="padding: 10px;" class="text-white text-xs font-weight-bolder"></th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Account</th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Broker</th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Strategy name</th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">initial balance</th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Status</th>
+                      <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Action</th>
                     </tr>
                   </thead>
                   <tbody>
