@@ -961,7 +961,7 @@
 @endsection
 @push('dashboard')
   <script>
-    let alert_list = document.querySelectorAll('.alert')
+    let alert_list = document.querySelectorAll('.alert-success')
     alert_list.forEach(function(alert) {
         new bootstrap.Alert(alert);
 
