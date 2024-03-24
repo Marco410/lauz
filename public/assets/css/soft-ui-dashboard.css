@@ -2964,9 +2964,10 @@ fieldset:disabled .btn {
     pointer-events: none;
 }
 .btn-primary {
-    background-color: #cb0c9f;
-    border-color: #cb0c9f;
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: #fff;
+    border-radius: 8px;
 }
 .btn-check:focus + .btn-primary,
 .btn-primary:focus,
@@ -3078,9 +3079,10 @@ fieldset:disabled .btn {
     color: #000;
 }
 .btn-info {
-    background-color: #17c1e8;
-    border-color: #17c1e8;
+    background-color: var(--blue);
+    border-color: var(--blue);
     color: #000;
+    border-radius: 8px !important;
 }
 .btn-check:focus + .btn-info,
 .btn-info:focus,
@@ -3154,9 +3156,10 @@ fieldset:disabled .btn {
     color: #000;
 }
 .btn-danger {
-    background-color: #ea0606;
-    border-color: #ea0606;
+    background-color: var(--red);
+    border-color: var(--red);
     color: #fff;
+    border-radius: 8px !important;
 }
 .btn-check:focus + .btn-danger,
 .btn-danger:focus,
@@ -4841,9 +4844,9 @@ fieldset:disabled .btn {
     color: #3f4652;
 }
 .alert-success {
-    background-color: #e6f7d0;
-    border-color: #daf3b9;
-    color: #345609;
+    color: var(--bg300);
+    background-color: var(--bgDark);
+    border-color: 0.5px solid var(--bg300) !important;
 }
 .alert-success .alert-link {
     color: #2a4507;
@@ -4857,9 +4860,9 @@ fieldset:disabled .btn {
     color: #0b5d6f;
 }
 .alert-warning {
-    background-color: #fef5d6;
-    border-color: #fef1c2;
-    color: #645314;
+    color: var(--bg300);
+    background-color: var(--bgDark);
+    border-color: 0.5px solid var(--bg300) !important;
 }
 .alert-warning .alert-link {
     color: #504210;
@@ -14729,17 +14732,8 @@ fieldset:disabled .btn {
 .alert-primary {
     background-image: linear-gradient(310deg, #7928ca, #d6006c);
 }
-.alert-secondary {
-    background-image: linear-gradient(310deg, #627594, #8ca1cb);
-}
-.alert-success {
-    background-image: linear-gradient(310deg, #17ad37, #84dc14);
-}
 .alert-info {
     background-image: linear-gradient(310deg, #2152ff, #02c6f3);
-}
-.alert-warning {
-    background-image: linear-gradient(310deg, #f53939, #fac60b);
 }
 .alert-danger {
     background-image: linear-gradient(310deg, #ea0606, #ff3d59);

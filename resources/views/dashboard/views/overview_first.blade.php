@@ -1,7 +1,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white " style="font-size: 17px;">Net P&L</h6>
+                <h6 class="text-white " style="font-size: 15px;">Net P&L</h6>
                 <h5 class="text-primary"> $2.500</h5>
             </div>
         </div>
@@ -9,7 +9,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">Annual Return</h6>
+                <h6 class="text-white" style="font-size: 15px;">Annual Return</h6>
                 <h5 class="text-primary"> $2.500</h5>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">DrawDown</h6>
+                <h6 class="text-white" style="font-size: 15px;">DrawDown</h6>
                 <h5 class="text-danger"> $2.500</h5>
             </div>
         </div>
@@ -25,7 +25,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">Profit Factor</h6>
+                <h6 class="text-white" style="font-size: 15px;">Profit Factor</h6>
                 <h5 class="text-primary">1.4</h5>
             </div>
         </div>
@@ -33,7 +33,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">Avg Win/loss</h6>
+                <h6 class="text-white" style="font-size: 15px;">Avg Win/loss</h6>
                 <h5 class="text-primary">2.0</h5>
             </div>
         </div>
@@ -41,7 +41,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">Q. Trades</h6>
+                <h6 class="text-white" style="font-size: 15px;">Q. Trades</h6>
                 <h5 class="text-primary">350</h5>
             </div>
         </div>
@@ -49,7 +49,7 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
             <div class="col-sm-12">
-                <h6 class="text-white" style="font-size: 17px;">CAGR</h6>
+                <h6 class="text-white" style="font-size: 15px;">CAGR</h6>
                 <h5 class="text-primary">5%</h5>
             </div>
         </div>
@@ -250,7 +250,7 @@
     */
 
 
-    var ctx8 = document.getElementById("bar-net").getContext("2d");
+   /*  var ctx8 = document.getElementById("bar-net").getContext("2d");
 
     const optionsBars = {
         responsive: true,
@@ -299,7 +299,7 @@
     type: "bar",
     data: data5,
     options: optionsBars,
-    });
+    }); */
   </script>
   
   @endpush

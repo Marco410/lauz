@@ -12,7 +12,7 @@
                   <h4 class="text-white">Import your trades and get advanced statistics</h4>
                 </div>
                 <div class="col-sm-6">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
                 <div class="col-sm-6 d-flex ">
                   <div class="btn" style="width: 100%; height: 200px; border-radius: 8px 0px 0px 8px; background-color: white;cursor: pointer;" class="text-center">
@@ -44,7 +44,7 @@
                   <br>
                 </div>
                 <div class="col-sm-12 m-2">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
                 <div class="col-sm-12  text-center">
                   <br>
@@ -66,7 +66,7 @@
                       <h4 class="text-white">Ninja Trader 8</h4>
                     </div>
                     <div class="col-sm-6">
-                      <div class="text-center" style="height: 200px;width: 100%; border-radius: 15px; background-color: white;" >
+                      <div class="text-center" style="height: 200px;width: 100%; border-radius: 15px; background-color: var(--bg);" >
                         <br>
                         <br>
                         <br>
@@ -74,7 +74,7 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                      <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
                       <button class="btn btn-primary btn-sm" >Download</button>
 
                     </div>
@@ -86,7 +86,7 @@
                       <h4 class="text-white">MetaTrader</h4>
                     </div>
                     <div class="col-sm-6">
-                      <div class="text-center" style="height: 200px;width: 100%; border-radius: 15px; background-color: white;" >
+                      <div class="text-center" style="height: 200px;width: 100%; border-radius: 15px; background-color: var(--bg);" >
                         <br>
                         <br>
                         <br>
@@ -94,7 +94,7 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                      <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
                       <button class="btn btn-primary btn-sm" >Download</button>
 
                     </div>

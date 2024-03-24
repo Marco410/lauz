@@ -10,11 +10,11 @@
     </div>
     <div class="d-flex flex-row-reverse">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">All</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Futures</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Stocks</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Forex</button>
-        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bg300)">Cryptos</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bgDark); border: 1px solid var(--bg300);">All</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bgDark); border: 1px solid var(--bg300);">Futures</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bgDark); border: 1px solid var(--bg300);">Stocks</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bgDark); border: 1px solid var(--bg300);">Forex</button>
+        <button type="button" class="btn btn-secondary btn-sm" style="background-color: var(--bgDark); border: 1px solid var(--bg300);">Cryptos</button>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
                           <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
                           <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
                           <td>
-                            <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
+                            <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                             <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
                             <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Copy</button>
                           </td>
@@ -75,7 +75,7 @@
                         <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
                         <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
                         <td>
-                          <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
+                          <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                           <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
                           <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Copy</button>
                         </td>
@@ -89,7 +89,7 @@
                       <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
                       <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
                       <td>
-                        <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
+                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                         <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
                         <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Copy</button>
                       </td>
@@ -103,7 +103,7 @@
                     <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
                     <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
                     <td>
-                      <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
+                      <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                       <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
                       <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Copy</button>
                     </td>

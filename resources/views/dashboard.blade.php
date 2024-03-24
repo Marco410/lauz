@@ -3,7 +3,7 @@
 @section('content')
 
   @if(auth()->user()->email_verify == 0)
-  <div class="row">
+{{--   <div class="row">
     <div class="col-sm-12">
       <div class="alert alert-warning mx-4" role="alert">
           <form role="form text-left" method="POST" action="/re-send-email">
@@ -15,15 +15,30 @@
           </form>
       </div>
     </div>
+  </div> --}}
+  <div class="m-3  alert alert-warning"  role="alert">
+    <div class="d-flex align-items-center">
+      <i class="fa fa-info-circle" style="color:var(--blue)" aria-hidden="true"></i>
+      <form role="form text-left" method="POST" action="/re-send-email" style="margin: 0px !important; padding: 0px !important;">
+        @csrf
+        <input type="hidden" name="email" id="email" value="{{ auth()->user()->email }}">
+        <div class="text-center">
+          <button type="submit" class="btn btn-link text-white btn-sm" style="margin-bottom: 0px !important"><strong>Email not verify</strong>, re-send email here.</button>
+        </div>
+      </form>
+    </div>
   </div>
   @endif
   @if(session('success'))
       <div class="m-3  alert alert-success alert-dismissible fade show" data-timeout="5000" id="alert-success" role="alert">
-          <span class="alert-text text-white">
-          {{ session('success') }}</span>
+        <div class="d-flex align-items-center">
+          <i class="fa fa-info-circle" style="color:var(--blue)" aria-hidden="true"></i>
+          <span class="alert-text text-white mx-2">
+            <strong class="alert-text text-white" style="font-family: 'Inter Bold'">Information: </strong>{{ session('success') }}</span>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
               <i class="fa fa-close" aria-hidden="true"></i>
           </button>
+        </div>
       </div>
   @endif
   <div class="row">
@@ -41,7 +56,7 @@
               <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
               <br>
 
-              <h5 class="font-weight-bolder text-white">Win RT%</h5>
+              <h5 class="font-weight-bolder text-white">Win RT%</h5> 
               <div class="d-flex justify-content-center gap-2">
                 <h6 class="text-primary" style="font-size: 15px">70 W</h6>
                 <h6 class="text-white" style="font-size: 15px">/</h6>

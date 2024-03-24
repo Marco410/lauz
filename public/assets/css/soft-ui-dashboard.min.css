@@ -4957,9 +4957,9 @@ fieldset:disabled .btn {
     color: #3f4652;
 }
 .alert-success {
-    color: #345609;
-    background-color: #e6f7d0;
-    border-color: #daf3b9;
+    color: var(--bg300);
+    background-color: var(--bgDark);
+    border-color: 0.5px solid var(--bg300) !important;
 }
 .alert-success .alert-link {
     color: #2a4507;
@@ -4973,9 +4973,9 @@ fieldset:disabled .btn {
     color: #0b5d6f;
 }
 .alert-warning {
-    color: #645314;
-    background-color: #fef5d6;
-    border-color: #fef1c2;
+    color: var(--bg300);
+    background-color: var(--bgDark);
+    border-color: 0.5px solid var(--bg300) !important;
 }
 .alert-warning .alert-link {
     color: #504210;
@@ -14952,17 +14952,8 @@ fieldset:disabled .btn {
 .alert-primary {
     background-image: linear-gradient(310deg, #7928ca, #d6006c);
 }
-.alert-secondary {
-    background-image: linear-gradient(310deg, #627594, #8ca1cb);
-}
-.alert-success {
-    background-image: linear-gradient(310deg, #17ad37, #84dc14);
-}
 .alert-info {
     background-image: linear-gradient(310deg, #2152ff, #02c6f3);
-}
-.alert-warning {
-    background-image: linear-gradient(310deg, #f53939, #fac60b);
 }
 .alert-danger {
     background-image: linear-gradient(310deg, #ea0606, #ff3d59);

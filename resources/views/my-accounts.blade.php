@@ -29,7 +29,7 @@
                       <td><small class="text-xxs" style="color: var(--textGray);">2000</small></td>
                       <td><small class="text-xxs" style="color: var(--textGray);">Conected</small></td>
                       <td>
-                        <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
+                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
                         <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
                         <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
                       </td>
@@ -42,7 +42,7 @@
                       <td><small class="text-xxs" style="color: var(--textGray);">2000</small></td>
                       <td><small class="text-xxs" style="color: var(--textGray);">Conected</small></td>
                       <td>
-                        <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
+                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
                         <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
                         <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
                       </td>
@@ -55,7 +55,7 @@
                       <td><small class="text-xxs" style="color: var(--textGray);">2000</small></td>
                       <td><small class="text-xxs" style="color: var(--textGray);">Conected</small></td>
                       <td>
-                        <button class="btn btn-warning btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
+                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
                         <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
                         <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
                       </td>
