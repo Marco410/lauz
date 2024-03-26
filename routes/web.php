@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\BigQueryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/quiz', [RegisterController::class, 'quiz'])->name('quiz');
 	Route::post('/store-quiz', [RegisterController::class, 'storeQuiz'])->name('store.quiz');
+
+	Route::get('/test', [BigQueryController::class, 'test'])->name('test');
 
 	
 	Route::get('dashboard', function () {
