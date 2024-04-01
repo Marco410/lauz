@@ -10,11 +10,6 @@ $.ajax({
     type: "GET",
     dataType: "json",
     success: function (response) {
-        console.log("response");
-        console.log(response);
-        console.log("response.totalNetPL");
-        console.log(response.totalNetPL);
-
         var className =
             response.totalNetPL > 0 ? "text-primary" : "text-danger";
         totalNetPLElement.innerHTML =
