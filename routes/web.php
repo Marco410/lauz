@@ -37,12 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/quiz', [RegisterController::class, 'quiz'])->name('quiz');
 	Route::post('/store-quiz', [RegisterController::class, 'storeQuiz'])->name('store.quiz');
 
-	Route::get('/test', [BigQueryController::class, 'test'])->name('test');
+	Route::get('/get-netpl', [BigQueryController::class, 'getNetPL'])->name('get.netpl');
 
 	
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 	Route::get('my-accounts', function () {
 		return view('my-accounts');

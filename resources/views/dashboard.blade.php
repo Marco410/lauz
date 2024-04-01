@@ -42,8 +42,11 @@
       </div>
   @endif
   <div class="row">
-    <div class="col-sm-12 mb-4">
-      <h4 class="font-weight-bolder mb-0 text-capitalize text-white">My Performance</h4>
+    <div class="col-sm-12 mb-4 d-flex">
+      <h4 class="font-weight-bolder mb-0 text-capitalize text-white ">My Performance</h4>
+      <div class="spinner-border text-primary mx-4" id="loader" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
 
     <div class="col-sm-3">
@@ -140,118 +143,31 @@
                   <br>
                   <br>
                   <div class="card mb-4" style="background-color: var(--bgTable)" >
-                    <div class="card-body px-0 pt-0 pb-2" >
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                    <div class="card-body px-0 pt-0 pb-2 text-center " >
+                      <div class="spinner-border text-primary spinner-border-md mt-3" id="loader-table"  role="status"> </div>
+
+                      <div class="table-responsive p-0 ">
+                        <table class="table align-items-center mb-0" id="myTable">
                           <thead>
                             <tr>
-                              <th style="padding: 10px; border-radius: 15px 0px 0px 0px" class="text-white text-sm font-weight-bolder">Year</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Ene</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Feb</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Mar</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Abr</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">May</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Jun</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Jul</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Ago</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Sep</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Oct</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Nov</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Dic</th>
-                              <th style="padding: 10px; border-radius: 0px 15px 0px 0px" class="text-white text-sm font-weight-bolder">Total</th>
+                              <th style="padding: 8px; border-radius: 15px 0px 0px 0px" class="text-white text-xs font-weight-bolder">Year</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Ene</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Feb</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Mar</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Abr</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">May</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Jun</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Jul</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Ago</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Sep</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Oct</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Nov</th>
+                              <th style="padding: 8px;" class="text-white text-xs font-weight-bolder">Dic</th>
+                              <th style="padding: 8px; border-radius: 0px 15px 0px 0px" class="text-white text-xs font-weight-bolder">Total</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <small class="text-xxs" style="color: var(--textGray)" >2020</small>
-                              </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <small class="text-xxs" style="color: var(--textGray)" >2021</small>
-                              </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <small class="text-xxs" style="color: var(--textGray)" >2022</small>
-                              </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <small class="text-xxs" style="color: var(--textGray)" >2023</small>
-                              </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <small class="text-xxs" style="color: var(--textGray)" >2024</small>
-                              </td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>13K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1.5K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>100</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>300</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>1K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>200</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>600</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>5k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>1k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>2k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>3k</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-danger">-</label>4K</small></td>
-                              <td><small class="text-xxs" style="color: var(--textGray)" ><label class="text-success" >+</label>7.7K</small></td>
-                            </tr>
+                          <tbody >
+                       
                           </tbody>
                         </table>
                       </div>

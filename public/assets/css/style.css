@@ -51,6 +51,25 @@ span {
     font-family: "Inter Light" !important;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--bgDark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg300);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg300);
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,

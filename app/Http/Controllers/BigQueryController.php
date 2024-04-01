@@ -5,34 +5,85 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use Google\Cloud\BigQuery\BigQueryClient;
-use Google\Cloud\Core\ExponentialBackoff;
+use Exception;
+use App\Services\BigQueryService;
 
 class BigQueryController extends Controller
 {
-    public function test()
+
+    protected $bigQueryService;
+
+    public function __construct(BigQueryService $bigQueryService)
     {
-        putenv('GOOGLE_APPLICATION_CREDENTIALS='.storage_path('google-credentials.json'));
-        $projectId = 'algolabreport';
-        $query = "SELECT Instrument, EXTRACT(YEAR FROM Entry_Time) AS Year, EXTRACT(MONTH FROM Entry_Time) AS Month, EXTRACT(WEEK FROM Entry_Time) AS Week, EXTRACT(DAYOFYEAR FROM Entry_Time) AS Day, EXTRACT(HOUR FROM Entry_Time) AS Hour, CONCAT(EXTRACT(HOUR FROM Entry_Time), ':', CASE  WHEN EXTRACT(MINUTE FROM Entry_Time) <= 29 THEN '00' ELSE '30' END) AS Half_Hour, SUM(Profit) AS NetPL FROM `algolabreport.NewData.Total_Trades` GROUP BY Instrument, Year, Month, Week, Day, Hour, Half_Hour ORDER BY Instrument, Year, Month, Week, Day, Hour, Half_Hour;";
+        $this->bigQueryService = $bigQueryService;
+    }
 
-        $bigQuery = new BigQueryClient([
-            'projectId' => $projectId,
-        ]);
-        $jobConfig = $bigQuery->query($query);
-        $job = $bigQuery->startQuery($jobConfig);
+    public function getNetPL(Request $request)
+    {
 
-        $backoff = new ExponentialBackoff(10);
-        $backoff->execute(function () use ($job) {
-            print('Waiting for job to complete' . PHP_EOL);
-            $job->reload();
-            if (!$job->isComplete()) {
-                throw new Exception('Job has not yet completed', 500);
+        $query = "
+            SELECT
+                Instrument,
+                EXTRACT(YEAR FROM Entry_Time) AS Year,
+                EXTRACT(MONTH FROM Entry_Time) AS Month,
+                EXTRACT(WEEK FROM Entry_Time) AS Week,
+                EXTRACT(DAYOFYEAR FROM Entry_Time) AS Day,
+                EXTRACT(HOUR FROM Entry_Time) AS Hour,
+                CONCAT(EXTRACT(HOUR FROM Entry_Time), ':', 
+                    CASE 
+                        WHEN EXTRACT(MINUTE FROM Entry_Time) <= 29 THEN '00'
+                        ELSE '30'
+                    END) AS Half_Hour,
+                    SUM(CAST(Profit AS FLOAT64)) AS NetPL
+            FROM
+                `algolabreport.NewData.Total_Trades`
+            GROUP BY
+                Instrument,
+                Year,
+                Month,
+                Week,
+                Day,
+                Hour,
+                Half_Hour
+            ORDER BY
+                Instrument,
+                Year,
+                Month,
+                Week,
+                Day,
+                Hour,
+                Half_Hour;
+        
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        $groupedData = [];
+        $totalNetPL = 0; 
+        
+        foreach ($results as $row) {
+            $year = $row['Year'];
+            $month = $row['Month'];
+        
+            if (!isset($groupedData[$year])) {
+                $groupedData[$year] = [];
             }
-        });
-        $queryResults = $job->queryResults();
-
-        return $queryResults;
+        
+            if (!isset($groupedData[$year][$month])) {
+                $groupedData[$year][$month] = [
+                    'totalNetPL' => 0, 
+                    'data' => [] 
+                ];
+            }
+        
+            $groupedData[$year][$month]['totalNetPL'] += $row['NetPL'];
+            $totalNetPL += $row['NetPL'];
+            $groupedData[$year][$month]['data'][] = $row;
+        }
+        
+        $groupedData['totalNetPL'] = $totalNetPL;
+        return response()->json($groupedData);
     }
 
 }

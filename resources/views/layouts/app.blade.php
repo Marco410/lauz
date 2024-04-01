@@ -29,6 +29,10 @@
 
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+
+    
+
 
   <script>
 
@@ -82,12 +86,13 @@
 </head>
 
 <body class="g-sidenav-show {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }}" style="background-color: {{ (\Request::is('login','register','verify-email','welcome-lauz') ? 'var(--bg)' : 'var(--bgDark)') }} ">
-  @auth
+
+    @auth
     @yield('auth')
-  @endauth
-  @guest
+    @endauth
+    @guest
     @yield('guest')
-  @endguest
+    @endguest
 
     <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
@@ -100,6 +105,9 @@
   @stack('dashboard')
   @stack('dashboard_chart_bar')
   @stack('landing')
+
+  <script src="../assets/js/lauz/constants.js"></script>
+  <script src="../assets/js/lauz/data.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

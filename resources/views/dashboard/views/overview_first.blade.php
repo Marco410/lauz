@@ -1,8 +1,8 @@
     <div class="card text-center rounded-4 justify-content-center m-2 px-2" style="height: 100px; width: 100%; background-color: var(--bg);">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" >
                 <h6 class="text-white " style="font-size: 15px;">Net P&L</h6>
-                <h5 class="text-primary"> $2.500</h5>
+                <h5 class="text-primary" id="totalNetPl"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h5>
             </div>
         </div>
     </div>

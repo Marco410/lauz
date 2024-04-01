@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function dashboard(Request $request)
     {
-        return redirect('dashboard');
+
+        return view('dashboard', ['request' => $request]);
     }
 
     public function landing()
