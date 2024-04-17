@@ -84,27 +84,12 @@
           </div>
           <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
           <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-12 text-center">
                 <h5 class="text-white">Calendar</h5>
-                <img src="{{ asset('assets/img/dashboard/calendar.png') }}" class="text-center" width="100%" alt="calendar">
+               @include('dashboard.views.calendar')
               </div>
 
-              <div class="d-flex justify-content-between" style="padding-left: 50px; padding-right: 50px">
-                <label class="text-white" style="font-size: 12px !important;">Bad day</label>
-                <label class="text-white" style="font-size: 12px !important;">Good day</label>
-              </div>
-              <div class="col-sm-6 offset-sm-3 text-center ">
-                <div class="progress"  style="background-color: transparent;">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                  <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="d-flex justify-content-center gap-2 mt-2">
-                  <h6 class="text-primary" style="font-size: 11px">70 W</h6>
-                  <h6 class="text-white" style="font-size: 11px">/</h6>
-                  <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
-                  <h6 class="text-primary" style="font-size: 11px">70 %</h6>
-                </div>
-              </div>
+             
           </div>
         </div>
       </div>
