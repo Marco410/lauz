@@ -3,6 +3,7 @@
 <script>
   var viewportWidth = window.innerWidth;
 
+  var startDate = new Date();
   var minDate = new Date();
   var maxDate = new Date();
   minDate.setMonth(minDate.getMonth() - 1);
@@ -12,8 +13,8 @@ cal.paint({
   range: 3,
   theme: 'dark',
   itemSelector: '#cal-heatmap',
-  width: 150,
-
+  width: 145,
+  animationDuration: 500,
   data: {
     source: [
         { t: new Date('2024-06-06'), v: '0' },
@@ -46,6 +47,7 @@ cal.paint({
         { t: new Date('2024-04-22'), v: '0' },
         { t: new Date('2024-04-26'), v: '0' },
         { t: new Date('2024-04-29'), v: '1' },
+        { t: new Date('2024-04-06'), v: '1' },
         { t: new Date('2024-04-30'), v: '0.5' },
         { t: new Date('2024-05-28'), v: '0' },
         { t: new Date('2024-05-03'), v: '0' },
@@ -70,26 +72,36 @@ cal.paint({
       groupY: d => d[0],
     },
     date: {
-        locale: { weekStart: 1 },
-        startDate: new Date(),
+        locale: { weekStart: 0 },
+        startDate: maxDate,
         min: minDate,
         max: maxDate,
       },
     domain: {
       type: 'month',
+      sort: 'asc',
+      
+      label: { 
+        offset: {
+          x: 10,
+          y: 0,
+        },
+      }
     },
     subDomain:  { 
       type: 'day',
       radius: 2, 
       label: (t, v) => v,
-      width: viewportWidth /105,
-      height: viewportWidth /105,
+      width: viewportWidth /132,
+      height: viewportWidth /132,
       label:'D' 
     },
     scale: {
       color: {
       type: 'linear',
       range: ['#e0e0e0','#61f2c6'],
+      domain: [0,1],
+      baseColor: '#323239',
       },
     },
   },
@@ -97,6 +109,7 @@ cal.paint({
     [
       Legend,
       {
+        includeBlank: true,
         width: 150,
         itemSelector: '#legend',
         radius: 2,
@@ -105,11 +118,21 @@ cal.paint({
     [
       Tooltip,
       {
+        radius: 2,
         text: function (date, value, dayjsDate) {
           return (
             (value ? (value > 0) ? 'Good day' : 'Bad Day'  : 'No data') + ' on ' + dayjsDate.format('LL')
           );
         },
+      },
+    ],
+    [
+      CalendarLabel,
+      {
+        width: 30,
+        textAlign: 'bottom',
+        text: () => dayjs.weekdaysShort().map((d, i) => d),
+       
       },
     ],
   ]

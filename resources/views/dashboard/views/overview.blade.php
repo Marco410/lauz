@@ -218,7 +218,7 @@
                     </div>
                   </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 ">
                 <div class="card mb-4" style="background-color: var(--bgDark);height: 315px;" >
                     <div class="card-body p-4" >
                       <div id='calendar'></div>

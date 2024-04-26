@@ -37,6 +37,7 @@
   <script src="https://unpkg.com/cal-heatmap/dist/plugins/Legend.min.js"></script>
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/cal-heatmap/dist/plugins/Tooltip.min.js"></script>
+  <script src="https://unpkg.com/cal-heatmap/dist/plugins/CalendarLabel.min.js"></script>
 
 
   <script>

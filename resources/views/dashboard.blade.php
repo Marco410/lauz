@@ -85,10 +85,9 @@
           <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
           <div class="row">
               <div class="col-sm-12 text-center">
-                <h5 class="text-white">Calendar</h5>
+                <h5 class="text-white mb-4">Calendar</h5>
                @include('dashboard.views.calendar')
               </div>
-
              
           </div>
         </div>
