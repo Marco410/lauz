@@ -1,11 +1,12 @@
 <div class="row p-4 m-4">
     <div class="col-sm-8">
      <div class="row">
-      <div class="d-flex justify-content-between" >
-        <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
+      <div class="col-sm-6">
+        <div class="d-flex justify-content-between" >
+          <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
             <div class="row">
                 <div class="col-sm-12">
-                    <h6 class="text-white " style="font-size: 15px;">Net P&L</h6>
+                    <h6 class="text-white " style="font-size: 13px;">Net P&L</h6>
                     <h6 class="text-primary"> $2.500</h6>
                 </div>
             </div>
@@ -13,7 +14,7 @@
         <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 15px;">Annual Return</h6>
+                  <h6 class="text-white " style="font-size: 13px;">Annual Return</h6>
                   <h6 class="text-primary"> $2.500</h6>
               </div>
           </div>
@@ -21,38 +22,45 @@
       <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 15px;">DrawDown</h6>
+                  <h6 class="text-white " style="font-size: 13px;">DrawDown</h6>
                   <h6 class="text-danger"> $2.500</h6>
               </div>
           </div>
       </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
-          <div class="row">
-              <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 15px;">Profit Factor</h6>
-                  <h6 class="text-primary">1.4</h6>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="d-flex justify-content-between" >
+     
+          <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h6 class="text-white " style="font-size: 13px;">Profit Factor</h6>
+                      <h6 class="text-primary">1.4</h6>
+                  </div>
               </div>
           </div>
-      </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
-          <div class="row">
-              <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 15px;">Avg Win/Loss</h6>
-                  <h6 class="text-primary">2.0</h6>
+          <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <h6 class="text-white " style="font-size: 13px;">Avg Win/Loss</h6>
+                      <h6 class="text-primary">2.0</h6>
+                  </div>
               </div>
           </div>
-      </div>
-      <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
-        <div class="row">
-            <div class="col-sm-12">
-                <h6 class="text-white " style="font-size: 15px;">Q.Trades</h6>
-                <h6 class="text-primary">350</h6>
+          <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h6 class="text-white " style="font-size: 13px;">Q.Trades</h6>
+                    <h6 class="text-primary">350</h6>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
+      </div>
+   
        <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bgDark)">
+        <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 300px">
           <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net Cumulative P&L</h6>
           </div>
@@ -64,7 +72,7 @@
         </div>
       </div>
       <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bgDark)">
+        <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 300px">
           <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net P&L</h6>
           </div>
@@ -77,7 +85,7 @@
       </div>
 
       <div class="col-lg-6 mt-4">
-        <div class="card z-index-2" style="background-color: var(--bgDark)">
+        <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 300px">
           <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Trades for Direction</h6>
           </div>
@@ -121,7 +129,7 @@
       </div>
 
       <div class="col-lg-6 mt-4">
-        <div class="card" style="background-color: var(--bgDark)">
+        <div class="card" style="background-color: var(--bgDark); min-height: 300px">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-11">
@@ -148,31 +156,31 @@
     <div class="col-sm-4">
 
         <div class="row">
-            <div class="col-sm-12">
-                <div class="card mb-4" style="background-color: var(--bgDark)" >
-                    <div class="card-body px-0 pt-0 pb-2" >
+            <div class="col-sm-12 mt-1">
+                <div class="card mb-4" style="background-color: var(--bgDark); height: 408px; min-height: 408px" >
+                    <div class="card-body px-1 pb-2" >
                       <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Performance</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">All Trades</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Longs</th>
-                              <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Shorts</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Performance</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">All Trades</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Longs</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Shorts</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Total Net Profit</small></td>
                               <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$5.000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">3000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">2000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$3,000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$2,000</small></td>
                             </tr>
                             <tr>
                               <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Max DrawDown</small></td>
                               <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$2.000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-500</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-2000</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$500</small></td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$2,000</small></td>
                              </tr>
                             <tr>
                               <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Profit Factor</small></td>
@@ -211,6 +219,7 @@
                                 <td><small class="text-xs fw-lighter" style="color: var(--textGray);">13.44min</small></td>
                                 <td><small class="text-xs fw-lighter" style="color: var(--textGray);">10.12min</small></td>
                               </tr>
+                            
                              
                           </tbody>
                         </table>
@@ -219,7 +228,7 @@
                   </div>
             </div>
             <div class="col-sm-12 ">
-                <div class="card mb-4" style="background-color: var(--bgDark);height: 315px;" >
+                <div class="card mb-4" style="background-color: var(--bgDark);height: 318px; min-height: 318px" >
                     <div class="card-body p-4" >
                       <div id='calendar'></div>
                     </div>

@@ -13,8 +13,8 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4 mt-4">
-    <div class="card z-index-2" style="background-color: var(--bgDark)">
+  <div class="col-sm-4">
+    <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 330px">
       <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Cum Net Profit</h6>
       </div>
@@ -26,8 +26,8 @@
     </div>
   </div>
 
-  <div class="col-sm-4 mt-4">
-    <div class="card z-index-2" style="background-color: var(--bgDark)">
+  <div class="col-sm-4">
+    <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 330px">
       <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Net Profit</h6>
       </div>
@@ -41,31 +41,33 @@
 
   <div class="col-sm-4">
     <div class="row">
-      <div class="col-sm-4">
-        <label class="text-white">Overview for Day</label>
-      </div>
-      <div class="col-sm-8">
-        <label class="text-white text-right">Days Traded: 17 W 17L - 50%/label>
-      </div>
-      <div class="col-sm-12">
-          <div class="card mb-4" style="background-color: var(--bgDark)" >
-              <div class="card-body px-0 pt-0 pb-2" >
+      <div class="col-sm-12 ">
+          <div class="card mb-4" style="background-color: var(--bgDark);min-height: 330px; height: 330px;" >
+              <div class="card-body px-0 pt-2 pb-2" >
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label class="text-white">Overview for Day</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <label class="text-white text-right">Days Traded: 17 W 17L - 50% </label>
+                  </div>
+                </div>
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Day^v</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">P&L</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">P&Win RT%</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Profits</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Loss</th>
-                        <th style="padding: 10px;" class="text-white text-xxs font-weight-bolder opacity-7">Trades</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">Day^v</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">P&L</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">P&Win RT%</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">Profits</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">Loss</th>
+                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder opacity-7">Trades</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><small class="text-xxs" style="color: var(--textGray);">Mon</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$200</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">Mon</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$200</small></td>
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
@@ -74,13 +76,13 @@
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$500</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">-$300</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">5</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$500</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">-$300</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">5</small></td>
                       </tr>
                       <tr>
-                        <td><small class="text-xxs" style="color: var(--textGray);">Tue</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$200</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">Tue</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$200</small></td>
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
@@ -89,13 +91,13 @@
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$500</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">-$300</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">5</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$500</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">-$300</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">5</small></td>
                       </tr>
                       <tr>
-                        <td><small class="text-xxs" style="color: var(--textGray);">Wed</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$200</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">Wed</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$200</small></td>
                         <td> 
                           <br> 
                           <div class="progress"  style="background-color: transparent;">
@@ -104,9 +106,9 @@
                           </div>
                           <label class="" style="color: var(--textGray);">70 W 30L - 70%</label>
                         </td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">+$500</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">-$300</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">5</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">+$500</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">-$300</small></td>
+                        <td><small class="text-xs" style="color: var(--textGray);">5</small></td>
                       </tr>
                     </tbody>
                   </table>
@@ -118,8 +120,8 @@
       </div>
   </div>
 
-    <div class="col-sm-4 mt-4">
-      <div class="card z-index-2" style="background-color: var(--bgDark)">
+    <div class="col-sm-4">
+      <div class="card z-index-2" style="background-color: var(--bgDark);min-height: 330px">
         <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Cum Max Drawdown</h6>
         </div>
@@ -131,8 +133,8 @@
       </div>
     </div>
 
-    <div class="col-sm-4 mt-4">
-      <div class="card z-index-2" style="background-color: var(--bgDark)">
+    <div class="col-sm-4">
+      <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 330px">
         <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Max Drawdown</h6>
         </div>
@@ -151,7 +153,7 @@
     </div> --}}
 
     <div class="col-sm-4">
-        <div class="card mb-4" style="background-color: var(--bgDark);height: 315px;" >
+        <div class="card mb-4" style="background-color: var(--bgDark);min-height: 330px;height: 330px;" >
             <div class="card-body p-4" >
               <div id='calendar2'></div>
             </div>

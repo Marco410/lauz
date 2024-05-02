@@ -20,9 +20,9 @@
                 </div>
                 </a>
             </li>
-            <li class="nav-item dropdown pe-2 px-3 d-flex align-items-center">
+            <li class="nav-item dropdown pe-2 px-3 d-flex align-items-center" style="width: 240px;">
                 <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="d-flex py-1 align-items-center">
+                    <div class="d-flex py-1 align-items-center justify-content-between">
                         <div class="my-auto">
                             <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-4" style="border-radius: 100px;">
                         </div>
@@ -31,14 +31,52 @@
                                 {{ auth()->user()->name }} {{ auth()->user()->last_name }}
                             </h6>
                         </div>
-                        <i style="margin-left: 20px; color: var(--textGray);font-size: 12px;" class="fas fa-chevron-down me-4"></i>
+                        <i style="margin-left: 45px; color: var(--textGray);font-size: 12px;" class="fas fa-chevron-down me-4"></i>
                     </div>
                 </a>
-                <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                    <li class="mb-2">
-                        <a href="{{ url('/logout')}}" class="nav-link text-body font-weight-bold px-0">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign Out</span>
+                <ul class="dropdown-menu  dropdown-menu-end me-sm-n4" aria-labelledby="dropdownMenuButton">
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-user me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Calendar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Tasks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-inbox me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Inbox</span>
+                        </a>
+                    </li>
+                    <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
+
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Account Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-lock me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Lock Screen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/logout')}}" class="nav-link">
+                            <i class="fa fa-user me-sm-1" style="color: var(--bg300); "></i>
+                            <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Sign Out</span>
                         </a>
                     </li>
             

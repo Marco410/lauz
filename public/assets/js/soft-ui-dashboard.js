@@ -523,7 +523,6 @@ function initNavs() {
         var moving_div = document.createElement("div");
         var first_li = item.querySelector("li:first-child .nav-link");
         var tab = first_li.cloneNode();
-        tab.innerHTML = "-";
 
         moving_div.classList.add("moving-tab", "position-absolute", "nav-link");
         moving_div.appendChild(tab);
@@ -587,8 +586,7 @@ window.addEventListener("resize", function (event) {
     total.forEach(function (item, i) {
         item.querySelector(".moving-tab").remove();
         var moving_div = document.createElement("div");
-        var tab = item.querySelector(".nav-link.active").cloneNode();
-        tab.innerHTML = "-";
+        var tab = item.querySelector(".nav-link-2").cloneNode();
 
         moving_div.classList.add("moving-tab", "position-absolute", "nav-link");
         moving_div.appendChild(tab);

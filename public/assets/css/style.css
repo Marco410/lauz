@@ -113,7 +113,7 @@ span {
 }
 
 .form-select {
-    height: 37px !important;
+    height: 38px !important;
 }
 
 select {
@@ -142,8 +142,14 @@ select {
     box-shadow: none !important;
     border-bottom: 2px solid var(--primary) !important;
     border-radius: 2px !important;
-    margin-left: 20px !important;
-    margin-right: 20px !important;
+    z-index: 2;
+}
+
+.nav.nav-pills {
+    border-bottom: 1px solid var(--bg300) !important;
+    border-radius: 1px !important;
+    z-index: 1;
+    margin-left: 20px;
 }
 
 .nav-fill .nav-item .nav-link,
@@ -255,4 +261,19 @@ tbody tr th.fc-col-header-cell {
 .ch-plugin-calendar-label-text {
     fill: var(--textGray) !important;
     font-weight: 100 !important;
+}
+
+.dropdown-menu {
+    background-color: var(--bgDark) !important;
+    border-radius: 2px !important;
+    margin-top: 10 !important;
+    color: var(--textGray) !important;
+    padding: 20px 10px !important;
+    font-size: 15px !important;
+    width: 230px !important;
+}
+
+.dropdown:not(.dropdown-hover) .dropdown-menu {
+    margin-top: 18px !important;
+    margin-right: 14px !important;
 }

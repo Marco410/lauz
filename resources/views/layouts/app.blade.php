@@ -28,7 +28,7 @@
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
+{{--   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" /> --}}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -124,12 +124,12 @@
     }
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
+ {{--  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script> --}}
+  <script src="../../assets/js/plugins/quill.min.js" type="text/javascript"></script>
 
   <script>
     const quill = new Quill('#editor', {
       theme: 'snow',
-      placeholder: 'Write here...',
     });
   </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
