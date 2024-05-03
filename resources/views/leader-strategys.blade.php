@@ -25,41 +25,41 @@
               <table class="table align-items-center mb-0">
                 <thead>
                       <tr>
-                          <th  style="padding: 10px;" class="text-white text-xs font-weight-bolder"></th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Strategy</th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
+                          <th  style="padding: 10px;" class="text-white text-sm font-weight-bolder"></th>
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Strategy</th>
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">
                           <select name="how_often_invest" class="form-select" >
                             <option selected value="Account">Annual Return</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Max DrawDown</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Strategy age</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">
                           <select name="how_often_invest" class="form-select">
                             <option selected value="Account">Risk Level</option>
                           </select>
                         </th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Q Trades</th>
-                        <th style="padding: 10px;" class="text-white text-xs font-weight-bolder">Action</th>
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Q Trades</th>
+                        <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                           <td></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">HiLoTime SiomTrading</small></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">30%</small></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">13%</small></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">1 Year</small></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
-                          <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">HiLoTime SiomTrading</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">30%</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">13%</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">1 Year</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">Risk 1</small></td>
+                          <td><small class="text-sm" style="color: var(--textGray);">320</small></td>
                           <td>
                             <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                             <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
@@ -68,12 +68,12 @@
                         </tr>
                       <tr>
                         <td></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">VolumeBreakout SiomTrading</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">30%</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">13%</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">1 Year</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
-                        <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">VolumeBreakout SiomTrading</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">30%</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">13%</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">1 Year</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">Risk 1</small></td>
+                        <td><small class="text-sm" style="color: var(--textGray);">320</small></td>
                         <td>
                           <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                           <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
@@ -82,12 +82,12 @@
                       </tr>
                     <tr>
                       <td></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">EMACrossover Carlos Peru</small></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">30%</small></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">13%</small></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">1 Year</small></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
-                      <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">EMACrossover Carlos Peru</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">30%</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">13%</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">1 Year</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">Risk 1</small></td>
+                      <td><small class="text-sm" style="color: var(--textGray);">320</small></td>
                       <td>
                         <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                         <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>
@@ -96,12 +96,12 @@
                     </tr>
                   <tr>
                     <td></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">QuickSignals Juan Gomez</small></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">30%</small></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">13%</small></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">1 Year</small></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">Risk 1</small></td>
-                    <td><small class="text-xxs" style="color: var(--textGray);">320</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">QuickSignals Juan Gomez</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">30%</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">13%</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">1 Year</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">Risk 1</small></td>
+                    <td><small class="text-sm" style="color: var(--textGray);">320</small></td>
                     <td>
                       <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Watch</button>
                       <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Follow</button>

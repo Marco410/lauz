@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12" >
                 <h6 class="text-white " style="font-size: 13px;">Net P&L</h6>
-                <h5 class="text-primary" id="totalNetPl"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h5>
+                <h6 class="text-primary"  id="totalNetPl"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h6>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">Annual Return</h6>
-                <h5 class="text-primary"> $2.500</h5>
+                <h6 class="text-primary"> $2.500</h6>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">DrawDown</h6>
-                <h5 class="text-danger"> $2.500</h5>
+                <h6 class="text-danger"> $2.500</h6>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">Profit Factor</h6>
-                <h5 class="text-primary">1.4</h5>
+                <h6 class="text-primary">1.4</h6>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">Avg Win/loss</h6>
-                <h5 class="text-primary">2.0</h5>
+                <h6 class="text-primary">2.0</h6>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">Q. Trades</h6>
-                <h5 class="text-primary">350</h5>
+                <h6 class="text-primary">350</h6>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h6 class="text-white" style="font-size: 13px;">CAGR</h6>
-                <h5 class="text-primary">5%</h5>
+                <h6 class="text-primary">5%</h6>
             </div>
         </div>
     </div>

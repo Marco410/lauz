@@ -13,7 +13,7 @@ $.ajax({
         var className =
             response.totalNetPL > 0 ? "text-primary" : "text-danger";
         totalNetPLElement.innerHTML =
-            '<h5 class="' + className + '"> $' + response.totalNetPL + "</h5>";
+            '<h6 class="' + className + '"> $' + response.totalNetPL + "</h6>";
 
         const table = document.getElementById("myTable");
         // Obtener la referencia al cuerpo de la tabla
@@ -27,7 +27,7 @@ $.ajax({
                 // Crear la celda para el año
                 const cellYear = row.insertCell();
                 cellYear.innerHTML =
-                    '<small class="text-xxs" style="color: var(--textGray)" >' +
+                    '<small class="text-xs" style="color: var(--textGray)" >' +
                     year +
                     "</small>";
 
@@ -44,7 +44,7 @@ $.ajax({
                         var sign =
                             response[year][month].totalNetPL > 0 ? "+" : "-";
                         cellMonth.innerHTML =
-                            '<small class="text-xxs" style="color: var(--textGray)" ><label class="' +
+                            '<small class="text-xs" style="color: var(--textGray)" ><label class="' +
                             classNameTd +
                             '" >' +
                             sign +
@@ -56,7 +56,7 @@ $.ajax({
                         totalMonth += response[year][month].totalNetPL;
                     } else {
                         cellMonth.innerHTML =
-                            '<small class="text-xxs" style="color: var(--textGray)" >-</small>'; // Si no hay datos, mostrar un guión
+                            '<small class="text-xs" style="color: var(--textGray)" >-</small>'; // Si no hay datos, mostrar un guión
                     }
                 }
                 var classNameT =
@@ -64,7 +64,7 @@ $.ajax({
                 var signT = totalMonth > 0 ? "+" : "-";
                 const cellTotal = row.insertCell();
                 cellTotal.innerHTML =
-                    '<small class="text-xxs" style="color: var(--textGray)" ><label class="' +
+                    '<small class="text-xs" style="color: var(--textGray)" ><label class="' +
                     classNameT +
                     '" >' +
                     signT +
