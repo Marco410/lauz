@@ -37,25 +37,25 @@
                 <ul class="dropdown-menu  dropdown-menu-end me-sm-n4" aria-labelledby="dropdownMenuButton">
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-user me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-user me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">My Profile</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Calendar</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Tasks</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-inbox me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-inbox me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Inbox</span>
                         </a>
                     </li>
@@ -63,19 +63,19 @@
 
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-calendar me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-calendar me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Account Settings</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
-                            <i class="fa fa-lock me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-lock me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Lock Screen</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('/logout')}}" class="nav-link">
-                            <i class="fa fa-user me-sm-1" style="color: var(--bg300); "></i>
+                            <i class="fa fa-user me-sm-1" style="color: var(--textGray); "></i>
                             <span class="d-sm-inline d-none text-white" style="font-weight: bold;">Sign Out</span>
                         </a>
                     </li>

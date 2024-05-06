@@ -7,16 +7,17 @@
 */
 
 :root {
-    --primary: #61f2c6;
-    --primary200: #3bd3a9;
-    --third: #2f2e3e;
+    --primary: #b2f35f;
+    --primary200: #1dd6b4;
+    --secondary: #1dd6b4;
+    --third: #f46d22;
     --green: #4ee0b6;
-    --red: #ff4861;
+    --red: #f46d22;
     --blue: #70bbfd;
-    --bg: #323239;
-    --bgDark: #232329;
-    --bgTable: #323239;
-    --bg300: #4b4b51;
+    --bg: #161f20;
+    --bgDark: #1b2627;
+    --bgTable: #161f20;
+    --bg300: #161f20;
     --textGray: #e0e0e0;
 }
 
@@ -339,4 +340,14 @@ tbody tr th.fc-col-header-cell {
 .dropdown:not(.dropdown-hover) .dropdown-menu {
     margin-top: 18px !important;
     margin-right: 14px !important;
+}
+
+.card-overview {
+    height: 100px;
+    width: 100%;
+    background-color: var(--bg) !important;
+}
+.flex-overview {
+    display: flex;
+    flex-direction: row;
 }

@@ -17,9 +17,9 @@ const data = {
       label: 'Dataset 1',
       data: [120, 90, 85, 90, 88,60],
       backgroundColor: [
-        'rgba(112,187,253,0.6)',
+        OPACITY.thirdWithOpacity6,
       ],
-      borderColor: "rgba(112,187,253,1)",
+      borderColor: OPACITY.thirdWithOpacity9,
       borderWidth: 1,
     }
   ]

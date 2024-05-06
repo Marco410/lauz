@@ -169,9 +169,9 @@
 
    var gradientStroke3 = ctx7.createLinearGradient(92, 237, 193, 50);
 
-  gradientStroke3.addColorStop(1, 'rgba(92,237,194,0.2)');
-  gradientStroke3.addColorStop(0.1, 'rgba(92,237,194,0.0)');
-  gradientStroke3.addColorStop(0, 'rgba(92,237,194,0)'); 
+  gradientStroke3.addColorStop(1, OPACITY.primaryWithOpacity6);
+  gradientStroke3.addColorStop(0.1, OPACITY.primaryWithOpacity15);
+  gradientStroke3.addColorStop(0, OPACITY.primaryWithOpacity6); 
 
     new Chart(ctx7, {
       type: "line",
@@ -182,8 +182,8 @@
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#3C655D",
-            borderWidth: 3,
+            borderColor:COLORS.primary,
+            borderWidth: 1,
             backgroundColor: gradientStroke3,
             fill: true,
             data: [50, 40, 300, 220, 500, 250, 400, 230],
@@ -206,7 +206,7 @@
           label: 'Dataset 1',
           data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
           backgroundColor: [
-                'rgba(219,67,94,1)',
+                COLORS.third,
               ],
           borderColor : 'transparent',
         }
@@ -243,11 +243,12 @@
 
     var ctx9 = document.getElementById("chart-line4").getContext("2d");
 
-    var gradientStroke4 = ctx9.createLinearGradient(92, 237, 193, 50);
 
-    gradientStroke4.addColorStop(1, 'rgba(92,237,194,0.2)');
-    gradientStroke4.addColorStop(0.1, 'rgba(92,237,194,0.0)');
-    gradientStroke4.addColorStop(0, 'rgba(92,237,194,0)'); 
+    var gradientStroke4 = ctx7.createLinearGradient(92, 237, 193, 50);
+
+    gradientStroke4.addColorStop(1, OPACITY.primaryWithOpacity6);
+    gradientStroke4.addColorStop(0.1, OPACITY.primaryWithOpacity15);
+    gradientStroke4.addColorStop(0, OPACITY.primaryWithOpacity6); 
 
 
       new Chart(ctx9, {
@@ -259,8 +260,8 @@
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3C655D",
-              borderWidth: 3,
+              borderColor: COLORS.primary,
+              borderWidth: 1,
               backgroundColor: gradientStroke4,
               fill: true,
               data: [50, 40, 300, 220, 500, 250, 400, 230],
@@ -284,7 +285,7 @@
               label: 'Dataset 1',
               data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
               backgroundColor: [
-                'rgba(219,67,94,1)',
+                COLORS.third,
               ],
               borderColor : 'transparent',
             }

@@ -25,6 +25,7 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pageMainStyle" href="../assets/css/style.css" rel="stylesheet" />
+  <link id="pageMainStyle" href="../assets/css/responsive.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
@@ -88,6 +89,7 @@
   </script>
 <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
+<script src="../assets/js/lauz/constants.js"></script>
 
 </head>
 
@@ -112,7 +114,6 @@
   @stack('dashboard_chart_bar')
   @stack('landing')
 
-  <script src="../assets/js/lauz/constants.js"></script>
   <script src="../assets/js/lauz/data.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

@@ -11,6 +11,11 @@ use App\Services\BigQueryService;
 class BigQueryController extends Controller
 {
 
+    /* $resultsArray = [];
+    foreach ($results as $row) {
+        $resultsArray[] = $row;
+    } */
+
     protected $bigQueryService;
 
     public function __construct(BigQueryService $bigQueryService)
@@ -84,6 +89,71 @@ class BigQueryController extends Controller
         
         $groupedData['totalNetPL'] = $totalNetPL;
         return response()->json($groupedData);
+    }
+
+    public function getAnnualReturn(Request $request)
+    {   
+        $initial = "1";
+
+        $query = "
+            SELECT
+                POWER((1 + (Sum(Profit)/".$initial.")),(365/DATETIME_DIFF(MAX(Date
+                Entry_time), MIN(Date Entry_time), DAY))) - 1;
+            FROM
+                `algolabreport.NewData.Total_Trades`;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+        
+        $groupedData['totalNetPL'] = $totalNetPL;
+        return response()->json($groupedData);
+    }
+
+    public function getProfitFactor(Request $request)
+    {   
+        $query = "
+            SELECT
+                SUM(CASE WHEN Profit > 0 THEN Profit ELSE 0 END)/(SUM(CASE WHEN Profit <= 0 THEN Profit ELSE 0 END)* -1)
+            FROM
+                `algolabreport.NewData.Total_Trades`;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        foreach ($results as $row) {
+            return $row;
+        }
+
+        return response()->json($results->current());
+    }
+
+    public function getWinLost(Request $request)
+    {   
+        $query = "
+            SELECT
+                MIN(DrowDown)
+            FROM
+                `algolabreport.NewData.Total_Trades`;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        
+   /*      $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray); */
+
+        return response()->json($results->current());
     }
 
 }

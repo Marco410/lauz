@@ -38,6 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/store-quiz', [RegisterController::class, 'storeQuiz'])->name('store.quiz');
 
 	Route::get('/get-netpl', [BigQueryController::class, 'getNetPL'])->name('get.netpl');
+	Route::get('/get-annual-return', [BigQueryController::class, 'getAnnualReturn'])->name('get.annual.return');
+	Route::get('/get-profit-factor', [BigQueryController::class, 'getProfitFactor'])->name('get.profit.factor');
+	Route::get('/get-win-lost', [BigQueryController::class, 'getWinLost'])->name('get.win.lost');
 
 	
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

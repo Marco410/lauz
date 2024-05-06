@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-12 col-md-3">
       <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row ">
@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-12 col-md-9">
       <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
@@ -120,12 +120,12 @@
             </div>
             <div class="col-sm-12">
               <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-12 col-md-3">
                   <h4 class="text-white">TPI</h4>
                   @include('dashboard.views.tpi')
 
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-12 col-md-9">
                   <br>
                   <br>
                   <div class="card mb-4" style="background-color: var(--bgTable)" >
@@ -168,7 +168,7 @@
                 <div class="col-sm-12 text-center ">
                   <h4 class="font-weight-bolder text-white mb-4">Overview</h4>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="flex-overview justify-content-between">
                   @include('dashboard.views.overview_first')
                 </div>
               </div>
@@ -1024,6 +1024,10 @@
 
       var ctx3 = document.getElementById("chart-line2").getContext("2d");
 
+      var gradient = ctx3.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0.1, OPACITY.primaryWithOpacity6);   
+      gradient.addColorStop(0.3, OPACITY.primaryWithOpacity15);
+
       new Chart(ctx3, {
         type: "line",
         data: {
@@ -1033,9 +1037,9 @@
               tension: 0.5,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3bd3a9",
+              borderColor: OPACITY.primaryWithOpacity6,
               borderWidth: 0.7,
-              backgroundColor: "rgba(92,237,194,0.15)",
+              backgroundColor: gradient,
               fill: true,
               data: [20,15, 14, 11, 16, 11,13, 15, 17,18,19,20],
               maxBarThickness: 6

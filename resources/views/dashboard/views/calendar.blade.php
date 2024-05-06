@@ -15,10 +15,10 @@
   }
   else if(viewportWidth < 1500 && viewportWidth > 1400){
     breakPoint = 130;
-  }else if ( viewportWidth < 1400 && viewportWidth > 580){
+  }else if ( viewportWidth < 1400 && viewportWidth > 768){
     breakPoint = 100;
     range = 2;
-  }else if (viewportWidth < 579){
+  }else if (viewportWidth < 768){
     breakPoint = 29;
     range = 3;
   }
@@ -117,9 +117,9 @@
       scale: {
         color: {
         type: 'linear',
-        range: ['#e0e0e0','#61f2c6'],
+        range: ['#e0e0e0','#b2f35f'],
         domain: [0,1],
-        baseColor: '#323239',
+        baseColor: '#161f20',
         },
       },
     };

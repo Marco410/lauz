@@ -4,6 +4,7 @@ window.addEventListener("load", function () {
 });
 
 const totalNetPLElement = document.getElementById("totalNetPl");
+const totalNetPLElement2 = document.getElementById("totalNetPl2");
 
 $.ajax({
     url: URLS.netpl,
@@ -13,6 +14,8 @@ $.ajax({
         var className =
             response.totalNetPL > 0 ? "text-primary" : "text-danger";
         totalNetPLElement.innerHTML =
+            '<h6 class="' + className + '"> $' + response.totalNetPL + "</h6>";
+        totalNetPLElement2.innerHTML =
             '<h6 class="' + className + '"> $' + response.totalNetPL + "</h6>";
 
         const table = document.getElementById("myTable");
@@ -75,6 +78,19 @@ $.ajax({
         }
         const loaderTable = document.getElementById("loader-table");
         loaderTable.style.display = "none";
+    },
+    error: function (xhr, status, error) {
+        console.error(error);
+    },
+});
+
+$.ajax({
+    url: URLS.profitFactor,
+    type: "GET",
+    dataType: "json",
+    success: function (response) {
+        console.log("response");
+        console.log(response);
     },
     error: function (xhr, status, error) {
         console.error(error);

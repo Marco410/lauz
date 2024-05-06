@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h6 class="text-white " style="font-size: 13px;">Net P&L</h6>
-                    <h6 class="text-primary"> $2.500</h6>
+                    <h6 class="text-primary"  id="totalNetPl2"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h6>
                 </div>
             </div>
         </div>
@@ -308,6 +308,13 @@
         };
       var ctx2 = document.getElementById("chart-line").getContext("2d");
 
+      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke1.addColorStop(1, OPACITY.primaryWithOpacity6);
+      gradientStroke1.addColorStop(0.2, OPACITY.primaryWithOpacity15);
+      gradientStroke1.addColorStop(0, OPACITY.primaryWithOpacity6); 
+
+
       new Chart(ctx2, {
         type: "line",
         data: {
@@ -317,9 +324,9 @@
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3bd3a9",
+              borderColor: COLORS.primary,
               borderWidth: 0.7,
-              backgroundColor: "rgba(92,237,194,0.15)",
+              backgroundColor: gradientStroke1,
               fill: true,
               data: [50, 40, 300, 220, 500, 250, 400, 230],
               maxBarThickness: 6
@@ -333,14 +340,14 @@
 
       var ctx4 = document.getElementById("chart-bar").getContext("2d");
 
-        const labels2 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic','Ene','Feb','Mar','Jul', 'Ago', 'Sep',];
+        const labels2 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic','Ene','Feb','Mar'];
         const data2 = {
           labels: labels2,
           datasets: [
             {
               label: 'Dataset 1',
-              data: [10,18, 16, 10, 5, 14,20,15,8,12,24,5,16, 10, 5,8,12,24],
-              backgroundColor: '#ff4861',
+              data: [10,18, 16, 10, 5, 14,20,15,8,12,24,5,16, 10, 5],
+              backgroundColor: COLORS.third,
               borderColor : 'transparent',
             }
           ]
@@ -413,7 +420,7 @@
                 label: 'Dataset 1',
                 data: [18, 9],
                 backgroundColor: [
-                  'rgba(186,232,133,1)',
+                  COLORS.primary,
                   'rgba(243,244,247,1)'
                 ],
                 borderColor : 'transparent',
@@ -508,10 +515,10 @@
                 label: 'Dataset 1',
                 data: [2400, 1500,1000,800],
                 backgroundColor: [
-                  'rgba(115,186,249,1)',
-                  'rgba(86,227,186,1)',
-                  'rgba(253,73,97,1)',
-                  'rgba(247,217,112,1)'
+                  COLORS.primary,
+                  COLORS.secondaryColor,
+                  COLORS.third,
+                  COLORS.blue
                 ],
                 borderColor : 'transparent',
                 cutout:'70%',

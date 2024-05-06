@@ -2,10 +2,11 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl fixed-start" id="sidenav-main"  style="overflow: hidden"  >
   <div class="sidenav-header" >
     <i class="fas fa-times p-3 cursor-pointer opacity-5 position-absolute end-0 top-0 d-none d-xl-none justify-content-center" aria-hidden="true" id="iconSidenav"></i>
-    <div class="align-items-center d-flex m-0 navbar-brand text-wrap ">
-        <img class="mb-2 navbar-brand-img" src="{{ asset('assets/img/icons/more.png') }}" class="navbar-brand-img" height="20px" alt="lauz.io" id="iconHideShowSidenav">
-        <a class="" href="{{ route('dashboard') }}" style="background-color: var(--bgDark); padding-top: 10px; padding-right: 10px;border-radius: 8px;">
-        <h4 class="ms-3 font-weight-bold text-white brand-title">LAUZ.IO</h4>
+    <div class="align-items-center d-flex m-0 navbar-brand text-wrap " style="margin-top:15px">
+        <img class="navbar-brand-img" src="{{ asset('assets/img/icons/more.png') }}" class="navbar-brand-img" height="20px" alt="lauz.io" id="iconHideShowSidenav">
+        <a class="" href="{{ route('dashboard') }}" style="background-color: var(--bgDark);border-radius: 8px;">
+         {{-- <h4 class="ms-3 font-weight-bold text-white brand-title">LAUZ.IO</h4> --}}
+         <img src="{{ asset('assets/img/logo.svg') }}" class="image ms-3" height="35px" alt="">
         </a>
     </div>
   </div>
