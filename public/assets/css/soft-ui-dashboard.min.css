@@ -15721,7 +15721,7 @@ fieldset:disabled .btn {
     .dropdown:not(.dropdown-hover) .dropdown-menu {
         margin-top: 18px !important;
     }
-  
+
     .dropdown .dropdown-item .arrow {
         transform: rotate(-90deg);
     }
@@ -16701,9 +16701,6 @@ hr.horizontal.gray-light {
         left: 18% !important;
         position: absolute;
     }
-}
-.navbar {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
 }
 .navbar .nav-link,
 .navbar .navbar-brand {

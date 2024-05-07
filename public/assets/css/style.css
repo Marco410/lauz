@@ -78,6 +78,17 @@ span {
     background-color: var(--primary) !important;
 }
 
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:visited {
+    background-color: var(--third) !important;
+}
+
+.btn-link {
+    color: var(--third) !important;
+}
+
 .navbar-brand-img {
     cursor: pointer;
 }
@@ -201,7 +212,12 @@ select {
     font-family: "Inter Bold" !important;
 }
 
-.nav.nav-pills .nav-link.active {
+.nav.nav-pills .landing.nav-link.active {
+    border-left: 2px solid var(--primary) !important;
+    border-radius: 2px !important;
+}
+
+.nav.nav-pills .dash.nav-link.active {
     background-color: transparent !important;
     box-shadow: none !important;
     border-bottom: 2px solid var(--primary) !important;
@@ -350,4 +366,15 @@ tbody tr th.fc-col-header-cell {
 .flex-overview {
     display: flex;
     flex-direction: row;
+}
+
+.accordion-item,
+.accordion-item .accordion-button {
+    border: 0.3px solid var(--third) !important;
+    color: white !important;
+    border-radius: 5px !important;
+}
+
+.accordion-item {
+    margin: 10px;
 }

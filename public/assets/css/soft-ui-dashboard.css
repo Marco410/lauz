@@ -16481,9 +16481,6 @@ hr.horizontal.gray-light {
         transform: scale(0.6);
     }
 }
-.navbar {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
-}
 .navbar .nav-link,
 .navbar .navbar-brand {
     color: #344767;

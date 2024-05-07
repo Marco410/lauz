@@ -230,25 +230,25 @@
             <div class="col-sm-12">
               <ul class="nav nav-pills nav-fill mb-3 bg-transparent" id="pills-tab" role="tablist">
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 active " style="color: var(--blue);" data-bs-toggle="tab" data-bs-target="#pills-home"
+                      <a class="dash nav-link mb-0 px-0 py-1 active " style="color: var(--blue);" data-bs-toggle="tab" data-bs-target="#pills-home"
                           role="tab" >
                           <span class="ms-1" style="font-weight: bold;">Overview</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 " style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-profile"
+                      <a class="dash nav-link mb-0 px-0 py-1 " style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-profile"
                     role="tab" >
                       <span class="ms-1" style="font-weight: bold;">Trades</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-contact"
+                    <a class="dash nav-link mb-0 px-0 py-1 "  style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-contact"
                     role="tab" >
                       <span class="ms-1" style="font-weight: bold;">Period Analysis</span>
                       </a>
                   </li>
                   <li class="nav-item" role="presentation">
-                      <a class="nav-link mb-0 px-0 py-1 "  style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-ai"
+                      <a class="dash nav-link mb-0 px-0 py-1 "  style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-ai"
                       role="tab" >
                         <span class="ms-1" style="font-weight: bold;">Notes</span>
                         </a>
