@@ -1,6 +1,10 @@
 const URLS = {
+    accounts: "/get-accounts",
     netpl: "/get-netpl",
-    profitFactor: "/get-profit-factor",
+    overviewData: "/get-overview-data",
+    tradesTable: "/get-total-trades",
+    cumNetProfit: "/get-cum-net-profit",
+    netProfit: "/get-net-profit",
 };
 
 const COLORS = {

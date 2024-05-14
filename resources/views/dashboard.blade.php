@@ -66,18 +66,18 @@
                 <h6 class="text-danger" style="font-size: 15px"> 30 W</h6>
               </div>
               <div class="progress"  style="background-color: transparent;">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-primary" role="progressbar" id="progressWinRatio" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-white" role="progressbar" id="progressWinRatio2" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-              <div class="d-flex justify-content-center mt-2">
-                <h6 class="text-primary" style="font-size: 13px">70 %</h6>
+              <div class="d-flex justify-content-center mt-2" id="AvgWinRatio">
+                <h6 class="text-primary" style="font-size: 13px" > - %</h6>
               </div>
               <br>
               <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
               <h5 class="text-white">Cum Net Profit</h5>
-              
-            <div class="mt-4 mb-4" style="">
-              <div class="chart">
+              <div class="mt-4 mb-4 text-center" style="">
+                <div class="spinner-border text-primary spinner-border-md mt-3" id="loader-chart"  role="status"> </div>
+                <div class="chart">
                 <canvas id="chart-line2" class="chart-canvas" height="150"></canvas>
               </div>
             </div>
@@ -86,8 +86,6 @@
           <div class="row">
               <div class="col-sm-12 text-center">
                 <h5 class="text-white mb-4">Calendar</h5>
-  
-
                @include('dashboard.views.calendar')
               </div>
              
@@ -100,8 +98,7 @@
         <div class="card-body p-3">
           <div class="row">
             <div class="col-4">
-              <select name="how_often_invest" class="form-select">
-                <option selected value="Account">Account</option>
+              <select name="accounts" class="form-select">
               </select>
             </div>
             <div class="col-8 ">
@@ -192,8 +189,7 @@
             <div class="col-sm-9">
               <div class="row">
                 <div class="col-sm-4">
-                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
-                    <option selected value="Account">Account</option>
+                  <select name="accounts2" class="form-select" style="background-color: var(--bgDark) !important;">
                   </select>
                 </div>
                 <div class="col-sm-4">
@@ -235,13 +231,13 @@
                           <span class="ms-1" style="font-weight: bold;">Overview</span>
                       </a>
                   </li>
-                  <li class="nav-item" role="presentation">
+                  <li class="nav-item" role="presentation" id="tradesTab">
                       <a class="dash nav-link mb-0 px-0 py-1 " style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-profile"
-                    role="tab" >
+                    role="tab"  >
                       <span class="ms-1" style="font-weight: bold;">Trades</span>
                       </a>
                   </li>
-                  <li class="nav-item" role="presentation">
+                  <li class="nav-item" role="presentation" id="periodTab">
                     <a class="dash nav-link mb-0 px-0 py-1 "  style="color: var(--blue); "  data-bs-toggle="tab" data-bs-target="#pills-contact"
                     role="tab" >
                       <span class="ms-1" style="font-weight: bold;">Period Analysis</span>
@@ -957,7 +953,7 @@
 
 
 
-      var options = {
+     /*  var options = {
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
@@ -1041,14 +1037,14 @@
               borderWidth: 0.7,
               backgroundColor: gradient,
               fill: true,
-              data: [20,15, 14, 11, 16, 11,13, 15, 17,18,19,20],
+              data: datos2020TotalNetPL,
               maxBarThickness: 6
             },
           ],
         },
         options: options,
       });
-
+ */
       
 
 

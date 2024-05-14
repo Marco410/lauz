@@ -18,7 +18,8 @@
       <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Cum Net Profit</h6>
       </div>
-      <div class="card-body p-3 ">
+      <div class="card-body p-3 text-center">
+        <div class="spinner-border text-primary spinner-border-md mt-3" id="cumNetProfitLoader" role="status"> </div>
         <div class="chart">
           <canvas id="chart-line3" class="chart-canvas" height="200"></canvas>
         </div>
@@ -31,7 +32,8 @@
       <div class="card-header pb-0" style="background-color: var(--bgDark)">
         <h6 class="text-white">Net Profit</h6>
       </div>
-      <div class="card-body p-3 ">
+      <div class="card-body p-3 text-center">
+        <div class="spinner-border text-primary spinner-border-md mt-3" id="netProfitLoader" role="status"> </div>
         <div class="chart">
           <canvas id="chart-bar2" class="chart-canvas" height="150"></canvas>
         </div>
@@ -164,88 +166,11 @@
 
 
 @push('dashboard_chart_bar')
+<script src="../assets/js/lauz/tabs/period.js"></script>
 <script>
-   var ctx7 = document.getElementById("chart-line3").getContext("2d");
-
-   var gradientStroke3 = ctx7.createLinearGradient(92, 237, 193, 50);
-
-  gradientStroke3.addColorStop(1, OPACITY.primaryWithOpacity6);
-  gradientStroke3.addColorStop(0.1, OPACITY.primaryWithOpacity15);
-  gradientStroke3.addColorStop(0, OPACITY.primaryWithOpacity6); 
-
-    new Chart(ctx7, {
-      type: "line",
-      data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-        datasets: [{
-            label: "Mobile apps",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor:COLORS.primary,
-            borderWidth: 1,
-            backgroundColor: gradientStroke3,
-            fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230],
-            maxBarThickness: 6
-
-          },
-
-        ],
-      },
-      options: options
-    }); 
-
-    var ctx8 = document.getElementById("chart-bar2").getContext("2d");
-
-    const labels55 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic'];
-    const data55 = {
-      labels: labels55,
-      datasets: [
-        {
-          label: 'Dataset 1',
-          data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
-          backgroundColor: [
-                COLORS.third,
-              ],
-          borderColor : 'transparent',
-        }
-      ]
-    };
-    new Chart(ctx8, {
-      type: "bar",
-      data: data55,
-      options: {
-      responsive: true,
-      scales: {
-        r: {
-          pointLabels: {
-            display: true,
-            centerPointLabels: true,
-            font: {
-              size: 12
-            },
-          },
-          grid: {
-            color: 'rgba(255,255,255,0.2)',
-          }
-        }
-      },
-      plugins: {
-        legend: false,
-        title: {
-          display: false,
-          text: 'Chart.js Polar Area Chart With Centered Point Labels'
-        }
-      }
-    },
-    });
 
     var ctx9 = document.getElementById("chart-line4").getContext("2d");
-
-
-    var gradientStroke4 = ctx7.createLinearGradient(92, 237, 193, 50);
-
+    var gradientStroke4 = ctx9.createLinearGradient(92, 237, 193, 50);
     gradientStroke4.addColorStop(1, OPACITY.primaryWithOpacity6);
     gradientStroke4.addColorStop(0.1, OPACITY.primaryWithOpacity15);
     gradientStroke4.addColorStop(0, OPACITY.primaryWithOpacity6); 

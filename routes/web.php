@@ -37,10 +37,21 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/quiz', [RegisterController::class, 'quiz'])->name('quiz');
 	Route::post('/store-quiz', [RegisterController::class, 'storeQuiz'])->name('store.quiz');
 
+
+	//DASHBOARD
+	Route::get('/get-accounts', [BigQueryController::class, 'getAccounts'])->name('get.accounts');
 	Route::get('/get-netpl', [BigQueryController::class, 'getNetPL'])->name('get.netpl');
-	Route::get('/get-annual-return', [BigQueryController::class, 'getAnnualReturn'])->name('get.annual.return');
-	Route::get('/get-profit-factor', [BigQueryController::class, 'getProfitFactor'])->name('get.profit.factor');
-	Route::get('/get-win-lost', [BigQueryController::class, 'getWinLost'])->name('get.win.lost');
+	Route::get('/get-overview-data', [BigQueryController::class, 'getOverviewData'])->name('get.overview.data');
+	Route::get('/get-drawdown', [BigQueryController::class, 'getDrawDown'])->name('get.drawdown');
+	Route::get('/get-calendar', [BigQueryController::class, 'getCalendar'])->name('get.calendar');
+
+	//TRADES
+	Route::get('/get-total-trades', [BigQueryController::class, 'getTotalTrades'])->name('get.total.trades');
+
+	//PERIOD ANALYSIS
+	Route::get('/get-cum-net-profit', [BigQueryController::class, 'getCumNetProfit'])->name('get.cum.net.profit');
+	Route::get('/get-net-profit', [BigQueryController::class, 'getNetProfit'])->name('get.net.profit');
+
 
 	
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
@@ -61,29 +72,6 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('profile');
 	})->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
-
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
-
-	Route::get('tables', function () {
-		return view('tables');
-	})->name('tables');
-
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
-
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
-
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);

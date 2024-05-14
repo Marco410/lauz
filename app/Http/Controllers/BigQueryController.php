@@ -11,11 +11,6 @@ use App\Services\BigQueryService;
 class BigQueryController extends Controller
 {
 
-    /* $resultsArray = [];
-    foreach ($results as $row) {
-        $resultsArray[] = $row;
-    } */
-
     protected $bigQueryService;
 
     public function __construct(BigQueryService $bigQueryService)
@@ -23,8 +18,15 @@ class BigQueryController extends Controller
         $this->bigQueryService = $bigQueryService;
     }
 
-    public function getNetPL(Request $request)
-    {
+    public function getNetPL(Request $request){
+
+        $whereAccount= "";
+
+        if($request->account){
+            $whereAccount = "WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
 
         $query = "
             SELECT
@@ -42,6 +44,7 @@ class BigQueryController extends Controller
                     SUM(CAST(Profit AS FLOAT64)) AS NetPL
             FROM
                 `algolabreport.NewData.Total_Trades`
+            ".$whereAccount."
             GROUP BY
                 Instrument,
                 Year,
@@ -91,16 +94,48 @@ class BigQueryController extends Controller
         return response()->json($groupedData);
     }
 
-    public function getAnnualReturn(Request $request)
-    {   
-        $initial = "1";
+    public function getAccounts(Request $request){   
+        $query = "
+            SELECT 
+                User,Account
+            FROM 
+                `algolabreport.Metrics.Metrics_Accounts` 
+            WHERE 
+                User = '". auth()->user()->email ."'
+            ORDER BY
+                Account
+            ;
+        ";
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
+
+    public function getOverviewData(Request $request){   
+        $whereAccount= "";
+
+        if($request->account){
+            $whereAccount = "AND Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
 
         $query = "
-            SELECT
-                POWER((1 + (Sum(Profit)/".$initial.")),(365/DATETIME_DIFF(MAX(Date
-                Entry_time), MIN(Date Entry_time), DAY))) - 1;
-            FROM
-                `algolabreport.NewData.Total_Trades`;
+            SELECT 
+                User,Account, CAST(Inicial_Balance AS FLOAT64) AS Inicial_Balance, CAST(Net_PNL AS FLOAT64) AS Net_PNL , Q_Trades, Annual_Return, CAST(Profit_Factor AS FLOAT64) AS Profit_Factor, Avg_Win_Ratio, CAST(Avg_Win_Loss AS FLOAT64) AS Avg_Win_Loss, CAGR, CAST(DrawDown AS FLOAT64) AS DrawDown    
+            FROM 
+                `algolabreport.Metrics.Metrics_Accounts`
+            WHERE 
+                User = '". auth()->user()->email ."'
+            ".$whereAccount." 
+            ORDER BY
+                Account
+            ;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -111,49 +146,151 @@ class BigQueryController extends Controller
         }
         
         return response()->json($resultsArray);     
-        
-        $groupedData['totalNetPL'] = $totalNetPL;
-        return response()->json($groupedData);
     }
 
-    public function getProfitFactor(Request $request)
-    {   
+    public function getDrawDown(Request $request){   
         $query = "
-            SELECT
-                SUM(CASE WHEN Profit > 0 THEN Profit ELSE 0 END)/(SUM(CASE WHEN Profit <= 0 THEN Profit ELSE 0 END)* -1)
-            FROM
-                `algolabreport.NewData.Total_Trades`;
+            SELECT 
+                CAST(MIN(DrawDown) AS FLOAT64) AS DrawDown FROM `algolabreport.Metrics.Metrics_Accounts` 
+            WHERE 
+                User = '". auth()->user()->email ."';
         ";
 
         $results = $this->bigQueryService->runQuery($query);
 
-        foreach ($results as $row) {
-            return $row;
-        }
-
-        return response()->json($results->current());
-    }
-
-    public function getWinLost(Request $request)
-    {   
-        $query = "
-            SELECT
-                MIN(DrowDown)
-            FROM
-                `algolabreport.NewData.Total_Trades`;
-        ";
-
-        $results = $this->bigQueryService->runQuery($query);
-
-        
-   /*      $resultsArray = [];
+        $resultsArray = [];
         foreach ($results as $row) {
             $resultsArray[] = $row;
         }
         
-        return response()->json($resultsArray); */
+        return response()->json($resultsArray);     
+    }
 
-        return response()->json($results->current());
+    public function getCalendar(Request $request){ 
+        $query = "
+            SELECT 
+                Account,
+                Instrument,
+                CONCAT(
+                    EXTRACT(YEAR FROM Entry_Time),
+                    '-',
+                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    '-',
+                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0')
+                    ) AS EntryTime,
+            FROM
+                `algolabreport.NewData.Total_Trades`
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
+
+    public function getTotalTrades(Request $request){   
+        $query = "
+            SELECT 
+                Account,
+                Instrument,
+                Market_pos_,
+                Strategy,
+                QTY,
+                CAST(Cum_net_profit AS FLOAT64) AS CumNetProfit, 
+                CONCAT(
+                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    EXTRACT(YEAR FROM Entry_Time)
+                    ) AS EntryTime,
+                Entry_name,
+                CAST(Entry_price AS FLOAT64) AS EntryPrice, 
+                Exit_name,
+                CAST(Exit_price AS FLOAT64) AS ExitPrice, 
+                CAST(ETD AS FLOAT64) AS ETD, 
+                CONCAT(
+                    LPAD(CAST(EXTRACT(DAY FROM Exit_time) AS STRING),2,'0'),
+                    '/',
+                    LPAD(CAST(EXTRACT(MONTH FROM Exit_time) AS STRING),2,'0'),
+                    '/',
+                    EXTRACT(YEAR FROM Exit_time)
+                ) AS ExitTime,
+                CAST(MAE AS FLOAT64) AS MAE, 
+                CAST(MFE AS FLOAT64) AS MFE, 
+                CAST(Profit AS FLOAT64) AS Profit, 
+                CAST(Acum_Profit AS FLOAT64) AS AcumProfit, 
+                CAST(DrowDown AS FLOAT64) AS DrowDown, 
+            
+            FROM `algolabreport.NewData.Total_Trades` LIMIT 15;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
+
+    public function getCumNetProfit(Request $request){   
+        $query = "
+            SELECT 
+                Account, 
+                CONCAT(
+                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    EXTRACT(YEAR FROM Entry_Time)
+                    ) AS EntryTime,
+                CAST(Profit AS FLOAT64) AS Profit,
+            FROM 
+                `algolabreport.NewData.Total_Trades`
+            LIMIT 50;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
+
+    public function getNetProfit(Request $request){   
+        $query = "
+            SELECT 
+                Account, 
+                CONCAT(
+                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    '/',
+                    EXTRACT(YEAR FROM Entry_Time)
+                    ) AS EntryTime,
+                CAST(Profit AS FLOAT64) AS Profit,
+            FROM 
+                `algolabreport.NewData.Total_Trades`
+            LIMIT 20;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
     }
 
 }

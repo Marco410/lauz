@@ -90,6 +90,7 @@
 <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
 <script src="../assets/js/lauz/constants.js"></script>
+<script src="../assets/js/lauz/globals.js"></script>
 
 </head>
 
