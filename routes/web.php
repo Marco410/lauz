@@ -6,7 +6,9 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\BigQueryController;
+use App\Http\Controllers\Lauz\BigQueryController;
+use App\Http\Controllers\Lauz\PeriodTabController;
+use App\Http\Controllers\Lauz\AccountsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -39,19 +41,19 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	//DASHBOARD
-	Route::get('/get-accounts', [BigQueryController::class, 'getAccounts'])->name('get.accounts');
+	Route::get('/get-accounts', [AccountsController::class, 'getAccounts'])->name('get.accounts');
+
 	Route::get('/get-netpl', [BigQueryController::class, 'getNetPL'])->name('get.netpl');
 	Route::get('/get-overview-data', [BigQueryController::class, 'getOverviewData'])->name('get.overview.data');
-	Route::get('/get-drawdown', [BigQueryController::class, 'getDrawDown'])->name('get.drawdown');
+
 	Route::get('/get-calendar', [BigQueryController::class, 'getCalendar'])->name('get.calendar');
 
 	//TRADES
 	Route::get('/get-total-trades', [BigQueryController::class, 'getTotalTrades'])->name('get.total.trades');
 
 	//PERIOD ANALYSIS
-	Route::get('/get-cum-net-profit', [BigQueryController::class, 'getCumNetProfit'])->name('get.cum.net.profit');
-	Route::get('/get-net-profit', [BigQueryController::class, 'getNetProfit'])->name('get.net.profit');
-
+	Route::get('/get-net-profit', [PeriodTabController::class, 'getNetProfit'])->name('get.net.profit');
+	Route::get('/get-max-drawdown', [PeriodTabController::class, 'getMaxDrawdown'])->name('get.max.drawdown');
 
 	
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
@@ -86,7 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'guest'], function () {
 	
 
-    Route::get('/register', [RegisterController::class, 'create']);
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/login', [SessionsController::class, 'create']);
     Route::post('/session', [SessionsController::class, 'store']);

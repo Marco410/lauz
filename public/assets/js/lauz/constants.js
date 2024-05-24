@@ -3,8 +3,9 @@ const URLS = {
     netpl: "/get-netpl",
     overviewData: "/get-overview-data",
     tradesTable: "/get-total-trades",
-    cumNetProfit: "/get-cum-net-profit",
     netProfit: "/get-net-profit",
+    getCalendarNetProfit: "/get-calendar",
+    getMaxDrawdown: "/get-max-drawdown",
 };
 
 const COLORS = {

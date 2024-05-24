@@ -157,7 +157,7 @@
                 <h3 class="text-white">Resultados que destacan el éxito de nuestros usuarios</h3>
                 <p class="text-white">¡Traders, es hora de descubrir un nuevo mundo de posibilidades en el trading! En LAUZ, te invitamos a explorar nuestro Journal Web público, donde podrás acceder y detallar las estadísticas y resultados de otros traders. ¿Quieres conocer las estrategias exitosas que están generando ganancias? ¿Deseas aprender de las experiencias de traders con trayectorias comprobadas? Con nuestro Journal Web, tienes la oportunidad de sumergirte en el análisis detallado de operaciones de otros traders, permitiéndote aprender, inspirarte y mejorar tus propias estrategias. Únete a LAUZ hoy mismo y comienza a descubrir las claves del éxito en el trading a través de nuestro Journal Web público.</p>
                 <button class="btn btn-outline-primary btn-sm mt-4" type="button">Descubre</button>
-                <button class="btn btn-link btn-sm mt-4" type="button">Regístrate</button>
+                <a class="btn btn-link btn-sm mt-4" href="{{ url('register') }}" type="button">Regístrate</a>
               </div>
           </div>
       </div>
@@ -200,7 +200,7 @@
             </div>
             <div class="col-sm-12 text-center mb-4 mt-4">
                 <button class="btn btn-outline-primary btn-sm mt-4" type="button">Descubre</button>
-                <button class="btn btn-link btn-sm mt-4" type="button">Regístrate</button>
+                <a class="btn btn-link btn-sm mt-4" href="{{ url('register') }}" type="button">Regístrate</a>
             </div>
         </div>
     </div>
@@ -215,8 +215,8 @@
           </div>
           <div class="col-sm-4"></div>
           <div class="col-sm-4">
-            <button class="btn btn-link btn-sm mt-4" type="button">Regístrate</button>
-            <button class="btn btn-outline-primary btn-sm mt-4" type="button">Comienza</button>
+            <a class="btn btn-link btn-sm mt-4" href="{{ url('register') }}" type="button">Regístrate</a>
+            <a class="btn btn-outline-primary btn-sm mt-4"  type="button">Comienza</a>
           </div>
         </div>
     </div>

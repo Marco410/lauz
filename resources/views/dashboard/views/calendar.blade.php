@@ -3,7 +3,7 @@
 @endpush
 
 <div class="col-sm-12 text-center justify-content-center align-items-center">
-  <div class="spinner-border text-primary spinner-border-md text-center" style="margin-left: 30px" id="loaderCalendar"  role="status"> </div>
+  <div id="calendarLoader"></div>
   <div id="cal-heatmap"></div>
 </div>
 <div class="d-flex justify-content-between" style="padding-left: 50px; padding-right: 50px; margin-top: 20px">

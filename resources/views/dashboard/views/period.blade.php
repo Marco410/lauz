@@ -127,7 +127,8 @@
         <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Cum Max Drawdown</h6>
         </div>
-        <div class="card-body p-3 ">
+        <div class="card-body p-3 text-center">
+          <div class="spinner-border text-primary spinner-border-md mt-3" id="cumMaxDrawdown" role="status"> </div>
           <div class="chart">
             <canvas id="chart-line4" class="chart-canvas" height="200"></canvas>
           </div>
@@ -140,7 +141,8 @@
         <div class="card-header pb-0" style="background-color: var(--bgDark)">
           <h6 class="text-white">Max Drawdown</h6>
         </div>
-        <div class="card-body p-3 ">
+        <div class="card-body p-3 text-center">
+          <div class="spinner-border text-primary spinner-border-md mt-3" id="maxDrawDown" role="status"> </div>
           <div class="chart">
             <canvas id="chart-bar3" class="chart-canvas" height="150"></canvas>
           </div>
@@ -167,82 +169,4 @@
 
 @push('dashboard_chart_bar')
 <script src="../assets/js/lauz/tabs/period.js"></script>
-<script>
-
-    var ctx9 = document.getElementById("chart-line4").getContext("2d");
-    var gradientStroke4 = ctx9.createLinearGradient(92, 237, 193, 50);
-    gradientStroke4.addColorStop(1, OPACITY.primaryWithOpacity6);
-    gradientStroke4.addColorStop(0.1, OPACITY.primaryWithOpacity15);
-    gradientStroke4.addColorStop(0, OPACITY.primaryWithOpacity6); 
-
-
-      new Chart(ctx9, {
-        type: "line",
-        data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-          datasets: [{
-              label: "Mobile apps",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: COLORS.primary,
-              borderWidth: 1,
-              backgroundColor: gradientStroke4,
-              fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230],
-              maxBarThickness: 6
-
-            },
-      
-          ],
-        },
-        options:options,
-      }); 
-
-
-      var ctx10 = document.getElementById("chart-bar3").getContext("2d");
-
-        const labels7 =['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic'];
-        const data7 = {
-          labels: labels7,
-          datasets: [
-            {
-              label: 'Dataset 1',
-              data: [10,11, 16, 10, 5, 14,20,15,8,12,24,5],
-              backgroundColor: [
-                COLORS.third,
-              ],
-              borderColor : 'transparent',
-            }
-          ]
-        };
-        new Chart(ctx10, {
-          type: "bar",
-          data: data7,
-          options: {
-          responsive: true,
-          scales: {
-            r: {
-              pointLabels: {
-                display: true,
-                centerPointLabels: true,
-                font: {
-                  size: 12
-                },
-              },
-              grid: {
-                color: 'rgba(255,255,255,0.2)',
-              }
-            }
-          },
-          plugins: {
-            legend: false,
-            title: {
-              display: false,
-              text: 'Chart.js Polar Area Chart With Centered Point Labels'
-            }
-          }
-        },
-        });
-</script>
 @endpush

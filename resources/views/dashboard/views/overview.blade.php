@@ -6,7 +6,7 @@
           <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
             <div class="row">
                 <div class="col-sm-12">
-                    <h6 class="text-white " style="font-size: 13px;">Net P&L</h6>
+                    <h6 class="text-white " style="font-size: 13px;">MFE</h6>
                     <h6 class="text-primary"  id="totalNetPl2"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h6>
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 13px;">Annual Return</h6>
+                  <h6 class="text-white " style="font-size: 13px;">MAE</h6>
                   <h6 class="text-primary" id="annualReturn2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
               </div>
           </div>
@@ -22,7 +22,7 @@
       <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
           <div class="row">
               <div class="col-sm-12">
-                  <h6 class="text-white " style="font-size: 13px;">DrawDown</h6>
+                  <h6 class="text-white " style="font-size: 13px;">Avg. Trade</h6>
                   <h6 class="text-danger" id="DrawDown2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
               </div>
           </div>
@@ -35,7 +35,7 @@
           <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
               <div class="row">
                   <div class="col-sm-12">
-                      <h6 class="text-white " style="font-size: 13px;">Profit Factor</h6>
+                      <h6 class="text-white " style="font-size: 12px;">Avg. #Trades per Day</h6>
                       <h6 class="text-primary" id="profitFactor2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                   </div>
               </div>
@@ -43,7 +43,7 @@
           <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
               <div class="row">
                   <div class="col-sm-12">
-                      <h6 class="text-white " style="font-size: 13px;">Avg Win/Loss</h6>
+                      <h6 class="text-white " style="font-size: 13px;">Commision</h6>
                       <h6 class="text-primary" id="avgWinLoss2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                   </div>
               </div>
@@ -51,7 +51,7 @@
           <div class="card text-center rounded-4 justify-content-center m-1 px-1" style="height: 80px; width: 100%; background-color: var(--bgDark);">
             <div class="row">
                 <div class="col-sm-12">
-                    <h6 class="text-white " style="font-size: 13px;">Q.Trades</h6>
+                    <h6 class="text-white " style="font-size: 13px;">Sharpe Ratio</h6>
                     <h6 class="text-primary" id="QTrades2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                 </div>
             </div>

@@ -29,6 +29,8 @@ function getOverviewData() {
         dataType: "json",
         data: {
             account: accountSelected,
+            initDate: initDate,
+            endDate: endDate,
         },
         success: function (data) {
             let minDrawDown = 0;
@@ -161,8 +163,6 @@ function getOverviewData() {
             progressWinRatioElement2.style.width =
                 Math.abs(maxAvgWinRatio - 100) + "%";
         },
-        error: function (xhr, status, error) {
-            console.error(error);
-        },
+        error: function (xhr, status, error) {},
     });
 }

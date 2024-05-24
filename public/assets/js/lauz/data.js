@@ -11,6 +11,11 @@ const loaderChart = document.getElementById("loader-chart");
 let accountsSelectGlobal = document.querySelector('select[name="accounts"]');
 let accountsSelectGlobal2 = document.querySelector('select[name="accounts2"]');
 
+let initDateGlobal = document.querySelector('input[name="initDate"]');
+let initDateGlobal2 = document.querySelector('input[name="initDate2"]');
+let endDateGlobal = document.querySelector('input[name="endDate"]');
+let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
+
 let datosTotalNetPL = [];
 let datosMeses = [];
 const nombresMeses = [
@@ -58,8 +63,7 @@ function getAccounts() {
             });
 
             accountSelected = accountsGlobal[0];
-            getNetPL();
-            getOverviewData();
+            getAllData(true);
         },
         error: function (xhr, status, error) {
             console.error(error);
@@ -70,14 +74,55 @@ function getAccounts() {
 accountsSelectGlobal.addEventListener("change", handleSelectAccount);
 accountsSelectGlobal2.addEventListener("change", handleSelectAccount);
 
+initDateGlobal.addEventListener("change", handleChangeInitDate);
+initDateGlobal2.addEventListener("change", handleChangeInitDate);
+endDateGlobal.addEventListener("change", handleChangeEndDate);
+endDateGlobal2.addEventListener("change", handleChangeEndDate);
+
 function handleSelectAccount(event) {
-    var selectedValue = event.target.value;
+    let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
     accountsSelectGlobal2.value = selectedValue;
     accountSelected = selectedValue;
+    getAllData(false);
+}
 
+function handleChangeInitDate(event) {
+    let selectedDate = event.target.value;
+    initDate = selectedDate;
+    initDateGlobal.value = initDate;
+    initDateGlobal2.value = initDate;
+}
+
+function handleChangeEndDate(event) {
+    let selectedDate = event.target.value;
+    endDate = selectedDate;
+    if (initDate != "") {
+        if (Date.parse(endDate) < Date.parse(initDate)) {
+            alert("Please select a new date");
+            endDateGlobal.value = "";
+            endDateGlobal2.value = "";
+        } else {
+            endDateGlobal.value = endDate;
+            endDateGlobal2.value = endDate;
+        }
+    } else {
+        alert("Please select an initial date");
+        endDateGlobal.value = "";
+        endDateGlobal2.value = "";
+    }
+    getAllData(false);
+}
+
+function getAllData(isOnLoad) {
     getOverviewData();
     getNetPL();
+    getCalendarNetProfit();
+    if (!isOnLoad) {
+        //Functions that no need to be executed on load
+        getNetProfit();
+        getMaxDrawdow();
+    }
 }
 
 function getNetPL() {
@@ -90,6 +135,8 @@ function getNetPL() {
         dataType: "json",
         data: {
             account: accountSelected,
+            initDate: initDate,
+            endDate: endDate,
         },
         success: function (response) {
             var className =
@@ -184,6 +231,8 @@ function getNetPL() {
         },
         error: function (xhr, status, error) {
             console.error(error);
+            loaderTable.style.display = "none";
+            loaderChart.style.display = "none";
         },
     });
 }

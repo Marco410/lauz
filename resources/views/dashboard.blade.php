@@ -105,12 +105,12 @@
               <div class="row justify-content-end">
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control datepicker-input" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+                    <input type="date" class="form-control datepicker-input" placeholder="dd/mm/yyyy" name="initDate" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
+                    <input type="date" class="form-control" name="endDate" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
               </div>
@@ -208,12 +208,12 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2" style="background-color: var(--bgDark) !important;">
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2" name="initDate2" style="background-color: var(--bgDark) !important;">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2" style="background-color: var(--bgDark) !important;">
+                    <input type="date" class="form-control" placeholder="dd/mm/yyyy" aria-label="" name="endDate2" aria-describedby="basic-addon2" style="background-color: var(--bgDark) !important;">
                   </div>
                 </div>
               </div>

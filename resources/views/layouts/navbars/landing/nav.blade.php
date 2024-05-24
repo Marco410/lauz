@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-sm btn-secondary mt-3" style="margin-right: 10px;" href="{{ url('login') }}">
+          <a class="btn btn-sm btn-secondary mt-3" style="margin-right: 10px;" href="{{ url('register') }}">
             Registrarse
           </a>
         </li>

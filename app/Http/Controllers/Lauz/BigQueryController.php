@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Lauz;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,12 @@ class BigQueryController extends Controller
             $whereAccount = "";
         }
 
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
         $query = "
             SELECT
                 Instrument,
@@ -45,6 +52,7 @@ class BigQueryController extends Controller
             FROM
                 `algolabreport.NewData.Total_Trades`
             ".$whereAccount."
+            ".$whereDate." 
             GROUP BY
                 Instrument,
                 Year,
@@ -94,36 +102,16 @@ class BigQueryController extends Controller
         return response()->json($groupedData);
     }
 
-    public function getAccounts(Request $request){   
-        $query = "
-            SELECT 
-                User,Account
-            FROM 
-                `algolabreport.Metrics.Metrics_Accounts` 
-            WHERE 
-                User = '". auth()->user()->email ."'
-            ORDER BY
-                Account
-            ;
-        ";
-        $results = $this->bigQueryService->runQuery($query);
-
-        $resultsArray = [];
-        foreach ($results as $row) {
-            $resultsArray[] = $row;
-        }
-        
-        return response()->json($resultsArray);     
-    }
+  
 
     public function getOverviewData(Request $request){   
         $whereAccount= "";
-
         if($request->account){
-            $whereAccount = "AND Account = '". $request->account. "'";
+            $whereAccount = " AND Account = '". $request->account. "'";
         }else{
             $whereAccount = "";
         }
+
 
         $query = "
             SELECT 
@@ -132,28 +120,10 @@ class BigQueryController extends Controller
                 `algolabreport.Metrics.Metrics_Accounts`
             WHERE 
                 User = '". auth()->user()->email ."'
-            ".$whereAccount." 
+            ".$whereAccount."
             ORDER BY
                 Account
             ;
-        ";
-
-        $results = $this->bigQueryService->runQuery($query);
-
-        $resultsArray = [];
-        foreach ($results as $row) {
-            $resultsArray[] = $row;
-        }
-        
-        return response()->json($resultsArray);     
-    }
-
-    public function getDrawDown(Request $request){   
-        $query = "
-            SELECT 
-                CAST(MIN(DrawDown) AS FLOAT64) AS DrawDown FROM `algolabreport.Metrics.Metrics_Accounts` 
-            WHERE 
-                User = '". auth()->user()->email ."';
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -167,10 +137,21 @@ class BigQueryController extends Controller
     }
 
     public function getCalendar(Request $request){ 
+        $whereAccount= "";
+        if($request->account){
+            $whereAccount = "WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
+        
         $query = "
             SELECT 
                 Account,
                 Instrument,
+                SUM(CAST(Profit AS FLOAT64)) AS NetPL,
+                EXTRACT(YEAR FROM Entry_Time) AS Year,
+                EXTRACT(MONTH FROM Entry_Time) AS Month,
+                EXTRACT(DAYOFYEAR FROM Entry_Time) AS Day,
                 CONCAT(
                     EXTRACT(YEAR FROM Entry_Time),
                     '-',
@@ -180,6 +161,19 @@ class BigQueryController extends Controller
                     ) AS EntryTime,
             FROM
                 `algolabreport.NewData.Total_Trades`
+            ".$whereAccount."
+            GROUP BY
+                Account,
+                Instrument,
+                Year,
+                Month,
+                Day,
+                Entry_Time
+            ORDER BY
+                Year DESC,
+                Month DESC,
+                Day DESC
+            ;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -239,34 +233,20 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);     
     }
 
-    public function getCumNetProfit(Request $request){   
-        $query = "
-            SELECT 
-                Account, 
-                CONCAT(
-                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
-                    '/',
-                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
-                    '/',
-                    EXTRACT(YEAR FROM Entry_Time)
-                    ) AS EntryTime,
-                CAST(Profit AS FLOAT64) AS Profit,
-            FROM 
-                `algolabreport.NewData.Total_Trades`
-            LIMIT 50;
-        ";
+    public function getNetProfit(Request $request){   
+        $whereAccount= "";
 
-        $results = $this->bigQueryService->runQuery($query);
-
-        $resultsArray = [];
-        foreach ($results as $row) {
-            $resultsArray[] = $row;
+        if($request->account){
+            $whereAccount = "WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
         }
         
-        return response()->json($resultsArray);     
-    }
-
-    public function getNetProfit(Request $request){   
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
         $query = "
             SELECT 
                 Account, 
@@ -280,7 +260,11 @@ class BigQueryController extends Controller
                 CAST(Profit AS FLOAT64) AS Profit,
             FROM 
                 `algolabreport.NewData.Total_Trades`
-            LIMIT 20;
+            ".$whereAccount."
+            ".$whereDate."
+            ORDER BY
+                Account
+            ;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
