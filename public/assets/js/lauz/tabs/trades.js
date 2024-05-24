@@ -3,9 +3,168 @@ const loaderTradesTable = document.getElementById("loaderTradesTable");
 tradesTab.addEventListener("click", () => {
     getTradesTable();
 });
+$.fn.dataTable.moment("DD/MM/YYYY");
+
+var table = $("#trades-table").DataTable({
+    responsive: true,
+    fixedHeader: true,
+    searching: false,
+    ajax: {
+        type: "get",
+        url: URLS.tradesTable,
+        dataSrc: function (data) {
+            loaderTradesTable.style.display = "none";
+            return data;
+        },
+        error: function (e) {
+            loaderTradesTable.style.display = "none";
+        },
+    },
+    layout: {
+        topStart: null,
+        bottomStart: "pageLength",
+    },
+    order: [8, "des"],
+    columns: [
+        {
+            data: null,
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${
+                    meta.row + 1
+                }</small>`;
+            },
+        },
+        {
+            data: "Instrument",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Account",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Strategy",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Market_pos_",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "QTY",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "EntryPrice",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "ExitPrice",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "EntryTime",
+            render: function (data, type, row, meta) {
+                // Usa moment.js para convertir la fecha al formato ISO
+                var date = moment(data, "DD/MM/YYYY").format("YYYY-MM-DD");
+                return `<small class="text-xs" style="color: var(--textGray);">${date}</small>`;
+            },
+            type: "datetime",
+        },
+        {
+            data: "ExitTime",
+            render: function (data, type, row, meta) {
+                var date = moment(data, "DD/MM/YYYY").format("YYYY-MM-DD");
+                return `<small class="text-xs" style="color: var(--textGray);">${date}</small>`;
+            },
+            type: "datetime",
+        },
+        {
+            data: "Entry_name",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Exit_name",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Profit",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "CumNetProfit",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "DrowDown",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">-</small>`;
+            },
+        },
+        {
+            data: "MAE",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "MFE",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "ETD",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+
+        {
+            data: "AcumProfit",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">-</small>`;
+            },
+        },
+    ],
+});
+
+$.fn.dataTable.moment("DD/MM/YYYY");
 
 function getTradesTable() {
-    $.ajax({
+    /*  $.ajax({
         url: URLS.tradesTable,
         type: "GET",
         dataType: "json",
@@ -74,5 +233,5 @@ function getTradesTable() {
             console.error(error);
             loaderTradesTable.style.display = "none";
         },
-    });
+    }); */
 }

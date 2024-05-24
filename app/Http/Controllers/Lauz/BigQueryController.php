@@ -220,7 +220,7 @@ class BigQueryController extends Controller
                 CAST(Acum_Profit AS FLOAT64) AS AcumProfit, 
                 CAST(DrowDown AS FLOAT64) AS DrowDown, 
             
-            FROM `algolabreport.NewData.Total_Trades` LIMIT 15;
+            FROM `algolabreport.NewData.Total_Trades`;
         ";
 
         $results = $this->bigQueryService->runQuery($query);

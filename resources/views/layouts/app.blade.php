@@ -23,6 +23,10 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/datatables.min.css" rel="stylesheet">
+
   <!-- CSS Files -->
   <link id="pageMainStyle" href="../assets/css/style.css" rel="stylesheet" />
   <link id="pageMainStyle" href="../assets/css/responsive.css" rel="stylesheet" />
@@ -40,9 +44,14 @@
   <script src="https://unpkg.com/cal-heatmap/dist/plugins/Tooltip.min.js"></script>
   <script src="https://unpkg.com/cal-heatmap/dist/plugins/CalendarLabel.min.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+
+  
 
   <script>
-
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -110,6 +119,10 @@
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/datatables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.10.24/sorting/datetime-moment.js"></script>
   @stack('rtl')
   @stack('dashboard')
   @stack('dashboard_chart_bar')
