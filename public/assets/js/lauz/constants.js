@@ -6,6 +6,8 @@ const URLS = {
     netProfit: "/get-net-profit",
     getCalendarNetProfit: "/get-calendar",
     getMaxDrawdown: "/get-max-drawdown",
+    createNote: "/create-note",
+    getNotes: "/notes",
 };
 
 const COLORS = {

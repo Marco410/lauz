@@ -9,6 +9,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Lauz\BigQueryController;
 use App\Http\Controllers\Lauz\PeriodTabController;
 use App\Http\Controllers\Lauz\AccountsController;
+use App\Http\Controllers\Lauz\NoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,9 @@ Route::group(['middleware' => 'auth'], function () {
 	//PERIOD ANALYSIS
 	Route::get('/get-net-profit', [PeriodTabController::class, 'getNetProfit'])->name('get.net.profit');
 	Route::get('/get-max-drawdown', [PeriodTabController::class, 'getMaxDrawdown'])->name('get.max.drawdown');
+
+	Route::get('/notes', [NoteController::class, 'get'])->name('notes');
+	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
 
 	
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

@@ -446,3 +446,8 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
     font-size: 0.5em !important;
     line-height: 7px !important;
 }
+
+.card-body.note p strong,
+.card-body.note p span {
+    color: white !important;
+}
