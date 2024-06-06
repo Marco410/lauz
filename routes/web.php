@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/get-calendar', [BigQueryController::class, 'getCalendar'])->name('get.calendar');
 
+    Route::get('/get-mfe', [BigQueryController::class, 'getMFE'])->name('get.mfe');
 	//TRADES
 	Route::get('/get-total-trades', [BigQueryController::class, 'getTotalTrades'])->name('get.total.trades');
 
@@ -59,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/notes', [NoteController::class, 'get'])->name('notes');
 	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
 
-	
+
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 	Route::get('my-accounts', function () {
@@ -90,7 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::group(['middleware' => 'guest'], function () {
-	
+
 
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
     Route::post('/register', [RegisterController::class, 'store']);

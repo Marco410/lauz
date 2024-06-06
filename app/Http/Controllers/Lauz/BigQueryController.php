@@ -43,8 +43,8 @@ class BigQueryController extends Controller
                 EXTRACT(WEEK FROM Entry_Time) AS Week,
                 EXTRACT(DAYOFYEAR FROM Entry_Time) AS Day,
                 EXTRACT(HOUR FROM Entry_Time) AS Hour,
-                CONCAT(EXTRACT(HOUR FROM Entry_Time), ':', 
-                    CASE 
+                CONCAT(EXTRACT(HOUR FROM Entry_Time), ':',
+                    CASE
                         WHEN EXTRACT(MINUTE FROM Entry_Time) <= 29 THEN '00'
                         ELSE '30'
                     END) AS Half_Hour,
@@ -52,7 +52,7 @@ class BigQueryController extends Controller
             FROM
                 `algolabreport.NewData.Total_Trades`
             ".$whereAccount."
-            ".$whereDate." 
+            ".$whereDate."
             GROUP BY
                 Instrument,
                 Year,
@@ -69,42 +69,42 @@ class BigQueryController extends Controller
                 Day,
                 Hour,
                 Half_Hour;
-        
+
         ";
 
         $results = $this->bigQueryService->runQuery($query);
 
         $resultsArray = [];
         $groupedData = [];
-        $totalNetPL = 0; 
-        
+        $totalNetPL = 0;
+
         foreach ($results as $row) {
             $year = $row['Year'];
             $month = $row['Month'];
-        
+
             if (!isset($groupedData[$year])) {
                 $groupedData[$year] = [];
             }
-        
+
             if (!isset($groupedData[$year][$month])) {
                 $groupedData[$year][$month] = [
-                    'totalNetPL' => 0, 
-                    'data' => [] 
+                    'totalNetPL' => 0,
+                    'data' => []
                 ];
             }
-        
+
             $groupedData[$year][$month]['totalNetPL'] += $row['NetPL'];
             $totalNetPL += $row['NetPL'];
             $groupedData[$year][$month]['data'][] = $row;
         }
-        
+
         $groupedData['totalNetPL'] = $totalNetPL;
         return response()->json($groupedData);
     }
 
-  
 
-    public function getOverviewData(Request $request){   
+
+    public function getOverviewData(Request $request){
         $whereAccount= "";
         if($request->account){
             $whereAccount = " AND Account = '". $request->account. "'";
@@ -114,11 +114,11 @@ class BigQueryController extends Controller
 
 
         $query = "
-            SELECT 
-                User,Account, CAST(Inicial_Balance AS FLOAT64) AS Inicial_Balance, CAST(Net_PNL AS FLOAT64) AS Net_PNL , Q_Trades, Annual_Return, CAST(Profit_Factor AS FLOAT64) AS Profit_Factor, Avg_Win_Ratio, CAST(Avg_Win_Loss AS FLOAT64) AS Avg_Win_Loss, CAGR, CAST(DrawDown AS FLOAT64) AS DrawDown    
-            FROM 
+            SELECT
+                User,Account, CAST(Inicial_Balance AS FLOAT64) AS Inicial_Balance, CAST(Net_PNL AS FLOAT64) AS Net_PNL , Q_Trades, Annual_Return, CAST(Profit_Factor AS FLOAT64) AS Profit_Factor, Avg_Win_Ratio, CAST(Avg_Win_Loss AS FLOAT64) AS Avg_Win_Loss, CAGR, CAST(DrawDown AS FLOAT64) AS DrawDown
+            FROM
                 `algolabreport.Metrics.Metrics_Accounts`
-            WHERE 
+            WHERE
                 User = '". auth()->user()->email ."'
             ".$whereAccount."
             ORDER BY
@@ -132,20 +132,20 @@ class BigQueryController extends Controller
         foreach ($results as $row) {
             $resultsArray[] = $row;
         }
-        
-        return response()->json($resultsArray);     
+
+        return response()->json($resultsArray);
     }
 
-    public function getCalendar(Request $request){ 
+    public function getCalendar(Request $request){
         $whereAccount= "";
         if($request->account){
             $whereAccount = "WHERE Account = '". $request->account. "'";
         }else{
             $whereAccount = "";
         }
-        
+
         $query = "
-            SELECT 
+            SELECT
                 Account,
                 Instrument,
                 SUM(CAST(Profit AS FLOAT64)) AS NetPL,
@@ -182,19 +182,19 @@ class BigQueryController extends Controller
         foreach ($results as $row) {
             $resultsArray[] = $row;
         }
-        
-        return response()->json($resultsArray);     
+
+        return response()->json($resultsArray);
     }
 
-    public function getTotalTrades(Request $request){   
+    public function getTotalTrades(Request $request){
         $query = "
-            SELECT 
+            SELECT
                 Account,
                 Instrument,
                 Market_pos_,
                 Strategy,
                 QTY,
-                CAST(Cum_net_profit AS FLOAT64) AS CumNetProfit, 
+                CAST(Cum_net_profit AS FLOAT64) AS CumNetProfit,
                 CONCAT(
                     LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
                     '/',
@@ -203,10 +203,10 @@ class BigQueryController extends Controller
                     EXTRACT(YEAR FROM Entry_Time)
                     ) AS EntryTime,
                 Entry_name,
-                CAST(Entry_price AS FLOAT64) AS EntryPrice, 
+                CAST(Entry_price AS FLOAT64) AS EntryPrice,
                 Exit_name,
-                CAST(Exit_price AS FLOAT64) AS ExitPrice, 
-                CAST(ETD AS FLOAT64) AS ETD, 
+                CAST(Exit_price AS FLOAT64) AS ExitPrice,
+                CAST(ETD AS FLOAT64) AS ETD,
                 CONCAT(
                     LPAD(CAST(EXTRACT(DAY FROM Exit_time) AS STRING),2,'0'),
                     '/',
@@ -214,12 +214,12 @@ class BigQueryController extends Controller
                     '/',
                     EXTRACT(YEAR FROM Exit_time)
                 ) AS ExitTime,
-                CAST(MAE AS FLOAT64) AS MAE, 
-                CAST(MFE AS FLOAT64) AS MFE, 
-                CAST(Profit AS FLOAT64) AS Profit, 
-                CAST(Acum_Profit AS FLOAT64) AS AcumProfit, 
-                CAST(DrowDown AS FLOAT64) AS DrowDown, 
-            
+                CAST(MAE AS FLOAT64) AS MAE,
+                CAST(MFE AS FLOAT64) AS MFE,
+                CAST(Profit AS FLOAT64) AS Profit,
+                CAST(Acum_Profit AS FLOAT64) AS AcumProfit,
+                CAST(DrowDown AS FLOAT64) AS DrowDown,
+
             FROM `algolabreport.NewData.Total_Trades`;
         ";
 
@@ -229,11 +229,11 @@ class BigQueryController extends Controller
         foreach ($results as $row) {
             $resultsArray[] = $row;
         }
-        
-        return response()->json($resultsArray);     
+
+        return response()->json($resultsArray);
     }
 
-    public function getNetProfit(Request $request){   
+    public function getNetProfit(Request $request){
         $whereAccount= "";
 
         if($request->account){
@@ -241,15 +241,15 @@ class BigQueryController extends Controller
         }else{
             $whereAccount = "";
         }
-        
+
         if($request->endDate){
             $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
         }else{
             $whereDate = "";
         }
         $query = "
-            SELECT 
-                Account, 
+            SELECT
+                Account,
                 CONCAT(
                     LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
                     '/',
@@ -258,7 +258,7 @@ class BigQueryController extends Controller
                     EXTRACT(YEAR FROM Entry_Time)
                     ) AS EntryTime,
                 CAST(Profit AS FLOAT64) AS Profit,
-            FROM 
+            FROM
                 `algolabreport.NewData.Total_Trades`
             ".$whereAccount."
             ".$whereDate."
@@ -273,8 +273,91 @@ class BigQueryController extends Controller
         foreach ($results as $row) {
             $resultsArray[] = $row;
         }
-        
-        return response()->json($resultsArray);     
+
+        return response()->json($resultsArray);
     }
 
+    public function getMFE(Request $request){
+
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
+        if($request->user){
+            $whereUser = " AND  User = '". $request->user. "'";
+        }else{
+            $whereUser = "";
+        }
+
+        if($request->account){
+            $whereAccount = " AND  Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
+        if($request->Instrument){
+            $whereInstrument = " AND  Instrument = '". $request->Instrument. "'";
+        }
+        else{
+            $whereInstrument = "";
+        }
+        $query = "
+        SELECT
+            T.User,
+            T.Account,
+            CAST(SUM(T.Net_PNL) AS FLOAT64) AS Net_PNL,
+            CAST(SUM(T.Commission) AS FLOAT64) AS Commission,
+            CAST(AVG(T.Avg_MFE) AS FLOAT64) AS MFE,
+            CAST(AVG(T.Avg_MAE) AS FLOAT64) AS MAE,
+            CAST(SUM(T.Profit) / COUNT(DISTINCT T.Entry_Time) AS FLOAT64) AS AVG_Trade,
+            COUNT(DISTINCT T.Entry_Time) / NULLIF(DATE_DIFF(MAX(T.Entry_Time),
+            MIN(T.Entry_Time), DAY), 0) * 252 / 365 AS AVG_Trades_Per_Day,
+            0 as Shape_Ratio
+            FROM
+            (
+            SELECT
+            T.Email AS User,
+            T.Account,
+            T.Entry_Time,
+            T.Profit AS Net_PNL,
+            T.Profit,
+            T.Commission,
+            T.MFE AS Avg_MFE,
+            T.MAE AS Avg_MAE,
+            T.Trade_Result
+            FROM `algolabreport.NewData.Total_Trades` AS T
+            ".$whereDate."
+            ".$whereUser."
+            ".$whereAccount."
+            ".$whereMarket_pos."
+            ".$whereTrade_Result."
+            ".$whereInstrument."
+            ) AS T
+            GROUP BY T.User, T.Account, EXTRACT(YEAR FROM T.Entry_Time), EXTRACT(MONTH FROM
+            T.Entry_Time);
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+
+        return response()->json($resultsArray);
+    }
 }

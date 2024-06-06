@@ -8,6 +8,7 @@ const URLS = {
     getMaxDrawdown: "/get-max-drawdown",
     createNote: "/create-note",
     getNotes: "/notes",
+    getmfe: "/get-mfe",
 };
 
 const COLORS = {
