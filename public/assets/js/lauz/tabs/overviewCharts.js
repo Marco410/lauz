@@ -43,8 +43,6 @@ function getPNL() {
             endDate: endDate,
         },
         success: function (response) {
-            console.log("response");
-            console.log(response);
             let labelsCumPNL = [];
             let dataCumPNL = [];
 
