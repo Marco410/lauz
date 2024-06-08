@@ -8,6 +8,7 @@ const URLS = {
     getMaxDrawdown: "/get-max-drawdown",
     createNote: "/create-note",
     getNotes: "/notes",
+    getNetPNL: "/get-daily-net-cumulative-pl",
 };
 
 const COLORS = {

@@ -194,12 +194,17 @@
                 </div>
                 <div class="col-sm-4">
                   <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
-                    <option selected value="Direction">Direction</option>
+                    <option selected value="">Direction</option>
+                    <option value="Longs">Longs</option>
+                    <option value="Shorts">Shorts</option>
                   </select>
                 </div>
                 <div class="col-sm-4">
                   <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
-                    <option selected value="Winning/Loses">Winning/Loses</option>
+                    <option selected value="">Winning/Loses</option>
+                    <option value="Win">Win</option>
+                    <option value="Loss">Loss</option>
+                    <option value="Even">Even</option>
                   </select>
                 </div>
               </div>
@@ -225,7 +230,7 @@
           <div class="row mt-4">
             <div class="col-sm-12">
               <ul class="nav nav-pills nav-fill mb-3 bg-transparent" id="pills-tab" role="tablist">
-                  <li class="nav-item" role="presentation">
+                  <li class="nav-item" role="presentation" id="overviewTab">
                       <a class="dash nav-link mb-0 px-0 py-1 active " style="color: var(--blue);" data-bs-toggle="tab" data-bs-target="#pills-home"
                           role="tab" >
                           <span class="ms-1" style="font-weight: bold;">Overview</span>

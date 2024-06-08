@@ -10,6 +10,7 @@ use App\Http\Controllers\Lauz\BigQueryController;
 use App\Http\Controllers\Lauz\PeriodTabController;
 use App\Http\Controllers\Lauz\AccountsController;
 use App\Http\Controllers\Lauz\NoteController;
+use App\Http\Controllers\Lauz\OverviewTabController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/notes', [NoteController::class, 'get'])->name('notes');
 	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
+	
+	Route::get('/get-daily-net-cumulative-pl', [OverviewTabController::class, 'getDailyNetCumulativePL'])->name('get-daily-net-cumulative-pl');
 
 	
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

@@ -64,7 +64,8 @@
           <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net Cumulative P&L</h6>
           </div>
-          <div class="card-body p-3 ">
+          <div class="card-body p-3  text-center">
+            <div class="spinner-border text-primary spinner-border-md mt-3" id="dailyNetCumPNLLoader" role="status"> </div>
             <div class="chart">
               <canvas id="chart-line" class="chart-canvas" height="200"></canvas>
             </div>
@@ -76,7 +77,8 @@
           <div class="card-header pb-0" style="background-color: var(--bgDark)">
             <h6 class="text-white">Daily Net P&L</h6>
           </div>
-          <div class="card-body p-3 ">
+          <div class="card-body p-3 text-center">
+            <div class="spinner-border text-primary spinner-border-md mt-3" id="dailyNetNetPNLLoader" role="status"> </div>
             <div class="chart">
               <canvas id="chart-bar" class="chart-canvas" height="150"></canvas>
             </div>
@@ -86,41 +88,45 @@
 
       <div class="col-lg-6 mt-4">
         <div class="card z-index-2" style="background-color: var(--bgDark); min-height: 300px">
-          <div class="card-header pb-0" style="background-color: var(--bgDark)">
-            <h6 class="text-white">Trades for Direction</h6>
-          </div>
+        
           <div class="card-body">
             <div class="row">
                 <div class="col-sm-7">
+                
                     <div class="chart" >
+                      <div class="card-header pb-0 text-center" style="background-color: var(--bgDark)">
+                        <h6 class="text-white">Trades for Direction</h6>
+                        <div class="spinner-border text-primary spinner-border-md mt-3" id="tradesDirectionLoader" role="status"> </div>
+                      </div>
                         <div class="position-relative">
                           <canvas id="pie-bar" class="chart-canvas" height="60"></canvas>
-                          <h4 class="position-absolute  start-50 translate-middle" style="bottom: 25px; color:var(--textGray)">345</h4>
+                          <h4 class="position-absolute  start-50 translate-middle" style="bottom: 25px; color:var(--textGray)" id="totalLongsTitle">-</h4>
                         </div>
                       </div>
                 </div>
                 <div class="col-sm-5">
-                    <h6 class="text-primary" >Longs: 100</h6>
+                    <h6 class="text-primary" >Longs: <span id="totalLongs">-</span></h6>
                     <div class="d-flex justify-content-center gap-2 mt-2">
-                      <h6 class="text-primary" style="font-size: 11px">70 W</h6>
+                      <h6 class="text-primary" style="font-size: 11px" id="totalWinLongs">- W</h6>
                       <h6 class="text-white" style="font-size: 11px">/</h6>
-                      <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
-                      <h6 class="text-primary" style="font-size: 11px">70 %</h6>
+                      <h6 class="text-danger" style="font-size: 11px" id="totalLossLongs" > - L</h6>
+                      <h6 class="text-primary" style="font-size: 11px" id="percentajeWLongs">- %</h6>
                     </div>
                     <div class="progress"  style="background-color: transparent;">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" id="progressLongs" style="width: 50%; border-radius: 10px 0px 0px 10px; !important"  aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-white" role="progressbar" id="progressLongsL" style="width: 50%; border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <br>
+                    <h6 class="text-primary" >Shorts: <span id="totalShorts">-</span></h6>
                     <div class="d-flex justify-content-center gap-2 mt-2">
-                      <h6 class="text-primary" style="font-size: 11px">70 W</h6>
+                      <h6 class="text-primary" style="font-size: 11px" id="totalWinShorts">- W</h6>
                       <h6 class="text-white" style="font-size: 11px">/</h6>
-                      <h6 class="text-danger" style="font-size: 11px"> 30 W</h6>
-                      <h6 class="text-primary" style="font-size: 11px">70 %</h6>
+                      <h6 class="text-danger" style="font-size: 11px" id="totalLossShorts">- L</h6>
+                      <h6 class="text-primary" style="font-size: 11px" id="percentajeShorts" >- %</h6>
                     </div>
                     <div class="progress"  style="background-color: transparent;">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-white" role="progressbar" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" id="progressShorts" style="width: 50%; border-radius: 10px 0px 0px 10px; !important" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-white" role="progressbar" id="progressShortsL"  style="width: 50%;border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -138,7 +144,8 @@
                       <div class="col-sm-5 mt-4 p-3">
                         <div id="legend-container"></div>
                       </div>
-                      <div class="col-sm-7 p-3">
+                      <div class="col-sm-7 p-3 text-center">
+                        <div class="spinner-border text-primary spinner-border-md mt-3" id="tradesForInstrumentLoader" role="status"> </div>
                         <div class="chart" >
                             <canvas id="pie-bar2" class="chart-canvas" height="100"></canvas>
                           </div>
@@ -241,311 +248,5 @@
 
 
  @push('dashboard_chart_bar')
-<script>
-
-      var options = {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            }
-          },
-          interaction: {
-            intersect: false,
-            mode: 'index',
-          },
-          scales: {
-            y: {
-              beginAtZero:true,
-              grid: {
-                drawBorder: false,
-                display: true,
-                drawOnChartArea: true,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                padding: 10,
-                color: '#c0bfc6',
-                font: {
-                  size: 8,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              },
-              grid: {
-                drawBorder: false,
-                display: true,
-                drawTicks: false,
-                borderDash: [2, 1],
-                color:'#4b4b51'
-              },
-            },
-            x: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                color: '#c0bfc6',
-                padding: 10,
-                font: {
-                  size: 8,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-    
-          },
-        };
-      var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-      var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke1.addColorStop(1, OPACITY.primaryWithOpacity6);
-      gradientStroke1.addColorStop(0.2, OPACITY.primaryWithOpacity15);
-      gradientStroke1.addColorStop(0, OPACITY.primaryWithOpacity6); 
-
-
-      new Chart(ctx2, {
-        type: "line",
-        data: {
-          labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
-          datasets: [{
-              label: "Mobile apps",
-              tension: 0.4,
-              borderWidth: 0,
-              pointRadius: 0,
-              borderColor: COLORS.primary,
-              borderWidth: 0.7,
-              backgroundColor: gradientStroke1,
-              fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230],
-              maxBarThickness: 6
-
-            },
-          ],
-        },
-        options: options,
-      }); 
-
-
-      var ctx4 = document.getElementById("chart-bar").getContext("2d");
-
-        const labels2 = ['Ene','Feb','Mar','Abr','May','Jun','Jul', 'Ago', 'Sep', 'Oct', 'Nov','Dic','Ene','Feb','Mar'];
-        const data2 = {
-          labels: labels2,
-          datasets: [
-            {
-              label: 'Dataset 1',
-              data: [10,18, 16, 10, 5, 14,20,15,8,12,24,5,16, 10, 5],
-              backgroundColor: COLORS.third,
-              borderColor : 'transparent',
-            }
-          ]
-        };
-        new Chart(ctx4, {
-          type: "bar",
-          data: data2,
-          options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero:true,
-              grid: {
-                drawBorder: false,
-                display: true,
-                drawOnChartArea: true,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                padding: 5,
-                color: '#c0bfc6',
-                font: {
-                  size: 8,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-            x: {
-              grid: {
-                drawBorder: false,
-                display: false,
-                drawTicks: false,
-                borderDash: [5, 5]
-              },
-              ticks: {
-                display: true,
-                color: '#c0bfc6',
-                padding: 10,
-                font: {
-                  size: 8,
-                  family: "Open Sans",
-                  style: 'normal',
-                  lineHeight: 2
-                },
-              }
-            },
-          },
-          plugins: {
-            legend: false,
-            title: {
-              display: false,
-              text: 'Chart.js Polar Area Chart With Centered Point Labels'
-            }
-          }
-        },
-        });
-
-
-        var ctx5 = document.getElementById("pie-bar").getContext("2d");
-
-          const labels3 = ['Risk', 'CAG'];
-          const data3 = {
-            labels: labels3,
-            datasets: [
-              {
-                label: 'Dataset 1',
-                data: [18, 9],
-                backgroundColor: [
-                  COLORS.primary,
-                  'rgba(243,244,247,1)'
-                ],
-                borderColor : 'transparent',
-                circumference:180,
-                rotation:270,
-                cutout:'70%',
-                hoverOffset:5
-
-              }
-            ]
-          };
-          new Chart(ctx5, {
-            type: "doughnut",
-            data: data3,
-            options: {
-            responsive: true,
-            plugins: {
-              legend: false,
-            }
-          },
-          });
-
-          const getOrCreateLegendList = (chart,id) => {
-            const legendContainer = document.getElementById(id);
-            let listContainer = legendContainer.querySelector('ul');
-
-            if(!listContainer){
-              listContainer = document.createElement('ul');
-              listContainer.className = 'listContainer';
-              legendContainer.appendChild(listContainer);
-            }
-
-            return listContainer;
-          }
-
-
-          const htmlLegendPlugin = {
-            id: 'htmlLegend',
-            afterUpdate(chart, args,options) {
-              const ul = getOrCreateLegendList(chart, options.containerID);
-
-              while (ul.firstChild){
-                ul.firstChild.remove();
-              }
-
-              const items = chart.options.plugins.legend.labels.generateLabels(chart);
-
-              items.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'li';
-
-                const boxSpan = document.createElement('span');
-                boxSpan.className = 'boxSpan';
-                boxSpan.style.backgroundColor = item.fillStyle;
-                boxSpan.style.borderColor = item.strokeStyle;
-
-                const textContainer = document.createElement('small');
-                textContainer.className = 'textContainer';
-                textContainer.style.color = 'white';
-                textContainer.style.textDecoration = (item.hidden) ? 'line-through' : 'none';
-
-
-                const text = document.createTextNode(item.text);
-                textContainer.appendChild(text);
-
-                li.onclick = () => {
-                  const {type} = chart.config;
-                  if(type === 'pie' || type === 'doughnut'){
-                    chart.toggleDataVisibility(item.index);
-                  }else{
-                    chart.setDatasetVisibility(item.datasetIndex);
-                  }
-
-                  chart.update();
-                }
-
-                li.appendChild(boxSpan);
-                li.appendChild(textContainer);
-                ul.appendChild(li);
-              });
-
-            }
-          }
-
-          var ctx6 = document.getElementById("pie-bar2").getContext("2d");
-
-          const labels4 = ['NQ', 'ES','YM','NONE'];
-          const data4 = {
-            labels: labels4,
-            datasets: [
-              {
-                label: 'Dataset 1',
-                data: [2400, 1500,1000,800],
-                backgroundColor: [
-                  COLORS.primary,
-                  COLORS.secondaryColor,
-                  COLORS.third,
-                  COLORS.blue
-                ],
-                borderColor : 'transparent',
-                cutout:'70%',
-                hoverOffset:10
-
-              }
-            ]
-          };
-          new Chart(ctx6, {
-            type: "doughnut",
-            data: data4,
-            options: {
-              responsive: true,
-        
-              plugins: {
-                legend: {
-                  display:false,
-                  labels: {
-                    color: 'white'
-                  }
-                },
-                htmlLegend: {
-                  containerID: 'legend-container'
-                }
-              }
-            },
-            plugins: [htmlLegendPlugin]
-          });
-</script>
+<script src="../assets/js/lauz/tabs/overviewCharts.js"></script>
 @endpush

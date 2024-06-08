@@ -3,7 +3,12 @@
     <div class="row">
       <div class="col-sm-4">
         <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
-          <option selected value="Period">Period</option>
+          <option selected value="">Period</option>
+          <option selected value="Years">Years</option>
+          <option selected value="Months">Months</option>
+          <option selected value="Weeks">Weeks</option>
+          <option selected value="Days">Days</option>
+          <option selected value="Hours">Hours</option>
         </select>
       </div>
       <div class="col-sm-4">
