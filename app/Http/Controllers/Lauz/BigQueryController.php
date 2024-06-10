@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Exception;
 use App\Services\BigQueryService;
+use Illuminate\Support\Facades\Log;
 
 class BigQueryController extends Controller
 {
@@ -278,7 +279,11 @@ class BigQueryController extends Controller
     }
 
     public function getMFE(Request $request){
-
+        if($request->account){
+            $whereAccount = " WHERE  Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
         if($request->endDate){
             $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
         }else{
@@ -291,11 +296,6 @@ class BigQueryController extends Controller
             $whereUser = "";
         }
 
-        if($request->account){
-            $whereAccount = " AND  Account = '". $request->account. "'";
-        }else{
-            $whereAccount = "";
-        }
 
         if($request->Market_pos){
             $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
@@ -340,9 +340,9 @@ class BigQueryController extends Controller
             T.MAE AS Avg_MAE,
             T.Trade_Result
             FROM `algolabreport.NewData.Total_Trades` AS T
+            ".$whereAccount."
             ".$whereDate."
             ".$whereUser."
-            ".$whereAccount."
             ".$whereMarket_pos."
             ".$whereTrade_Result."
             ".$whereInstrument."

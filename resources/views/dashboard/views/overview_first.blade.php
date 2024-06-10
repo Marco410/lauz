@@ -1,4 +1,4 @@
-    
+
     <div class="card text-center rounded-4 justify-content-center m-2 px-2 card-overview" >
         <div class="row">
             <div class="col-sm-12" >
@@ -60,4 +60,5 @@
 
   @push('dashboard_chart_bar')
     <script src="../assets/js/lauz/dashboard.js"></script>
+    <script src="../assets/js/lauz/tabs/overview.js"></script>
   @endpush
