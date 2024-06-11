@@ -1,6 +1,9 @@
 const periodTab = document.getElementById("periodTab");
 const cumNetProfitLoader = document.getElementById("cumNetProfitLoader");
 const netProfitLoader = document.getElementById("netProfitLoader");
+const loaderCalendar2 = document.querySelector("#calendarLoader2");
+
+let instrumentSelect = document.querySelector('select[name="instrument"]');
 
 let labelsCumNetProfit = [];
 let dataCumNetProfit = [];
@@ -10,9 +13,43 @@ let labelsNetProfit = [];
 let dataNetProfit = [];
 let labelNetProfit = "";
 periodTab.addEventListener("click", () => {
+    getInstruments();
     getNetProfit();
     getMaxDrawdow();
+    setTimeout(() => {
+        renderCalendar2();
+    }, 3000);
 });
+
+function getInstruments() {
+    $.ajax({
+        url: URLS.getInstruments,
+        type: "GET",
+        dataType: "json",
+        data: {
+            account: accountSelected,
+        },
+        success: function (data) {
+            console.log("data");
+            console.log(data);
+
+            if (data.length > 0) {
+                instrumentsGlobal = [];
+                for (let i = 0; i < data.length; i++) {
+                    instrumentsGlobal.push(data[i].Instrument);
+                }
+            }
+
+            instrumentsGlobal.forEach((item) => {
+                let optionElement = document.createElement("option");
+                optionElement.value = item;
+                optionElement.textContent = item;
+                instrumentSelect.appendChild(optionElement);
+            });
+        },
+        error: function (error) {},
+    });
+}
 
 function getNetProfit() {
     cumNetProfitLoader.style.display = "inline-block";
@@ -289,4 +326,28 @@ function renderMaxDrawDown(labels, dataset, label) {
             },
         },
     });
+}
+
+function renderCalendar2() {
+    let tooltipSpan = document.getElementById("tooltip-span2");
+    let calendarEl2 = document.getElementById("calendar2");
+    let calendar2 = new FullCalendar.Calendar(calendarEl2, {
+        initialView: "dayGridMonth",
+        themeSystem: "bootstrap5",
+        height: "100%",
+        events: calendarData,
+        initialDate: startDateCalendar,
+        eventClick(event) {
+            alert(`${event.event._def.title}`);
+        },
+        eventMouseEnter: function (event, jsEvent, view) {
+            tooltipSpan.innerHTML = `<strong>${event.event._def.title}</strong>`;
+            tooltipSpan.style.display = "block";
+        },
+        eventMouseLeave: function (event, jsEvent, view) {
+            tooltipSpan.style.display = "none";
+        },
+    });
+    calendar2.render();
+    loaderCalendar2.style.display = "none";
 }

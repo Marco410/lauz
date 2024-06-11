@@ -1,5 +1,6 @@
 const URLS = {
     accounts: "/get-accounts",
+    getInstruments: "/get-instruments",
     netpl: "/get-netpl",
     overviewData: "/get-overview-data",
     tradesTable: "/get-total-trades",

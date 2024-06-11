@@ -56,6 +56,8 @@ Route::group(['middleware' => 'auth'], function () {
 	//PERIOD ANALYSIS
 	Route::get('/get-net-profit', [PeriodTabController::class, 'getNetProfit'])->name('get.net.profit');
 	Route::get('/get-max-drawdown', [PeriodTabController::class, 'getMaxDrawdown'])->name('get.max.drawdown');
+	Route::get('/get-overview-day', [PeriodTabController::class, 'getOverviewForDay'])->name('get.overview.day');
+	Route::get('/get-instruments', [PeriodTabController::class, 'getInstruments'])->name('get.instruments');
 
 	Route::get('/notes', [NoteController::class, 'get'])->name('notes');
 	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
