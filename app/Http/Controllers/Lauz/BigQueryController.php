@@ -285,8 +285,9 @@ class BigQueryController extends Controller
     }
 
     public function getMFE(Request $request){
+        $user = Auth::user()->email;
         if($request->account){
-            $whereAccount = " WHERE  Account = '". $request->account. "'";
+            $whereAccount = " WHERE T.Account = '". $request->account. "'";
         }else{
             $whereAccount = "";
         }
@@ -296,21 +297,21 @@ class BigQueryController extends Controller
             $whereDate = "";
         }
 
-        if($request->user){
-            $whereUser = " AND  User = '". $request->user. "'";
+        if($whereAccount){
+            $whereUser = " AND T.Email = '". $user. "'";
         }else{
             $whereUser = "";
         }
 
 
         if($request->Market_pos){
-            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+            $whereMarket_pos = " AND  T.Market_pos_ = '". $request->Market_pos. "'";
         }else{
             $whereMarket_pos = "";
         }
 
         if($request->Trade_Result){
-            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+            $whereTrade_Result = " AND  T.Trade_Result = '". $request->Trade_Result. "'";
         }else{
             $whereTrade_Result = "";
         }
