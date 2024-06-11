@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown pe-2 px-3 d-flex align-items-center" style="width: 240px;">
-                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <button role="button" class="nav-link text-body p-0 " id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="d-flex py-1 align-items-center justify-content-between">
                         <div class="my-auto">
                             <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-4" style="border-radius: 100px;">
@@ -33,8 +33,8 @@
                         </div>
                         <i style="margin-left: 45px; color: var(--textGray);font-size: 12px;" class="fas fa-chevron-down me-4"></i>
                     </div>
-                </a>
-                <ul class="dropdown-menu  dropdown-menu-end me-sm-n4" aria-labelledby="dropdownMenuButton">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end me-sm-n4" aria-labelledby="dropdownMenuButton">
                     <li>
                         <a href="#" class="nav-link">
                             <i class="fa fa-user me-sm-1" style="color: var(--textGray); "></i>

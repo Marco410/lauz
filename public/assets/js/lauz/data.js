@@ -109,6 +109,7 @@ function getAllData(isOnLoad) {
     getOverviewData();
     getNetPL();
     getCalendarNetProfit();
+    getPNL();
     getMFE();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
