@@ -35,6 +35,8 @@ const totalComision = document.getElementById("avgWinLoss2");
 const totalSharpeRatio = document.getElementById("QTrades2");
 
 let accounts2 = document.querySelector('select[name="accounts2"]');
+let directionOverview = document.querySelector('select[name="direction"]');
+let winningOverview = document.querySelector('select[name="winning"]');
 let initDate2 = document.querySelector('input[name="initDate2"]');
 let endDate2 = document.querySelector('input[name="endDate2"]');
 
@@ -47,6 +49,8 @@ function getMFE() {
             account: accounts2.value,
             initDate: initDate2.value,
             endDate: endDate2.value,
+            Market_pos: directionOverview.value,
+            Trade_Result: winningOverview.value,
         },
         success: function (response) {
             promedioMFE = 0;
@@ -85,6 +89,20 @@ function getMFE() {
 accounts2.addEventListener("change", handleSelectAccount2);
 initDate2.addEventListener("change", handleInitDate2);
 endDate2.addEventListener("change", handleEndDate2);
+directionOverview.addEventListener("change", handleDirectionOverview);
+winningOverview.addEventListener("change", handleWinningOverview);
+
+function handleDirectionOverview(e) {
+    let direction = e.target.value;
+    directionOverview.value = direction;
+    getMFE();
+}
+
+function handleWinningOverview(e) {
+    let winning = e.target.value;
+    winningOverview.value = winning;
+    getMFE();
+}
 
 function handleSelectAccount2(e) {
     let account = e.target.value;

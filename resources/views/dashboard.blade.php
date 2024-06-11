@@ -59,7 +59,7 @@
               <div class="dropdown-divider text-white" style="background-color: var(--bg300)"></div>
               <br>
 
-              <h5 class="font-weight-bolder text-white">Win RT%</h5> 
+              <h5 class="font-weight-bolder text-white">Win RT%</h5>
               <div class="d-flex justify-content-center gap-2">
                 <h6 class="text-primary" style="font-size: 15px">70 W</h6>
                 <h6 class="text-white" style="font-size: 15px">/</h6>
@@ -88,7 +88,7 @@
                 <h5 class="text-white mb-4">Calendar</h5>
                @include('dashboard.views.calendar')
               </div>
-             
+
           </div>
         </div>
       </div>
@@ -150,7 +150,7 @@
                             </tr>
                           </thead>
                           <tbody >
-                       
+
                           </tbody>
                         </table>
                       </div>
@@ -170,7 +170,7 @@
                 </div>
               </div>
             </div>
-          
+
           </div>
         </div>
       </div>
@@ -193,14 +193,14 @@
                   </select>
                 </div>
                 <div class="col-sm-4">
-                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+                  <select name="direction" class="form-select" style="background-color: var(--bgDark) !important;">
                     <option selected value="">Direction</option>
                     <option value="Longs">Longs</option>
                     <option value="Shorts">Shorts</option>
                   </select>
                 </div>
                 <div class="col-sm-4">
-                  <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+                  <select name="winning" class="form-select" style="background-color: var(--bgDark) !important;">
                     <option selected value="">Winning/Loses</option>
                     <option value="Win">Win</option>
                     <option value="Loss">Loss</option>
@@ -224,7 +224,7 @@
               </div>
             </div>
 
-           
+
           </div>
 
           <div class="row mt-4">
@@ -255,7 +255,7 @@
                         </a>
                     </li>
 
-            
+
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
@@ -288,7 +288,7 @@
                 <h5 class="font-weight-bolder mb-0">
                   $53,000
                   <span class="text-success text-sm font-weight-bolder">+55%</span>
-                </h5> 
+                </h5>
               </div>
             </div>
             <div class="col-4 text-end">
@@ -528,7 +528,7 @@
         </div>
       </div>
     </div>
-    
+
   </div> --}}
  {{--  <div class="row my-4">
     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
@@ -1018,7 +1018,7 @@
                 },
               }
             },
-    
+
           },
         };
 
@@ -1026,7 +1026,7 @@
       var ctx3 = document.getElementById("chart-line2").getContext("2d");
 
       var gradient = ctx3.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0.1, OPACITY.primaryWithOpacity6);   
+      gradient.addColorStop(0.1, OPACITY.primaryWithOpacity6);
       gradient.addColorStop(0.3, OPACITY.primaryWithOpacity15);
 
       new Chart(ctx3, {
@@ -1050,11 +1050,11 @@
         options: options,
       });
  */
-      
 
 
 
- 
+
+
 
     }
   </script>
