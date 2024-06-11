@@ -236,8 +236,10 @@
             </div>
             <div class="col-sm-12 ">
                 <div class="card mb-4" style="background-color: var(--bgDark);height: 318px; min-height: 318px" >
-                    <div class="card-body p-4" >
+                    <div class="card-body p-4 text-center" >
+                      <div id="calendarLoader1"></div>
                       <div id='calendar'></div>
+                      <div id="tooltip-span" class="my-tooltip" style="display: none"></div>
                     </div>
                 </div>
             </div>

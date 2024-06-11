@@ -147,34 +147,40 @@ class BigQueryController extends Controller
 
         $query = "
             SELECT
-                Account,
-                Instrument,
-                SUM(CAST(Profit AS FLOAT64)) AS NetPL,
-                EXTRACT(YEAR FROM Entry_Time) AS Year,
-                EXTRACT(MONTH FROM Entry_Time) AS Month,
-                EXTRACT(DAYOFYEAR FROM Entry_Time) AS Day,
+                T.User,
+                T.Account,
+                SUM(CAST(T.Net_PNL AS FLOAT64)) AS NetPL,
+                COUNT(DISTINCT T.Entry_Time) / NULLIF(DATE_DIFF(MAX(T.Entry_Time), MIN(T.Entry_Time), DAY), 0) * 252 / 365 AS AVG_Trades_Per_Day,
+                0 as Shape_Ratio,
                 CONCAT(
-                    EXTRACT(YEAR FROM Entry_Time),
+                    EXTRACT(YEAR FROM T.Entry_Time),
                     '-',
-                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    LPAD(CAST(EXTRACT(MONTH FROM T.Entry_Time) AS STRING),2,'0'),
                     '-',
-                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0')
+                    LPAD(CAST(EXTRACT(DAY FROM T.Entry_Time) AS STRING),2,'0')
                     ) AS EntryTime,
-            FROM
-                `algolabreport.NewData.Total_Trades`
-            ".$whereAccount."
-            GROUP BY
-                Account,
-                Instrument,
-                Year,
-                Month,
-                Day,
-                Entry_Time
-            ORDER BY
-                Year DESC,
-                Month DESC,
-                Day DESC
-            ;
+                FROM (
+                SELECT
+                T.Email AS User,
+                T.Account,
+                T.Entry_Time,
+                T.Profit AS Net_PNL,
+                T.Profit,
+                T.Commission,
+                T.MFE AS Avg_MFE,
+                T.MAE AS Avg_MAE,
+                T.Trade_Result
+                FROM `algolabreport.NewData.Total_Trades` AS T
+                ".$whereAccount."
+                ) AS T
+                GROUP BY
+                    T.User,
+                    T.Account,
+                    T.Entry_Time,
+                    EXTRACT(YEAR FROM T.Entry_Time),
+                    EXTRACT(MONTH FROM T.Entry_Time)
+                ORDER BY
+                    T.Entry_Time DESC;
         ";
 
         $results = $this->bigQueryService->runQuery($query);

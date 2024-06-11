@@ -308,6 +308,10 @@ select {
     cursor: pointer !important;
 }
 
+.fc-event {
+    border: none !important;
+}
+
 .fc-theme-standard td,
 .fc-theme-standard th {
     border: 1px solid var(--bg300) !important;
@@ -450,4 +454,17 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
 .card-body.note p strong,
 .card-body.note p span {
     color: white !important;
+}
+
+.my-tooltip {
+    position: absolute;
+    z-index: 9999;
+    background: var(--secondary);
+    color: white;
+    width: 50%;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 13px;
 }

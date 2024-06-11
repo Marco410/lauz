@@ -4,15 +4,15 @@
       <div class="col-sm-4">
         <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
           <option selected value="">Period</option>
-          <option selected value="Years">Years</option>
-          <option selected value="Months">Months</option>
-          <option selected value="Weeks">Weeks</option>
-          <option selected value="Days">Days</option>
-          <option selected value="Hours">Hours</option>
+          <option value="Years">Years</option>
+          <option value="Months">Months</option>
+          <option value="Weeks">Weeks</option>
+          <option value="Days">Days</option>
+          <option value="Hours">Hours</option>
         </select>
       </div>
       <div class="col-sm-4">
-        <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+        <select name="instrument" class="form-select" style="background-color: var(--bgDark) !important;">
           <option selected value="Instrument">Instrument</option>
         </select>
       </div>
@@ -155,16 +155,12 @@
       </div>
     </div>
 
-{{--     <div class="col-sm-4" >
-      <div class="card" style="background-color: var(--bgDark)">
-        <div style="padding: 20px" id='calendar2'></div>
-      </div>
-    </div> --}}
-
     <div class="col-sm-4">
-        <div class="card mb-4" style="background-color: var(--bgDark);min-height: 330px;height: 330px;" >
-            <div class="card-body p-4" >
+      <div class="card mb-4" style="background-color: var(--bgDark);min-height: 330px;height: 330px;" >
+        <div class="card-body p-4 text-center" >
+              <div class="spinner-border text-primary spinner-border-md mt-3" id="calendarLoader2" role="status"> </div>
               <div id='calendar2'></div>
+              <div id="tooltip-span2" class="my-tooltip" style="display: none"></div>
             </div>
         </div>
     </div>

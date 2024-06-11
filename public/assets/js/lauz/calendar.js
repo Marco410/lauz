@@ -1,10 +1,11 @@
 const calHeatmapElement = document.querySelector("#cal-heatmap");
 const loaderCalendar = document.querySelector("#calendarLoader");
+const loaderCalendar1 = document.querySelector("#calendarLoader1");
 let cal = null;
 loaderCalendar.innerHTML = loaderGlobal;
+loaderCalendar1.innerHTML = loaderGlobal;
 const monthRest = 2;
 let startDate = new Date();
-
 function initHeatMap() {
     var viewportWidth = window.innerWidth;
     var breakPoint = 132;
@@ -136,8 +137,20 @@ function getCalendarNetProfit() {
                     t: new Date(item.EntryTime + "T00:00:00"),
                     v: item.NetPL,
                 });
-            });
 
+                calendarData.push({
+                    title: `Date: ${item.EntryTime} \n NetPNL: ${item.NetPL} \n`,
+                    start: item.EntryTime,
+                    backgroundColor:
+                        item.NetPL < 0
+                            ? COLORS.third
+                            : item.NetPL > 0
+                            ? COLORS.primary
+                            : "white",
+                });
+            });
+            startDateCalendar = calendarNetProfit[1].t;
+            renderCalendar();
             startDate = calendarNetProfit[0].t;
             startDate.setMonth(calendarNetProfit[0].t.getMonth() - monthRest);
             initHeatMap();
@@ -146,4 +159,28 @@ function getCalendarNetProfit() {
             console.error(error);
         },
     });
+}
+
+function renderCalendar() {
+    let calendarEl = document.getElementById("calendar");
+    let tooltipSpan = document.getElementById("tooltip-span");
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        themeSystem: "bootstrap5",
+        height: "100%",
+        events: calendarData,
+        initialDate: startDateCalendar,
+        eventClick(event) {
+            alert(`${event.event._def.title}`);
+        },
+        eventMouseEnter: function (event, jsEvent, view) {
+            tooltipSpan.innerHTML = `<strong>${event.event._def.title}</strong>`;
+            tooltipSpan.style.display = "block";
+        },
+        eventMouseLeave: function (event, jsEvent, view) {
+            tooltipSpan.style.display = "none";
+        },
+    });
+    calendar.render();
+    loaderCalendar1.style.display = "none";
 }

@@ -41,7 +41,7 @@ function getAccounts() {
         success: function (data) {
             if (data.length > 0) {
                 accountsGlobal = [];
-                for (let i = 1; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
                     accountsGlobal.push(data[i].Account);
                 }
             }

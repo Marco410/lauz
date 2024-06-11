@@ -47,55 +47,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
-
-
-  
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        themeSystem: 'bootstrap5',
-        height:'100%',
-        events: [
-          {
-            title: 'All Day Event',
-            start: '2024-03-01',
-            color: "#ff4861"
-          },
-          {
-            title: 'Lauz event',
-            start: '2024-03-03',
-            end:'2024-03-05'
-          },
-          {
-            title: 'Lauz event 2',
-            start: '2024-03-22',
-            end:'2024-03-26',
-            color:'#61f2c6'
-          },
-        ],
-        eventColor: '#70bbfd',
-        eventClick(event){
-          console.log(event);
-        }
-        
-      });
-      calendar.render();
-
-      var calendarEl2 = document.getElementById('calendar2');
-      var calendar2 = new FullCalendar.Calendar(calendarEl2, {
-        initialView: 'dayGridMonth',
-        themeSystem: 'bootstrap5',
-        height:'100%',
-      });
-      calendar2.render();
-
-
-    });
-
-  </script>
 <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
 <script src="../assets/js/lauz/constants.js"></script>
