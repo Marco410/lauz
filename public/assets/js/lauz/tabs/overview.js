@@ -1,57 +1,31 @@
-let btn = document.getElementById("btn-create-note");
-let token = document.getElementById("token");
-
-$.ajax({
-    url: URLS.getNotes,
-    type: "GET",
-    dataType: "json",
-    success: function (resp) {
-        let notes = document.getElementById("notes-view");
-
-        resp.forEach((item, index) => {
-            let note = document.createElement("div");
-            note.innerHTML =
-                '<div class="card" style="margin-top:10px;background-color: var(--bgDark)"><div class="card-body text-white note"><div class="row"><div class="col-sm-1">' +
-                (resp.length - index) +
-                '</div><div class="col-sm-8"  style="text-align: left;">' +
-                item.note +
-                '</div><div class="col-sm-3">' +
-                moment(new Date(item.created_at), "DD/MM/YYYY").format(
-                    "DD-MM-YYYY HH:mm:ss"
-                ) +
-                " Hrs" +
-                "</div></div></div>";
-            notes.appendChild(note);
-        });
-    },
-    error: function (error) {},
-});
-
-const totalMfe = document.getElementById("totalNetPl2");
-const totalMae = document.getElementById("annualReturn2");
-const totalAvg_trade = document.getElementById("DrawDown2");
-const totalAvg_tradeDay = document.getElementById("profitFactor2");
-const totalComision = document.getElementById("avgWinLoss2");
-const totalSharpeRatio = document.getElementById("QTrades2");
-
-let accounts2 = document.querySelector('select[name="accounts2"]');
-let directionOverview = document.querySelector('select[name="direction"]');
-let winningOverview = document.querySelector('select[name="winning"]');
-let initDate2 = document.querySelector('input[name="initDate2"]');
-let endDate2 = document.querySelector('input[name="endDate2"]');
+const totalMfe = document.getElementById("totalMFE");
+const totalMae = document.getElementById("totalMAE");
+const totalAvg_trade = document.getElementById("totalAvgTrade");
+const totalAvg_tradeDay = document.getElementById("totalAVGDay");
+const totalComision = document.getElementById("totalComision");
+const totalSharpeRatio = document.getElementById("totalSharpeRatio");
 
 function getMFE() {
+    totalMfe.innerHTML = loaderGlobal;
+    totalMae.innerHTML = loaderGlobal;
+    totalAvg_trade.innerHTML = loaderGlobal;
+    totalAvg_tradeDay.innerHTML = loaderGlobal;
+    totalComision.innerHTML = loaderGlobal;
+    totalSharpeRatio.innerHTML = loaderGlobal;
+
+    const dataPost = {
+        account: accountSelected,
+        initDate: initDate,
+        endDate: endDate,
+        Market_pos: directionGlobal,
+        Trade_Result: winningGlobal,
+    };
+
     $.ajax({
         url: URLS.getmfe,
         type: "GET",
         dataType: "json",
-        data: {
-            account: accounts2.value,
-            initDate: initDate2.value,
-            endDate: endDate2.value,
-            Market_pos: directionOverview.value,
-            Trade_Result: winningOverview.value,
-        },
+        data: dataPost,
         success: function (response) {
             promedioMFE = 0;
             promedioMAE = 0;
@@ -84,53 +58,4 @@ function getMFE() {
         },
         error: function (error) {},
     });
-}
-
-accounts2.addEventListener("change", handleSelectAccount2);
-initDate2.addEventListener("change", handleInitDate2);
-endDate2.addEventListener("change", handleEndDate2);
-directionOverview.addEventListener("change", handleDirectionOverview);
-winningOverview.addEventListener("change", handleWinningOverview);
-
-function handleDirectionOverview(e) {
-    let direction = e.target.value;
-    directionOverview.value = direction;
-    getMFE();
-}
-
-function handleWinningOverview(e) {
-    let winning = e.target.value;
-    winningOverview.value = winning;
-    getMFE();
-}
-
-function handleSelectAccount2(e) {
-    let account = e.target.value;
-    accounts2.value = account;
-    getMFE();
-}
-
-function handleInitDate2(e) {
-    let initDate = e.target.value;
-    initDate2.value = initDate;
-}
-
-function handleEndDate2(e) {
-    let endDate = e.target.value;
-    endDate2.value = endDate;
-
-    console.log(initDate2.value);
-
-    if (initDate2.value != "") {
-        if (Date.parse(endDate) < Date.parse(initDate)) {
-            alert("Please select a new date");
-            endDate2.value = "";
-        } else {
-            endDate2.value = endDate;
-        }
-    } else {
-        alert("Please select an initial date");
-        endDate2.value = "";
-    }
-    getMFE();
 }

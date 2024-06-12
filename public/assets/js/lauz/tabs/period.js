@@ -30,9 +30,6 @@ function getInstruments() {
             account: accountSelected,
         },
         success: function (data) {
-            console.log("data");
-            console.log(data);
-
             if (data.length > 0) {
                 instrumentsGlobal = [];
                 for (let i = 0; i < data.length; i++) {

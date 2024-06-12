@@ -11,7 +11,12 @@ let accountsSelectGlobal = document.querySelector('select[name="accounts"]');
 let accountsSelectGlobal2 = document.querySelector('select[name="accounts2"]');
 
 let initDateGlobal = document.querySelector('input[name="initDate"]');
+let initDateGlobal2 = document.querySelector('input[name="initDate2"]');
 let endDateGlobal = document.querySelector('input[name="endDate"]');
+let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
+
+let directionSelect = document.querySelector('select[name="direction"]');
+let winningSelect = document.querySelector('select[name="winning"]');
 
 let datosTotalNetPL = [];
 let datosMeses = [];
@@ -69,13 +74,20 @@ function getAccounts() {
 }
 
 accountsSelectGlobal.addEventListener("change", handleSelectAccount);
+accountsSelectGlobal2.addEventListener("change", handleSelectAccount);
 
 initDateGlobal.addEventListener("change", handleChangeInitDate);
+initDateGlobal2.addEventListener("change", handleChangeInitDate);
 endDateGlobal.addEventListener("change", handleChangeEndDate);
+endDateGlobal2.addEventListener("change", handleChangeEndDate);
+
+directionSelect.addEventListener("change", handleDirectionSelect);
+winningSelect.addEventListener("change", handleWinningSelect);
 
 function handleSelectAccount(event) {
     let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
+    accountsSelectGlobal2.value = selectedValue;
 
     accountSelected = selectedValue;
     getAllData(false);
@@ -85,7 +97,7 @@ function handleChangeInitDate(event) {
     let selectedDate = event.target.value;
     initDate = selectedDate;
     initDateGlobal.value = initDate;
-
+    initDateGlobal2.value = initDate;
 }
 
 function handleChangeEndDate(event) {
@@ -95,8 +107,10 @@ function handleChangeEndDate(event) {
         if (Date.parse(endDate) < Date.parse(initDate)) {
             alert("Please select a new date");
             endDateGlobal.value = "";
+            endDateGlobal2.value = "";
         } else {
             endDateGlobal.value = endDate;
+            endDateGlobal2.value = endDate;
         }
     } else {
         alert("Please select an initial date");
@@ -105,12 +119,27 @@ function handleChangeEndDate(event) {
     getAllData(false);
 }
 
+function handleDirectionSelect(e) {
+    let selectDirection = e.target.value;
+    directionGlobal = selectDirection;
+    directionSelect.value = selectDirection;
+    getAllData(true);
+}
+
+function handleWinningSelect(e) {
+    let winningSelected = e.target.value;
+    winningGlobal = winningSelected;
+    winningSelect.value = winningSelected;
+    getAllData(true);
+}
+
 function getAllData(isOnLoad) {
     getOverviewData();
     getNetPL();
     getCalendarNetProfit();
     getPNL();
     getMFE();
+    table.ajax.reload();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
         getNetProfit();

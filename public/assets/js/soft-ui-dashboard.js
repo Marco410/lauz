@@ -730,7 +730,6 @@ if (iconSidenav) {
 }
 
 function toggleSidenav() {
-    console.log("ASDASSADSD");
     if (body.classList.contains(className)) {
         body.classList.remove(className);
         setTimeout(function () {

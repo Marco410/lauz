@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h6 class="text-white " style="font-size: 13px;">MFE</h6>
-                    <h6 class="text-primary"  id="totalNetPl2"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h6>
+                    <h6 class="text-primary"  id="totalMFE"> <div class="spinner-border text-primary spinner-border-md"  role="status"> </div></h6>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 13px;">MAE</h6>
-                  <h6 class="text-primary" id="annualReturn2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
+                  <h6 class="text-primary" id="totalMAE"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
               </div>
           </div>
       </div>
@@ -23,7 +23,7 @@
           <div class="row">
               <div class="col-sm-12">
                   <h6 class="text-white " style="font-size: 13px;">Avg. Trade</h6>
-                  <h6 class="text-danger" id="DrawDown2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
+                  <h6 class="text-danger" id="totalAvgTrade"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
               </div>
           </div>
       </div>
@@ -36,7 +36,7 @@
               <div class="row">
                   <div class="col-sm-12">
                       <h6 class="text-white " style="font-size: 12px;">Avg. #Trades per Day</h6>
-                      <h6 class="text-primary" id="profitFactor2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
+                      <h6 class="text-primary" id="totalAVGDay"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                   </div>
               </div>
           </div>
@@ -44,7 +44,7 @@
               <div class="row">
                   <div class="col-sm-12">
                       <h6 class="text-white " style="font-size: 13px;">Commision</h6>
-                      <h6 class="text-primary" id="avgWinLoss2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
+                      <h6 class="text-primary" id="totalComision"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                   </div>
               </div>
           </div>
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h6 class="text-white " style="font-size: 13px;">Sharpe Ratio</h6>
-                    <h6 class="text-primary" id="QTrades2"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
+                    <h6 class="text-primary" id="totalSharpeRatio"><div class="spinner-border text-primary spinner-border-md"  role="status"></div></h6>
                 </div>
             </div>
         </div>

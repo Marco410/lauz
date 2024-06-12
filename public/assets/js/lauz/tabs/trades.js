@@ -1,17 +1,27 @@
 const tradesTab = document.getElementById("tradesTab");
 const loaderTradesTable = document.getElementById("loaderTradesTable");
 tradesTab.addEventListener("click", () => {
-    getTradesTable();
+    console.log("Here");
+    table.ajax.reload();
 });
 $.fn.dataTable.moment("DD/MM/YYYY");
 
-var table = $("#trades-table").DataTable({
+const dataPost = {
+    account: accountSelected,
+    initDate: initDate,
+    endDate: endDate,
+    Market_pos: directionGlobal,
+    Trade_Result: winningGlobal,
+};
+
+let table = $("#trades-table").DataTable({
     responsive: true,
     fixedHeader: true,
     searching: false,
     ajax: {
         type: "get",
         url: URLS.tradesTable,
+        data: dataPost,
         dataSrc: function (data) {
             loaderTradesTable.style.display = "none";
             return data;

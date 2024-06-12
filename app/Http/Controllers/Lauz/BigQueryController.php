@@ -145,6 +145,25 @@ class BigQueryController extends Controller
             $whereAccount = "";
         }
 
+        if($request->endDate){
+            $whereDate = " AND T.Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  T.Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  T.Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
+
         $query = "
             SELECT
                 T.User,
@@ -172,6 +191,9 @@ class BigQueryController extends Controller
                 T.Trade_Result
                 FROM `algolabreport.NewData.Total_Trades` AS T
                 ".$whereAccount."
+                ".$whereDate." 
+                ".$whereMarket_pos."
+                ".$whereTrade_Result."
                 ) AS T
                 GROUP BY
                     T.User,
@@ -194,6 +216,37 @@ class BigQueryController extends Controller
     }
 
     public function getTotalTrades(Request $request){
+        $user = Auth::user()->email;
+        if($request->account){
+            $whereAccount = " WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
+        if($whereAccount){
+            $whereUser = " AND Email = '". $user. "'";
+        }else{
+            $whereUser = "";
+        }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
+
         $query = "
             SELECT
                 Account,
@@ -227,7 +280,15 @@ class BigQueryController extends Controller
                 CAST(Acum_Profit AS FLOAT64) AS AcumProfit,
                 CAST(DrowDown AS FLOAT64) AS DrowDown,
 
-            FROM `algolabreport.NewData.Total_Trades`;
+            FROM `algolabreport.NewData.Total_Trades`
+             ".$whereAccount."
+            ".$whereDate."
+            ".$whereUser."
+            ".$whereMarket_pos."
+            ".$whereTrade_Result."
+            ORDER BY
+                Account
+            ;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -302,7 +363,6 @@ class BigQueryController extends Controller
         }else{
             $whereUser = "";
         }
-
 
         if($request->Market_pos){
             $whereMarket_pos = " AND  T.Market_pos_ = '". $request->Market_pos. "'";
