@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
 });
 
 const totalNetPLElement = document.getElementById("totalNetPl");
-const totalNetPLElement2 = document.getElementById("totalNetPl2");
 const loaderTable = document.getElementById("loader-table");
 const loaderChart = document.getElementById("loader-chart");
 
@@ -12,9 +11,7 @@ let accountsSelectGlobal = document.querySelector('select[name="accounts"]');
 let accountsSelectGlobal2 = document.querySelector('select[name="accounts2"]');
 
 let initDateGlobal = document.querySelector('input[name="initDate"]');
-let initDateGlobal2 = document.querySelector('input[name="initDate2"]');
 let endDateGlobal = document.querySelector('input[name="endDate"]');
-let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
 
 let datosTotalNetPL = [];
 let datosMeses = [];
@@ -72,17 +69,14 @@ function getAccounts() {
 }
 
 accountsSelectGlobal.addEventListener("change", handleSelectAccount);
-accountsSelectGlobal2.addEventListener("change", handleSelectAccount);
 
 initDateGlobal.addEventListener("change", handleChangeInitDate);
-initDateGlobal2.addEventListener("change", handleChangeInitDate);
 endDateGlobal.addEventListener("change", handleChangeEndDate);
-endDateGlobal2.addEventListener("change", handleChangeEndDate);
 
 function handleSelectAccount(event) {
     let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
-    accountsSelectGlobal2.value = selectedValue;
+
     accountSelected = selectedValue;
     getAllData(false);
 }
@@ -91,7 +85,7 @@ function handleChangeInitDate(event) {
     let selectedDate = event.target.value;
     initDate = selectedDate;
     initDateGlobal.value = initDate;
-    initDateGlobal2.value = initDate;
+
 }
 
 function handleChangeEndDate(event) {
@@ -101,15 +95,12 @@ function handleChangeEndDate(event) {
         if (Date.parse(endDate) < Date.parse(initDate)) {
             alert("Please select a new date");
             endDateGlobal.value = "";
-            endDateGlobal2.value = "";
         } else {
             endDateGlobal.value = endDate;
-            endDateGlobal2.value = endDate;
         }
     } else {
         alert("Please select an initial date");
         endDateGlobal.value = "";
-        endDateGlobal2.value = "";
     }
     getAllData(false);
 }
@@ -119,6 +110,7 @@ function getAllData(isOnLoad) {
     getNetPL();
     getCalendarNetProfit();
     getPNL();
+    getMFE();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
         getNetProfit();
@@ -143,12 +135,6 @@ function getNetPL() {
             var className =
                 response.totalNetPL > 0 ? "text-primary" : "text-danger";
             totalNetPLElement.innerHTML =
-                '<h6 class="' +
-                className +
-                '"> $' +
-                response.totalNetPL +
-                "</h6>";
-            totalNetPLElement2.innerHTML =
                 '<h6 class="' +
                 className +
                 '"> $' +

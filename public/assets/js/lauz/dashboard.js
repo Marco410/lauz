@@ -5,7 +5,6 @@ const avgWinLossElement = document.getElementById("avgWinLoss");
 const QTradesElement = document.getElementById("QTrades");
 const cagrElement = document.getElementById("cagr");
 
-const annualReturnElement2 = document.getElementById("annualReturn2");
 const drawDownElement2 = document.getElementById("DrawDown2");
 const profitFactorElement2 = document.getElementById("profitFactor2");
 const avgWinLossElement2 = document.getElementById("avgWinLoss2");
@@ -123,36 +122,6 @@ function getOverviewData() {
                 maxCAGR.toFixed(2) +
                 "%</h6>";
 
-            annualReturnElement2.innerHTML =
-                '<h6 class="' +
-                getPrimaryDangeClass(maxAnnualReturn) +
-                '"> $' +
-                maxAnnualReturn.toFixed(2) +
-                "</h6>";
-            drawDownElement2.innerHTML =
-                '<h6 class="' +
-                getPrimaryDangeClass(minDrawDown) +
-                '"> $' +
-                minDrawDown.toFixed(2) +
-                "</h6>";
-            profitFactorElement2.innerHTML =
-                '<h6 class="' +
-                getPrimaryDangeClass(maxProfitFactor) +
-                '">' +
-                maxProfitFactor.toFixed(2) +
-                "</h6>";
-            avgWinLossElement2.innerHTML =
-                '<h6 class="' +
-                getPrimaryDangeClass(maxAvgWinLoss) +
-                '">' +
-                maxAvgWinLoss.toFixed(2) +
-                "</h6>";
-            QTradesElement2.innerHTML =
-                '<h6 class="' +
-                getPrimaryDangeClass(maxQTrades) +
-                '">' +
-                maxQTrades.toFixed(2) +
-                "</h6>";
 
             let className =
                 maxAvgWinRatio > 30 ? "text-primary" : "text-danger";
