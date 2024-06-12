@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
 });
 
 const totalNetPLElement = document.getElementById("totalNetPl");
-const totalNetPLElement2 = document.getElementById("totalNetPl2");
 const loaderTable = document.getElementById("loader-table");
 const loaderChart = document.getElementById("loader-chart");
 
@@ -15,6 +14,9 @@ let initDateGlobal = document.querySelector('input[name="initDate"]');
 let initDateGlobal2 = document.querySelector('input[name="initDate2"]');
 let endDateGlobal = document.querySelector('input[name="endDate"]');
 let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
+
+let directionSelect = document.querySelector('select[name="direction"]');
+let winningSelect = document.querySelector('select[name="winning"]');
 
 let datosTotalNetPL = [];
 let datosMeses = [];
@@ -79,10 +81,14 @@ initDateGlobal2.addEventListener("change", handleChangeInitDate);
 endDateGlobal.addEventListener("change", handleChangeEndDate);
 endDateGlobal2.addEventListener("change", handleChangeEndDate);
 
+directionSelect.addEventListener("change", handleDirectionSelect);
+winningSelect.addEventListener("change", handleWinningSelect);
+
 function handleSelectAccount(event) {
     let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
     accountsSelectGlobal2.value = selectedValue;
+
     accountSelected = selectedValue;
     getAllData(false);
 }
@@ -109,9 +115,22 @@ function handleChangeEndDate(event) {
     } else {
         alert("Please select an initial date");
         endDateGlobal.value = "";
-        endDateGlobal2.value = "";
     }
     getAllData(false);
+}
+
+function handleDirectionSelect(e) {
+    let selectDirection = e.target.value;
+    directionGlobal = selectDirection;
+    directionSelect.value = selectDirection;
+    getAllData(true);
+}
+
+function handleWinningSelect(e) {
+    let winningSelected = e.target.value;
+    winningGlobal = winningSelected;
+    winningSelect.value = winningSelected;
+    getAllData(true);
 }
 
 function getAllData(isOnLoad) {
@@ -119,6 +138,8 @@ function getAllData(isOnLoad) {
     getNetPL();
     getCalendarNetProfit();
     getPNL();
+    getMFE();
+    table.ajax.reload();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
         getNetProfit();
@@ -143,12 +164,6 @@ function getNetPL() {
             var className =
                 response.totalNetPL > 0 ? "text-primary" : "text-danger";
             totalNetPLElement.innerHTML =
-                '<h6 class="' +
-                className +
-                '"> $' +
-                response.totalNetPL +
-                "</h6>";
-            totalNetPLElement2.innerHTML =
                 '<h6 class="' +
                 className +
                 '"> $' +

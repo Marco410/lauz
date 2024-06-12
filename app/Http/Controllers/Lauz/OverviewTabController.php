@@ -34,6 +34,19 @@ class OverviewTabController extends Controller
         }else{
             $whereDate = "";
         }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
         $query = "
            
         WITH Trade_Stats AS (
@@ -53,6 +66,8 @@ class OverviewTabController extends Controller
                 `algolabreport.NewData.Total_Trades`
             ".$whereAccount."
             ".$whereDate." 
+            ".$whereMarket_pos."
+            ".$whereTrade_Result."
             GROUP BY
                 Email, 
                 Account, 

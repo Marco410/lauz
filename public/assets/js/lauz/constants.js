@@ -10,6 +10,7 @@ const URLS = {
     createNote: "/create-note",
     getNotes: "/notes",
     getNetPNL: "/get-daily-net-cumulative-pl",
+    getmfe: "/get-mfe",
 };
 
 const COLORS = {

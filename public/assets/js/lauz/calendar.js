@@ -2,8 +2,7 @@ const calHeatmapElement = document.querySelector("#cal-heatmap");
 const loaderCalendar = document.querySelector("#calendarLoader");
 const loaderCalendar1 = document.querySelector("#calendarLoader1");
 let cal = null;
-loaderCalendar.innerHTML = loaderGlobal;
-loaderCalendar1.innerHTML = loaderGlobal;
+
 const monthRest = 2;
 let startDate = new Date();
 function initHeatMap() {
@@ -124,13 +123,25 @@ window.addEventListener("resize", function () {
 });
 
 function getCalendarNetProfit() {
+    calendarNetProfit = [];
+    calendarData = [];
+    startDateCalendar = new Date();
+    loaderCalendar1.style.display = "inline-block";
+    loaderCalendar1.innerHTML = loaderGlobal;
+
+    const dataPost = {
+        account: accountSelected,
+        initDate: initDate,
+        endDate: endDate,
+        Market_pos: directionGlobal,
+        Trade_Result: winningGlobal,
+    };
+
     $.ajax({
         url: URLS.getCalendarNetProfit,
         type: "GET",
         dataType: "json",
-        data: {
-            account: accountSelected,
-        },
+        data: dataPost,
         success: function (data) {
             data.forEach((item) => {
                 calendarNetProfit.push({
@@ -149,10 +160,22 @@ function getCalendarNetProfit() {
                             : "white",
                 });
             });
-            startDateCalendar = calendarNetProfit[1].t;
+
+            //this cause startDateCalendar overwrites at the end
+            if (calendarNetProfit.length > 0) {
+                startDateCalendar = calendarNetProfit[1].t;
+            } else {
+                startDateCalendar = new Date();
+            }
             renderCalendar();
-            startDate = calendarNetProfit[0].t;
-            startDate.setMonth(calendarNetProfit[0].t.getMonth() - monthRest);
+            if (calendarNetProfit.length > 0) {
+                startDate = calendarNetProfit[0].t;
+                startDate.setMonth(
+                    calendarNetProfit[0].t.getMonth() - monthRest
+                );
+            } else {
+                startDate = new Date();
+            }
             initHeatMap();
         },
         error: function (xhr, status, error) {

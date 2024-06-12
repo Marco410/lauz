@@ -33,15 +33,19 @@ function getPNL() {
     tradesDirectionLoader.style.display = "inline-block";
     tradesForInstrumentLoader.style.display = "inline-block";
 
+    const dataPost = {
+        account: accountSelected,
+        initDate: initDate,
+        endDate: endDate,
+        Market_pos: directionGlobal,
+        Trade_Result: winningGlobal,
+    };
+
     $.ajax({
         url: URLS.getNetPNL,
         type: "GET",
         dataType: "json",
-        data: {
-            account: accountSelected,
-            initDate: initDate,
-            endDate: endDate,
-        },
+        data: dataPost,
         success: function (response) {
             let labelsCumPNL = [];
             let dataCumPNL = [];
