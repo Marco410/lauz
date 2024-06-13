@@ -175,8 +175,8 @@
         </div>
       </div>
       <div class="col-sm-12 mt-4 mb-4">
-        <div class="card justify-content-center text-center" style="width: 100%; height: 100px; background-color: var(--bgDark)">
-          <h4 class="font-weight-bolder text-white">ADDS</h4>
+        <div class="card justify-content-center text-center p-4" style="width: 100%; height: auto; background-color: var(--bgDark)">
+          <img src="{{ asset('assets/img/adds/oyarce.gif') }}" class="image ms-3" width="98.5%" alt="" style="border-radius: 10px;">
         </div>
       </div>
     </div>
