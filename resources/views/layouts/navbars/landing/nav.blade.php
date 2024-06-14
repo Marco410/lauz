@@ -30,16 +30,25 @@
             Recursos
           </a>
         </li>
+        @auth
         <li class="nav-item">
-          <a class="btn btn-sm btn-secondary mt-3" style="margin-right: 10px;" href="{{ url('register') }}">
-            Registrarse
+          <a class="nav-link me-2 text-primary" style="margin-right: 10px;" href="{{ url('dashboard') }}">
+            {{ auth()->user()->name }} {{ auth()->user()->last_name }}
           </a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-sm btn-primary mt-3" href="{{ url('login') }}">
-            Iniciar Sesión
-          </a>
-        </li>
+        @else
+          <li class="nav-item">
+            <a class="btn btn-sm btn-secondary mt-3" style="margin-right: 10px;" href="{{ url('register') }}">
+              Registrarse
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-sm btn-primary mt-3" href="{{ url('login') }}">
+              Iniciar Sesión
+            </a>
+          </li>
+
+        @endauth
      
       </ul>
      
