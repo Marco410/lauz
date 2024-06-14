@@ -10,9 +10,9 @@ const loaderChart = document.getElementById("loader-chart");
 let accountsSelectGlobal = document.querySelector('select[name="accounts"]');
 let accountsSelectGlobal2 = document.querySelector('select[name="accounts2"]');
 
-let initDateGlobal = document.querySelector('input[name="initDate"]');
+/* let initDateGlobal = document.querySelector('input[name="initDate"]'); */
 let initDateGlobal2 = document.querySelector('input[name="initDate2"]');
-let endDateGlobal = document.querySelector('input[name="endDate"]');
+/* let endDateGlobal = document.querySelector('input[name="endDate"]'); */
 let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
 
 let directionSelect = document.querySelector('select[name="direction"]');
@@ -76,9 +76,9 @@ function getAccounts() {
 accountsSelectGlobal.addEventListener("change", handleSelectAccount);
 accountsSelectGlobal2.addEventListener("change", handleSelectAccount);
 
-initDateGlobal.addEventListener("change", handleChangeInitDate);
+/* initDateGlobal.addEventListener("change", handleChangeInitDate); */
 initDateGlobal2.addEventListener("change", handleChangeInitDate);
-endDateGlobal.addEventListener("change", handleChangeEndDate);
+/* endDateGlobal.addEventListener("change", handleChangeEndDate); */
 endDateGlobal2.addEventListener("change", handleChangeEndDate);
 
 directionSelect.addEventListener("change", handleDirectionSelect);
@@ -96,7 +96,7 @@ function handleSelectAccount(event) {
 function handleChangeInitDate(event) {
     let selectedDate = event.target.value;
     initDate = selectedDate;
-    initDateGlobal.value = initDate;
+    /* initDateGlobal.value = initDate; */
     initDateGlobal2.value = initDate;
 }
 
@@ -106,15 +106,16 @@ function handleChangeEndDate(event) {
     if (initDate != "") {
         if (Date.parse(endDate) < Date.parse(initDate)) {
             alert("Please select a new date");
-            endDateGlobal.value = "";
+            /* endDateGlobal.value = ""; */
             endDateGlobal2.value = "";
         } else {
-            endDateGlobal.value = endDate;
+            /*  endDateGlobal.value = endDate; */
             endDateGlobal2.value = endDate;
         }
     } else {
         alert("Please select an initial date");
-        endDateGlobal.value = "";
+        /* endDateGlobal.value = ""; */
+        endDateGlobal2.value = "";
     }
     getAllData(false);
 }

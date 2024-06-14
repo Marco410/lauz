@@ -97,12 +97,12 @@
       <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-4">
+            <div class="col-4 mb-2">
               <select name="accounts" class="form-select">
               </select>
             </div>
             <div class="col-8 ">
-              <div class="row justify-content-end">
+              {{-- <div class="row justify-content-end">
                 <div class="col-sm-4">
                   <div class="input-group mb-3">
                     <input type="date" class="form-control datepicker-input" placeholder="dd/mm/yyyy" name="initDate" aria-label="" aria-describedby="basic-addon2">
@@ -113,7 +113,7 @@
                     <input type="date" class="form-control" name="endDate" placeholder="dd/mm/yyyy" aria-label="" aria-describedby="basic-addon2">
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
             <div class="col-sm-12">
               <div class="row">
