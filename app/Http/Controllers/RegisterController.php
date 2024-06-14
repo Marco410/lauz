@@ -44,8 +44,8 @@ class RegisterController extends Controller
 
     public function sendVerifyEmail(){
 
-        $user = User::where('email',request()->email)->first();
-        Mail::to(request()->email)->send(new VerifyEmail($user));
+        /* $user = User::where('email',request()->email)->first();
+        Mail::to(request()->email)->send(new VerifyEmail($user)); */
         return view('session.welcome-lauz');
     }
 
