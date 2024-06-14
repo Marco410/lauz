@@ -73,7 +73,7 @@ function initHeatMap() {
 
     cal = new CalHeatmap();
     cal.paint(heatMapConfig, [
-        [
+        /*   [
             Legend,
             {
                 includeBlank: true,
@@ -81,7 +81,7 @@ function initHeatMap() {
                 itemSelector: "#legend",
                 radius: 2,
             },
-        ],
+        ], */
         [
             Tooltip,
             {

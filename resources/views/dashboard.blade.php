@@ -61,13 +61,13 @@
 
               <h5 class="font-weight-bolder text-white">Win RT%</h5>
               <div class="d-flex justify-content-center gap-2">
-                <h6 class="text-primary" style="font-size: 15px">70 W</h6>
+                <h6 class="text-primary" style="font-size: 15px" id="tradesWin">- W</h6>
                 <h6 class="text-white" style="font-size: 15px">/</h6>
-                <h6 class="text-danger" style="font-size: 15px"> 30 W</h6>
+                <h6 class="text-danger" style="font-size: 15px" id="tradesLoss">- L</h6>
               </div>
               <div class="progress"  style="background-color: transparent;">
-                <div class="progress-bar bg-primary" role="progressbar" id="progressWinRatio" style="width: 70%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar bg-white" role="progressbar" id="progressWinRatio2" style="width: 30%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-primary" role="progressbar" id="progressWinRatio" style="width: 0%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-white" role="progressbar" id="progressWinRatio2" style="width: 100%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <div class="d-flex justify-content-center mt-2" id="AvgWinRatio">
                 <h6 class="text-primary" style="font-size: 13px" > - %</h6>
@@ -97,7 +97,7 @@
       <div class="card" style="background-color: var(--bgDark)">
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-4 mb-2">
+            <div class="col-4 mb-4">
               <select name="accounts" class="form-select">
               </select>
             </div>

@@ -12,6 +12,7 @@ const URLS = {
     getNetPNL: "/get-daily-net-cumulative-pl",
     getmfe: "/get-mfe",
     getPerformanceTable: "/get-performance-table",
+    getMetrics: "/get-metrics",
 };
 
 const COLORS = {

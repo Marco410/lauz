@@ -122,14 +122,86 @@ function getOverviewData() {
                 formatDecimalNumber(maxCAGR) +
                 "%</h6>";
 
-            let className =
+            /*     let className =
                 maxAvgWinRatio > 30 ? "text-primary" : "text-danger";
             AvgWinRatioElement.innerHTML =
                 '<h6 class="' + className + '">' + maxAvgWinRatio + "%</h6>";
 
             progressWinRatioElement.style.width = maxAvgWinRatio + "%";
             progressWinRatioElement2.style.width =
-                Math.abs(maxAvgWinRatio - 100) + "%";
+                Math.abs(maxAvgWinRatio - 100) + "%"; */
+        },
+        error: function (xhr, status, error) {},
+    });
+}
+
+const tradesWinElement = document.getElementById("tradesWin");
+const tradesLossElement = document.getElementById("tradesLoss");
+
+const daysWin = document.getElementById("daysWin");
+const daysLoss = document.getElementById("daysLoss");
+const progressDays = document.getElementById("progressDays");
+const progressDays2 = document.getElementById("progressDays2");
+
+function getMetricsData() {
+    $.ajax({
+        url: URLS.getMetrics,
+        type: "GET",
+        dataType: "json",
+        data: {
+            account: accountSelected,
+            initDate: initDate,
+            endDate: endDate,
+        },
+        success: function (data) {
+            let tradesWin = 0;
+            let tradesLoss = 0;
+            let totalTrades = 0;
+
+            let daysWinData = 0;
+            let daysLossData = 0;
+            let percentajeDaysData = 0;
+
+            data.forEach((e) => {
+                tradesWin += e.Trade_Win;
+                tradesLoss += e.Trade_Loss;
+
+                daysWinData += e.Positive_Days;
+                daysLossData += e.Negative_Days;
+            });
+            totalTrades = tradesWin + tradesLoss;
+            pertentajeTrades = (tradesWin / totalTrades) * 100;
+
+            let className =
+                pertentajeTrades > 30 ? "text-primary" : "text-danger";
+            AvgWinRatioElement.innerHTML =
+                '<h6 class="' +
+                className +
+                '">' +
+                pertentajeTrades.toFixed(2) +
+                "%</h6>";
+
+            progressWinRatioElement.style.width =
+                pertentajeTrades.toFixed(2) + "%";
+            progressWinRatioElement2.style.width =
+                Math.abs(pertentajeTrades.toFixed(2) - 100) + "%";
+
+            tradesWinElement.innerHTML = `${tradesWin} W`;
+            tradesLossElement.innerHTML = `${tradesLoss} L`;
+
+            totalDays = daysWinData + daysLossData;
+            percentajeDaysData = (daysWinData / totalDays) * 100;
+
+            daysWin.innerHTML = `${daysWinData} W`;
+            daysLoss.innerHTML = `${daysLossData} L`;
+            let classNameDays =
+                percentajeDaysData > 30 ? "text-primary" : "text-danger";
+            percentajeDays.classList.add(classNameDays);
+            percentajeDays.innerHTML = `${percentajeDaysData.toFixed(2)} %`;
+
+            progressDays.style.width = percentajeDaysData.toFixed(2) + "%";
+            progressDays2.style.width =
+                Math.abs(percentajeDaysData.toFixed(2) - 100) + "%";
         },
         error: function (xhr, status, error) {},
     });

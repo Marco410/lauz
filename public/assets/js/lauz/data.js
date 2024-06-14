@@ -136,6 +136,7 @@ function handleWinningSelect(e) {
 
 function getAllData(isOnLoad) {
     getOverviewData();
+    getMetricsData();
     getNetPL();
     getCalendarNetProfit();
     getPNL();

@@ -47,10 +47,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/get-netpl', [BigQueryController::class, 'getNetPL'])->name('get.netpl');
 	Route::get('/get-overview-data', [BigQueryController::class, 'getOverviewData'])->name('get.overview.data');
-
 	Route::get('/get-calendar', [BigQueryController::class, 'getCalendar'])->name('get.calendar');
-
     Route::get('/get-mfe', [BigQueryController::class, 'getMFE'])->name('get.mfe');
+    Route::get('/get-metrics', [BigQueryController::class, 'getMetrics'])->name('get.metrics');
+
+
 	//TRADES
 	Route::get('/get-total-trades', [BigQueryController::class, 'getTotalTrades'])->name('get.total.trades');
 
