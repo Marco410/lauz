@@ -384,7 +384,12 @@ function renderTradesForInstrument(labels, dataset) {
         data: data4,
         options: {
             responsive: true,
-
+            layout: {
+                padding: {
+                    top: 10,
+                    bottom: 10,
+                },
+            },
             plugins: {
                 legend: {
                     display: false,

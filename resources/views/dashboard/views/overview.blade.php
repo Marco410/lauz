@@ -144,7 +144,7 @@
                       <div class="col-sm-5 mt-4 p-3">
                         <div id="legend-container"></div>
                       </div>
-                      <div class="col-sm-7 p-3 text-center">
+                      <div class="col-sm-7  text-center">
                         <div class="spinner-border text-primary spinner-border-md mt-3" id="tradesForInstrumentLoader" role="status"> </div>
                         <div class="chart" >
                             <canvas id="pie-bar2" class="chart-canvas" height="100"></canvas>
