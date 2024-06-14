@@ -88,9 +88,9 @@ function getOverviewData() {
             annualReturnElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(maxAnnualReturn) +
-                '"> $' +
+                '">' +
                 formatDecimalNumber(maxAnnualReturn) +
-                "</h6>";
+                "%</h6>";
             drawDownElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(minDrawDown) +
