@@ -89,25 +89,25 @@ function getOverviewData() {
                 '<h6 class="' +
                 getPrimaryDangeClass(maxAnnualReturn) +
                 '"> $' +
-                maxAnnualReturn.toFixed(2) +
+                formatDecimalNumber(maxAnnualReturn) +
                 "</h6>";
             drawDownElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(minDrawDown) +
                 '"> $' +
-                minDrawDown.toFixed(2) +
+                formatDecimalNumber(minDrawDown) +
                 "</h6>";
             profitFactorElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(maxProfitFactor) +
                 '">' +
-                maxProfitFactor.toFixed(2) +
+                formatDecimalNumber(maxProfitFactor) +
                 "</h6>";
             avgWinLossElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(maxAvgWinLoss) +
                 '">' +
-                maxAvgWinLoss.toFixed(2) +
+                formatDecimalNumber(maxAvgWinLoss) +
                 "</h6>";
             QTradesElement.innerHTML =
                 '<h6 class="' +
@@ -119,9 +119,8 @@ function getOverviewData() {
                 '<h6 class="' +
                 getPrimaryDangeClass(maxCAGR) +
                 '">' +
-                maxCAGR.toFixed(2) +
+                formatDecimalNumber(maxCAGR) +
                 "%</h6>";
-
 
             let className =
                 maxAvgWinRatio > 30 ? "text-primary" : "text-danger";

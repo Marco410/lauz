@@ -165,9 +165,10 @@
         <div class="row">
             <div class="col-sm-12 mt-1">
                 <div class="card mb-4" style="background-color: var(--bgDark); height: 408px; min-height: 408px" >
-                    <div class="card-body px-1 pb-2" >
+                    <div class="card-body px-1 pb-2 text-center" >
+                      <div class="spinner-border text-primary spinner-border-md mt-3" id="loaderPerformanceTable" role="status"> </div>
                       <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="tablePerformance">
                           <thead>
                             <tr>
                               <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Performance</th>
@@ -177,57 +178,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Total Net Profit</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$5.000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$3,000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$2,000</small></td>
-                            </tr>
-                            <tr>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Max DrawDown</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$2.000</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$500</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$2,000</small></td>
-                             </tr>
-                            <tr>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Profit Factor</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.4</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.2</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">1.5</small></td>
-                             
-                            </tr>
-                            <tr>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Avg Win Trade</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$61</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$59</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$62</small></td>
-                            </tr>
-                            <tr>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Max. Consec. Win</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">4</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">3</small></td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">7</small></td>
-                            </tr>
-                            <tr>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Largest Win Trade</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$316</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$80</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">$360</small></td>
-                              </tr>
-                              <tr>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Largest Lose Trade</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$200</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$200</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">-$60</small></td>
-                              </tr>
-                              <tr>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">Avg time in Market</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">12.61 min</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">13.44min</small></td>
-                                <td><small class="text-xs fw-lighter" style="color: var(--textGray);">10.12min</small></td>
-                              </tr>
                             
-                             
                           </tbody>
                         </table>
                       </div>
@@ -236,11 +187,14 @@
             </div>
             <div class="col-sm-12 ">
                 <div class="card mb-4" style="background-color: var(--bgDark);height: 318px; min-height: 318px" >
-                    <div class="card-body p-4 text-center" >
+                  <div class="card-body">
+                    <h6 class="text-white">Recent Trades</h6>
+                  </div>
+                   {{--  <div class="card-body p-4 text-center" >
                       <div id="calendarLoader1"></div>
                       <div id='calendar'></div>
                       <div id="tooltip-span" class="my-tooltip" style="display: none"></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

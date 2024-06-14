@@ -5,6 +5,10 @@ const totalAvg_tradeDay = document.getElementById("totalAVGDay");
 const totalComision = document.getElementById("totalComision");
 const totalSharpeRatio = document.getElementById("totalSharpeRatio");
 
+const loaderPerformanceTable = document.getElementById(
+    "loaderPerformanceTable"
+);
+
 function getMFE() {
     totalMfe.innerHTML = loaderGlobal;
     totalMae.innerHTML = loaderGlobal;
@@ -58,4 +62,54 @@ function getMFE() {
         },
         error: function (error) {},
     });
+}
+
+function getPerformanceTable() {
+    loaderPerformanceTable.style.display = "inline-block";
+
+    const dataPost = {
+        account: accountSelected,
+        initDate: initDate,
+        endDate: endDate,
+        Market_pos: directionGlobal,
+        Trade_Result: winningGlobal,
+    };
+
+    $.ajax({
+        url: URLS.getPerformanceTable,
+        type: "GET",
+        dataType: "json",
+        data: dataPost,
+        success: function (response) {
+            const table = document.getElementById("tablePerformance");
+            const tbody = table.getElementsByTagName("tbody")[0];
+            tbody.innerHTML = "";
+
+            response.forEach((item) => {
+                const row = tbody.insertRow();
+                row.innerHTML = `<td><small class="text-xs fw-lighter" style="color: var(--textGray);">${
+                    item.Performance
+                }</small></td> <td><small class="text-xs fw-lighter" style="color: var(--textGray);">${showLabelFunction(
+                    item.Performance
+                )}${formatDecimalNumber(
+                    item.All_Trades
+                )}</small></td><td><small class="text-xs fw-lighter" style="color: var(--textGray);">${showLabelFunction(
+                    item.Performance
+                )}${formatDecimalNumber(
+                    item.Longs
+                )}</small></td><td><small class="text-xs fw-lighter" style="color: var(--textGray);">${showLabelFunction(
+                    item.Performance
+                )}${formatDecimalNumber(item.Shorts)}</small></td>`;
+            });
+
+            loaderPerformanceTable.style.display = "none";
+        },
+        error: function (error) {
+            loaderPerformanceTable.style.display = "none";
+        },
+    });
+}
+
+function showLabelFunction(item) {
+    return item === "Profit Factor" || item === "Max. Concsec. Win" ? "" : "$";
 }

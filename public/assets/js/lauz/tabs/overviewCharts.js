@@ -81,7 +81,8 @@ function getPNL() {
                 [directionLongs.length, directionShorts.length]
             );
 
-            totalLongsTitle.innerHTML = directionLongs.length;
+            totalLongsTitle.innerHTML =
+                directionLongs.length + directionShorts.length;
             totalLongs.innerHTML = directionLongs.length;
             totalShorts.innerHTML = directionShorts.length;
 

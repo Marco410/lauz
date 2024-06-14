@@ -60,6 +60,8 @@ function getNetProfit() {
             account: accountSelected,
             initDate: initDate,
             endDate: endDate,
+            Market_pos: directionGlobal,
+            Trade_Result: winningGlobal,
         },
         success: function (response) {
             labelsCumNetProfit = [];
@@ -203,6 +205,8 @@ function getMaxDrawdow() {
             account: accountSelected,
             initDate: initDate,
             endDate: endDate,
+            Market_pos: directionGlobal,
+            Trade_Result: winningGlobal,
         },
         success: function (response) {
             labelsCumMaxDrawDown = [];
@@ -246,9 +250,9 @@ function getMaxDrawdow() {
 function renderCumMaxDrawdown(labels, dataset, label) {
     var ctx9 = document.getElementById("chart-line4").getContext("2d");
     var gradientStroke4 = ctx9.createLinearGradient(92, 237, 193, 50);
-    gradientStroke4.addColorStop(1, OPACITY.primaryWithOpacity6);
-    gradientStroke4.addColorStop(0.1, OPACITY.primaryWithOpacity15);
-    gradientStroke4.addColorStop(0, OPACITY.primaryWithOpacity6);
+    gradientStroke4.addColorStop(1, OPACITY.thirdWithOpacity6);
+    gradientStroke4.addColorStop(0.1, OPACITY.thirdWithOpacity15);
+    gradientStroke4.addColorStop(0, OPACITY.thirdWithOpacity6);
 
     var existingChart = Chart.getChart(ctx9);
     if (existingChart) {
@@ -265,7 +269,7 @@ function renderCumMaxDrawdown(labels, dataset, label) {
                     tension: 0.4,
                     borderWidth: 0,
                     pointRadius: 0,
-                    borderColor: COLORS.primary,
+                    borderColor: COLORS.third,
                     borderWidth: 1,
                     backgroundColor: gradientStroke4,
                     fill: true,

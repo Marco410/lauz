@@ -31,12 +31,12 @@ class AccountsController extends Controller
             ;
         ";
         $results = $this->bigQueryService->runQuery($query);
-
+        
         $resultsArray = [];
         foreach ($results as $row) {
             $resultsArray[] = $row;
-        }
-        
+            }
+           
         return response()->json($resultsArray);     
     }
 

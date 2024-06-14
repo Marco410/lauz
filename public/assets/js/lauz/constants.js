@@ -11,6 +11,7 @@ const URLS = {
     getNotes: "/notes",
     getNetPNL: "/get-daily-net-cumulative-pl",
     getmfe: "/get-mfe",
+    getPerformanceTable: "/get-performance-table",
 };
 
 const COLORS = {
@@ -32,6 +33,7 @@ const OPACITY = {
     primaryWithOpacity15: `rgba(${hexToRgb(COLORS.primary)}, 0.15)`,
     thirdWithOpacity9: `rgba(${hexToRgb(COLORS.third)}, 0.9)`,
     thirdWithOpacity6: `rgba(${hexToRgb(COLORS.third)}, 0.6)`,
+    thirdWithOpacity15: `rgba(${hexToRgb(COLORS.third)}, 0.15)`,
 };
 
 function hexToRgb(hex) {

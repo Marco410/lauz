@@ -59,8 +59,8 @@ function initHeatMap() {
         scale: {
             color: {
                 type: "linear",
-                range: ["#e0e0e0", "#b2f35f"],
-                domain: [-100, 100],
+                range: ["#f46d22", "#e0e0e0", "#b2f35f"],
+                domain: [-0.1, 0, 0.1],
                 baseColor: "#161f20",
             },
         },
@@ -126,8 +126,6 @@ function getCalendarNetProfit() {
     calendarNetProfit = [];
     calendarData = [];
     startDateCalendar = new Date();
-    loaderCalendar1.style.display = "inline-block";
-    loaderCalendar1.innerHTML = loaderGlobal;
 
     const dataPost = {
         account: accountSelected,
@@ -167,7 +165,6 @@ function getCalendarNetProfit() {
             } else {
                 startDateCalendar = new Date();
             }
-            renderCalendar();
             if (calendarNetProfit.length > 0) {
                 startDate = calendarNetProfit[0].t;
                 startDate.setMonth(
@@ -182,28 +179,4 @@ function getCalendarNetProfit() {
             console.error(error);
         },
     });
-}
-
-function renderCalendar() {
-    let calendarEl = document.getElementById("calendar");
-    let tooltipSpan = document.getElementById("tooltip-span");
-    let calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: "dayGridMonth",
-        themeSystem: "bootstrap5",
-        height: "100%",
-        events: calendarData,
-        initialDate: startDateCalendar,
-        eventClick(event) {
-            alert(`${event.event._def.title}`);
-        },
-        eventMouseEnter: function (event, jsEvent, view) {
-            tooltipSpan.innerHTML = `<strong>${event.event._def.title}</strong>`;
-            tooltipSpan.style.display = "block";
-        },
-        eventMouseLeave: function (event, jsEvent, view) {
-            tooltipSpan.style.display = "none";
-        },
-    });
-    calendar.render();
-    loaderCalendar1.style.display = "none";
 }

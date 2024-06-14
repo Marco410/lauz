@@ -123,14 +123,14 @@ function handleDirectionSelect(e) {
     let selectDirection = e.target.value;
     directionGlobal = selectDirection;
     directionSelect.value = selectDirection;
-    getAllData(true);
+    getAllData(false);
 }
 
 function handleWinningSelect(e) {
     let winningSelected = e.target.value;
     winningGlobal = winningSelected;
     winningSelect.value = winningSelected;
-    getAllData(true);
+    getAllData(false);
 }
 
 function getAllData(isOnLoad) {
@@ -139,6 +139,7 @@ function getAllData(isOnLoad) {
     getCalendarNetProfit();
     getPNL();
     getMFE();
+    getPerformanceTable();
     table.ajax.reload();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
@@ -167,7 +168,7 @@ function getNetPL() {
                 '<h6 class="' +
                 className +
                 '"> $' +
-                response.totalNetPL +
+                formatDecimalNumber(response.totalNetPL) +
                 "</h6>";
 
             const table = document.getElementById("myTable");
@@ -257,8 +258,15 @@ function formatNumber(number) {
     if (number >= 1000) {
         return (number / 1000).toFixed(0) + "K";
     } else {
-        return number.toFixed(2);
+        return formatDecimalNumber(number);
     }
+}
+
+function formatDecimalNumber(number) {
+    return new Intl.NumberFormat("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    }).format(number);
 }
 
 function getPrimaryDangeClass(number) {

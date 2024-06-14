@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
 	
 	Route::get('/get-daily-net-cumulative-pl', [OverviewTabController::class, 'getDailyNetCumulativePL'])->name('get-daily-net-cumulative-pl');
+	Route::get('/get-performance-table', [OverviewTabController::class, 'getPerformanceTable'])->name('get-performance-table');
 
 
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
