@@ -189,12 +189,60 @@
                 <div class="card mb-4" style="background-color: var(--bgDark);height: 318px; min-height: 318px" >
                   <div class="card-body">
                     <h6 class="text-white">Recent Trades</h6>
+                      <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0" id="tablePerformance">
+                          <thead>
+                            <tr>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Date</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">QTY</th>
+                              <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">P&L</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
+                              </td>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
+                              </td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
+                              </td>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
+                              </td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
+                            </tr>
+                          
+                            <tr>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
+                              </td>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
+                              </td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
+                            </tr>
+                          
+                            <tr>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
+                              </td>
+                              <td>
+                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
+                              </td>
+                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
+                            </tr>
+                          
+                          
+                          </tbody>
+                        </table>
+                      </div>
                   </div>
-                   {{--  <div class="card-body p-4 text-center" >
-                      <div id="calendarLoader1"></div>
-                      <div id='calendar'></div>
-                      <div id="tooltip-span" class="my-tooltip" style="display: none"></div>
-                    </div> --}}
                 </div>
             </div>
         </div>
