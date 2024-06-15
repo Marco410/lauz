@@ -163,6 +163,12 @@ class BigQueryController extends Controller
             $whereTrade_Result = "";
         }
 
+        if($request->Instrument){
+            $whereInstrument = " AND  Instrument = '". $request->Instrument. "'";
+        }else{
+            $whereInstrument = "";
+        }
+
 
         $query = "
             SELECT
@@ -194,6 +200,7 @@ class BigQueryController extends Controller
                 ".$whereDate." 
                 ".$whereMarket_pos."
                 ".$whereTrade_Result."
+                ".$whereInstrument."
                 ) AS T
                 GROUP BY
                     T.User,

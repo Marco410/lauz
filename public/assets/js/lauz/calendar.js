@@ -133,6 +133,7 @@ function getCalendarNetProfit() {
         endDate: endDate,
         Market_pos: directionGlobal,
         Trade_Result: winningGlobal,
+        Instrument: selectedInstrumentGlobal,
     };
 
     $.ajax({

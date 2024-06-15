@@ -10,3 +10,4 @@ let loaderGlobal =
     '<div class="spinner-border text-primary spinner-border-md"  role="status"></div>';
 let directionGlobal = "";
 let winningGlobal = "";
+let selectedInstrumentGlobal = "";

@@ -45,6 +45,11 @@ class PeriodTabController extends Controller
         }else{
             $whereTrade_Result = "";
         }
+        if($request->Instrument){
+            $whereInstrument = " AND  Instrument = '". $request->Instrument. "'";
+        }else{
+            $whereInstrument = "";
+        }
         $query = "
             SELECT 
                 Account, 
@@ -62,6 +67,7 @@ class PeriodTabController extends Controller
             ".$whereDate."
             ".$whereMarket_pos."
             ".$whereTrade_Result."
+            ".$whereInstrument."
             ORDER BY
                 Account
             ;
@@ -102,6 +108,11 @@ class PeriodTabController extends Controller
         }else{
             $whereTrade_Result = "";
         }
+        if($request->Instrument){
+            $whereInstrument = " AND  Instrument = '". $request->Instrument. "'";
+        }else{
+            $whereInstrument = "";
+        }
         
         $query = "
         SELECT 
@@ -120,6 +131,8 @@ class PeriodTabController extends Controller
         ".$whereDate."
         ".$whereMarket_pos."
         ".$whereTrade_Result."
+        ".$whereInstrument."
+
         GROUP BY 
             Account, 
             Entry_Time;
