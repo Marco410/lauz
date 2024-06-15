@@ -11,3 +11,4 @@ let loaderGlobal =
 let directionGlobal = "";
 let winningGlobal = "";
 let selectedInstrumentGlobal = "";
+let selectedPeriodGlobal = "";

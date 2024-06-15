@@ -2,7 +2,7 @@
   <div class="col-sm-12 mb-4">
     <div class="row">
       <div class="col-sm-4">
-        <select name="how_often_invest" class="form-select" style="background-color: var(--bgDark) !important;">
+        <select name="period" class="form-select" style="background-color: var(--bgDark) !important;">
           <option selected value="">Period</option>
           <option value="Years">Years</option>
           <option value="Months">Months</option>
@@ -12,8 +12,7 @@
         </select>
       </div>
       <div class="col-sm-4">
-        <select name="instrument" class="form-select" style="background-color: var(--bgDark) !important;">
-          <option selected value="Instrument">Instrument</option>
+        <select  name="instrument" class="form-select" style="background-color: var(--bgDark) !important;">
         </select>
       </div>
     </div>

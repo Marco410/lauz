@@ -4,6 +4,7 @@ const netProfitLoader = document.getElementById("netProfitLoader");
 const loaderCalendar2 = document.getElementById("calendarLoader2");
 
 let instrumentSelect = document.querySelector('select[name="instrument"]');
+let periodSelect = document.querySelector('select[name="period"]');
 
 let labelsCumNetProfit = [];
 let dataCumNetProfit = [];
@@ -18,12 +19,20 @@ periodTab.addEventListener("click", () => {
 });
 
 instrumentSelect.addEventListener("change", handleSelectAccount);
+periodSelect.addEventListener("change", handleChangePeriod);
 
 function handleSelectAccount(event) {
     let selectedInstrument = event.target.value;
     selectedInstrumentGlobal = selectedInstrument;
     instrumentSelect.value = selectedInstrument;
     getCalendarNetProfit();
+    getAllDataPeriodTab();
+}
+
+function handleChangePeriod(event) {
+    let selectedPeriod = event.target.value;
+    selectedPeriodGlobal = selectedPeriod;
+    periodSelect.value = selectedPeriod;
     getAllDataPeriodTab();
 }
 
@@ -37,6 +46,7 @@ function getAllDataPeriodTab() {
 }
 
 function getInstruments() {
+    instrumentSelect.innerHTML = "";
     $.ajax({
         url: URLS.getInstruments,
         type: "GET",
@@ -45,11 +55,8 @@ function getInstruments() {
             account: accountSelected,
         },
         success: function (data) {
-            instrumentSelect.innerHTML = "";
-            let optionS = document.createElement("option");
-            optionS.value = "";
-            optionS.textContent = "Instrument";
-            instrumentSelect.appendChild(optionS);
+            instrumentSelect.innerHTML =
+                '<option selected value="">Instrument</option>';
 
             if (data.length > 0) {
                 instrumentsGlobal = [];
@@ -84,6 +91,7 @@ function getNetProfit() {
             Market_pos: directionGlobal,
             Trade_Result: winningGlobal,
             Instrument: selectedInstrumentGlobal,
+            Period: selectedPeriodGlobal,
         },
         success: function (response) {
             labelsCumNetProfit = [];
@@ -230,6 +238,7 @@ function getMaxDrawdow() {
             Market_pos: directionGlobal,
             Trade_Result: winningGlobal,
             Instrument: selectedInstrumentGlobal,
+            Period: selectedPeriodGlobal,
         },
         success: function (response) {
             labelsCumMaxDrawDown = [];
@@ -353,8 +362,6 @@ function renderMaxDrawDown(labels, dataset, label) {
 }
 
 function renderCalendar2() {
-    console.log("calendarData");
-    console.log(calendarData);
     let tooltipSpan = document.getElementById("tooltip-span2");
     let calendarEl2 = document.getElementById("calendar2");
     let calendar2 = new FullCalendar.Calendar(calendarEl2, {
