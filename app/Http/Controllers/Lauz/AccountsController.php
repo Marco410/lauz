@@ -21,7 +21,8 @@ class AccountsController extends Controller
     public function getAccounts(Request $request){   
         $query = "
             SELECT 
-                User,Account
+                User,Account,
+                CAST(Inicial_Balance AS FLOAT64) AS Inicial_Balance
             FROM 
                 `algolabreport.Metrics.Metrics_Accounts` 
             WHERE 

@@ -8,11 +8,10 @@
         <div class="card mb-4" style="background-color: var(--bgDark)" >
             <div class="card-body px-0 pt-0 pb-2" >
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table align-items-center mb-0" id="tableAccounts">
                   <thead>
                     <tr>
-                        <th  style="padding: 10px;" class="text-white text-sm font-weight-bolder"></th>
-                      <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Account</th>
+                      <th style="padding: 10px; margin-left:15px;" class="text-white text-sm font-weight-bolder">Account</th>
                       <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Broker</th>
                       <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">Strategy name</th>
                       <th style="padding: 10px;" class="text-white text-sm font-weight-bolder">initial balance</th>
@@ -21,46 +20,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                        <td></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">254565</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Uprofit</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">+$HiLoTime</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">2000</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Conected</small></td>
-                      <td>
-                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
-                        <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
-                        <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
-                      </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">254565</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Uprofit</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">+$HiLoTime</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">2000</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Conected</small></td>
-                      <td>
-                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
-                        <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
-                        <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
-                      </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">254565</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Uprofit</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">+$HiLoTime</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">2000</small></td>
-                      <td><small class="text-sm" style="color: var(--textGray);">Conected</small></td>
-                      <td>
-                        <button class="btn btn-primary btn-sm"  style="padding: 6px 18px; font-size: 11px !important;" >Edit</button>
-                        <button class="btn btn-danger btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Delete</button>
-                        <button class="btn btn-info btn-sm" style="padding: 6px 18px; font-size: 11px !important;" >Reset</button>
-                      </td>
-                    </tr>
-                   
+              
                   </tbody>
                 </table>
               </div>
@@ -71,3 +31,8 @@
 </div>
 
 @endsection
+
+@push('accounts')
+<script src="../assets/js/lauz/accounts/accounts.js"></script>
+
+@endpush

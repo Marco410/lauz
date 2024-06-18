@@ -384,3 +384,120 @@ function renderCalendar2() {
     calendar2.render();
     loaderCalendar2.style.display = "none";
 }
+
+const dataPostOverViewForDay = {
+    account: accountSelected,
+    initDate: initDate,
+    endDate: endDate,
+    Market_pos: directionGlobal,
+    Trade_Result: winningGlobal,
+};
+
+const loaderOverviewForDay = document.getElementById("loaderOverviewForDay");
+const totalDaysWin = document.getElementById("totalDaysWin");
+const totalDaysLoss = document.getElementById("totalDaysLoss");
+const totalPercentaje = document.getElementById("totalPercentaje");
+
+let tableOverviewForDay = $("#tableOverviewForDay").DataTable({
+    responsive: true,
+    fixedHeader: true,
+    searching: false,
+    pageLength: 2,
+    ajax: {
+        type: "get",
+        url: URLS.getOverviewForDay,
+        data: dataPostOverViewForDay,
+        dataSrc: function (data) {
+            let totalDaysW = 0;
+            let totalDaysL = 0;
+            let totalDays = 0;
+            let totalP = 0;
+
+            data.forEach((day) => {
+                totalDaysW += day.Winning_Days;
+                totalDaysL += day.Losing_Days;
+            });
+            totalDays = totalDaysW + totalDaysL;
+            totalP = (totalDaysW / totalDays) * 100;
+            totalDaysWin.innerHTML = totalDaysW;
+            totalDaysLoss.innerHTML = totalDaysL;
+            totalPercentaje.innerHTML = totalP.toFixed(2);
+            loaderOverviewForDay.style.display = "none";
+            return data;
+        },
+        error: function (e) {
+            loaderOverviewForDay.style.display = "none";
+        },
+    },
+    layout: {
+        topStart: null,
+        bottomStart: null,
+    },
+    order: [],
+    columns: [
+        {
+            data: "Day_Name",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data.substring(
+                    0,
+                    3
+                )}</small>`;
+            },
+        },
+        {
+            data: "Total_PNL",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "Avg_Win_Ratio",
+            render: function (data, type, row, meta) {
+                const percentaje = data * 100;
+                const percent = 100 - percentaje.toFixed(2);
+                return `<br> 
+                          <div class="progress"  style="background-color: transparent;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: ${percentaje.toFixed(
+                                2
+                            )}%; border-radius: 10px 0px 0px 10px; !important" aria-valuenow="${percentaje.toFixed(
+                    2
+                )}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: ${percent.toFixed(
+                                2
+                            )}%;border-radius: 0px 10px 10px 0px; !important" aria-valuenow="${percent.toFixed(
+                    2
+                )}" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <label class="" style="color: var(--textGray);">${
+                              row.Winning_Days
+                          } W ${row.Losing_Days}L - ${percentaje.toFixed(
+                    2
+                )}%</label>`;
+            },
+        },
+        {
+            data: "Profits",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "Loss",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatNumber(
+                    data
+                )}</small>`;
+            },
+        },
+        {
+            data: "Q_Trades",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+    ],
+});

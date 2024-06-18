@@ -113,3 +113,59 @@ function getPerformanceTable() {
 function showLabelFunction(item) {
     return item === "Profit Factor" || item === "Max. Concsec. Win" ? "" : "$";
 }
+
+const loaderRecentTrades = document.getElementById("loaderRecentTrades");
+
+const dataPostRecent = {
+    account: accountSelected,
+    initDate: initDate,
+    endDate: endDate,
+    Market_pos: directionGlobal,
+    Trade_Result: winningGlobal,
+};
+
+let tableRecent = $("#tableRecentTrades").DataTable({
+    responsive: true,
+    fixedHeader: true,
+    searching: false,
+    pageLength: 3,
+    ajax: {
+        type: "get",
+        url: URLS.getRecentTrades,
+        data: dataPostRecent,
+        dataSrc: function (data) {
+            loaderRecentTrades.style.display = "none";
+            return data;
+        },
+        error: function (e) {
+            loaderRecentTrades.style.display = "none";
+        },
+    },
+    layout: {
+        topStart: null,
+        bottomStart: null,
+    },
+    order: [],
+    columns: [
+        {
+            data: "Date",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Trade_Count",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">${data}</small>`;
+            },
+        },
+        {
+            data: "Total_PNL",
+            render: function (data, type, row, meta) {
+                return `<small class="text-xs" style="color: var(--textGray);">$${formatDecimalNumber(
+                    data
+                )}</small>`;
+            },
+        },
+    ],
+});

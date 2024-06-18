@@ -30,19 +30,19 @@ class OverviewTabController extends Controller
         }
         
         if($request->endDate){
-            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+            $whereDate = " AND T.Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
         }else{
             $whereDate = "";
         }
 
         if($request->Market_pos){
-            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+            $whereMarket_pos = " AND  T.Market_pos_ = '". $request->Market_pos. "'";
         }else{
             $whereMarket_pos = "";
         }
 
         if($request->Trade_Result){
-            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+            $whereTrade_Result = " AND  T.Trade_Result = '". $request->Trade_Result. "'";
         }else{
             $whereTrade_Result = "";
         }
@@ -628,6 +628,90 @@ class OverviewTabController extends Controller
                 Shorts
             FROM TimeRecover_Table
             ORDER BY RowN;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
+
+    public function getRecentTrades(Request $request){   
+        $whereAccount= "";
+
+        if($request->account){
+            $whereAccount = "WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
+        
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
+        $query = "
+           
+        WITH Latest_Trades AS (
+        SELECT 
+            Email AS User,
+            CONCAT(
+                LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
+                '/',
+                LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                '/',
+                EXTRACT(YEAR FROM Entry_Time)
+                ) AS Entry_Time,
+         
+            COUNT(*) AS Trade_Count,
+            SUM(CAST(Profit AS FLOAT64)) AS Total_PNL 
+        FROM 
+            `algolabreport.NewData.Total_Trades` AS T
+        ".$whereAccount."
+        ".$whereDate." 
+        ".$whereMarket_pos."
+        ".$whereTrade_Result."
+        GROUP BY 
+            User,Entry_Time
+        ),
+        Top_10_Dates AS (
+            SELECT 
+                User,
+                Entry_Time,
+                Trade_Count,
+                Total_PNL,
+                ROW_NUMBER() OVER (ORDER BY Entry_Time DESC) AS Row_Num
+            FROM 
+                Latest_Trades
+        )
+        SELECT
+            User,
+            Entry_Time AS Date,
+            Trade_Count,
+            Total_PNL
+        FROM 
+            Top_10_Dates
+        WHERE 
+            Row_Num <= 10
+        ORDER BY 
+            Entry_Time DESC;
         ";
 
         $results = $this->bigQueryService->runQuery($query);

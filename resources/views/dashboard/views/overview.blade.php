@@ -188,9 +188,10 @@
             <div class="col-sm-12 ">
                 <div class="card mb-4" style="background-color: var(--bgDark);height: 318px; min-height: 318px" >
                   <div class="card-body">
+                    <div class="spinner-border text-primary spinner-border-md mt-3" id="loaderRecentTrades" role="status"> </div>
                     <h6 class="text-white">Recent Trades</h6>
                       <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0" id="tablePerformance">
+                        <table class="table align-items-center mb-0" id="tableRecentTrades">
                           <thead>
                             <tr>
                               <th style="padding: 8px; font-size: 13px" class="text-white font-weight-bolder">Date</th>
@@ -199,46 +200,6 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
-                              </td>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
-                              </td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
-                              </td>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
-                              </td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
-                            </tr>
-                          
-                            <tr>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
-                              </td>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
-                              </td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
-                            </tr>
-                          
-                            <tr>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">07/01/24</small>
-                              </td>
-                              <td>
-                                <small class="text-xs fw-lighter" style="color: var(--textGray);">1</small>
-                              </td>
-                              <td><small class="text-xs fw-lighter" style="color: var(--textGray);">+$200</small></td>
-                            </tr>
-                          
-                          
                           </tbody>
                         </table>
                       </div>

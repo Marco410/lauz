@@ -143,6 +143,8 @@ function getAllData(isOnLoad) {
     getMFE();
     getPerformanceTable();
     table.ajax.reload();
+    tableRecent.ajax.reload();
+    tableOverviewForDay.ajax.reload();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
         getNetProfit();
@@ -257,7 +259,7 @@ function getNetPL() {
 }
 
 function formatNumber(number) {
-    if (number >= 1000) {
+    if (Math.abs(number) >= 1000) {
         return (number / 1000).toFixed(0) + "K";
     } else {
         return formatDecimalNumber(number);

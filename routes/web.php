@@ -51,21 +51,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/get-mfe', [BigQueryController::class, 'getMFE'])->name('get.mfe');
     Route::get('/get-metrics', [BigQueryController::class, 'getMetrics'])->name('get.metrics');
 
-
+	
+	
 	//TRADES
 	Route::get('/get-total-trades', [BigQueryController::class, 'getTotalTrades'])->name('get.total.trades');
-
+	
 	//PERIOD ANALYSIS
 	Route::get('/get-net-profit', [PeriodTabController::class, 'getNetProfit'])->name('get.net.profit');
 	Route::get('/get-max-drawdown', [PeriodTabController::class, 'getMaxDrawdown'])->name('get.max.drawdown');
 	Route::get('/get-overview-day', [PeriodTabController::class, 'getOverviewForDay'])->name('get.overview.day');
 	Route::get('/get-instruments', [PeriodTabController::class, 'getInstruments'])->name('get.instruments');
-
+	Route::get('/get-overview-day', [PeriodTabController::class, 'getOverviewDay'])->name('get.overview-day');
+	
 	Route::get('/notes', [NoteController::class, 'get'])->name('notes');
 	Route::post('/create-note', [NoteController::class, 'create'])->name('create.note');
 	
 	Route::get('/get-daily-net-cumulative-pl', [OverviewTabController::class, 'getDailyNetCumulativePL'])->name('get-daily-net-cumulative-pl');
 	Route::get('/get-performance-table', [OverviewTabController::class, 'getPerformanceTable'])->name('get-performance-table');
+    Route::get('/get-recent-trades', [OverviewTabController::class, 'getRecentTrades'])->name('get.recent.trades');
 
 
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

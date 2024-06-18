@@ -13,6 +13,8 @@ const URLS = {
     getmfe: "/get-mfe",
     getPerformanceTable: "/get-performance-table",
     getMetrics: "/get-metrics",
+    getRecentTrades: "/get-recent-trades",
+    getOverviewForDay: "/get-overview-day",
 };
 
 const COLORS = {

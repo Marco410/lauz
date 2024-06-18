@@ -1,7 +1,6 @@
 const tradesTab = document.getElementById("tradesTab");
 const loaderTradesTable = document.getElementById("loaderTradesTable");
 tradesTab.addEventListener("click", () => {
-    console.log("Here");
     table.ajax.reload();
 });
 $.fn.dataTable.moment("DD/MM/YYYY");

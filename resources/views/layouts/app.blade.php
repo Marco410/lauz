@@ -77,8 +77,11 @@
   @stack('dashboard')
   @stack('dashboard_chart_bar')
   @stack('landing')
-
+  @if(Request::is('dashboard'))
   <script src="../assets/js/lauz/data.js"></script>
+  @endif
+  @stack('accounts')
+
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -90,13 +93,15 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
+    @if(Request::is('dashboard'))
+    <script>
+      const quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder:'Write here...'
+      });
+    </script>
+    @endif
 
-  <script>
-    const quill = new Quill('#editor', {
-      theme: 'snow',
-      placeholder:'Write here...'
-    });
-  </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 
