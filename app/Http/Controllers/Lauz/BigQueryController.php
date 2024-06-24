@@ -108,23 +108,83 @@ class BigQueryController extends Controller
     public function getOverviewData(Request $request){
         $whereAccount= "";
         if($request->account){
-            $whereAccount = " AND Account = '". $request->account. "'";
+            $whereAccount = " WHERE T.Account = '". $request->account. "'";
         }else{
             $whereAccount = "";
         }
 
 
         $query = "
+        WITH Daily_Profit AS (
             SELECT
-                User,Account, CAST(Inicial_Balance AS FLOAT64) AS Inicial_Balance, CAST(Net_PNL AS FLOAT64) AS Net_PNL , Q_Trades, Annual_Return, CAST(Profit_Factor AS FLOAT64) AS Profit_Factor, Avg_Win_Ratio, CAST(Avg_Win_Loss AS FLOAT64) AS Avg_Win_Loss, CAGR, CAST(DrawDown AS FLOAT64) AS DrawDown
+                Account,
+                DATE(Entry_time) AS Entry_date,
+                CASE WHEN SUM(Profit) >= 0 THEN 'Positive' ELSE 'Negative' END as Status
             FROM
-                `algolabreport.Metrics.Metrics_Accounts`
-            WHERE
-                User = '". auth()->user()->email ."'
-            ".$whereAccount."
-            ORDER BY
-                Account
-            ;
+                `algolabreport.NewData.Total_Trades`
+            GROUP BY
+                Account, Entry_date
+        ),
+            Metrics_Account AS (
+                SELECT 
+                    T.Email AS User, 
+                    T.Account,
+                    T.Inicial_Balance,
+                    SUM(T.Profit) AS Net_PNL,
+                    COUNT(T.Entry_time) AS Q_Trades,
+                    POWER(
+                        1 + (SUM(T.Profit) / T.Inicial_Balance),
+                        365.0 / NULLIF(DATE_DIFF(MAX(T.Entry_time), MIN(T.Entry_time), DAY), 0)
+                    ) - 1 AS Annual_Return, 
+                    SUM(CASE WHEN T.Profit > 0 THEN T.Profit ELSE 0 END) / NULLIF(SUM(CASE WHEN T.Profit <= 0 THEN T.Profit ELSE 0 END) * -1, 0) AS Profit_Factor, 
+                    COUNT(CASE WHEN T.Profit > 0 THEN T.Entry_Time END) / COUNT(T.Entry_Time) AS Avg_Win_Ratio, 
+                    AVG(CASE WHEN T.Profit > 0 THEN T.Profit ELSE NULL END) / ABS(AVG(CASE WHEN T.Profit <= 0 THEN T.Profit ELSE NULL END)) AS Avg_Win_Loss, 
+                    POWER(
+                        (T.Inicial_Balance + SUM(T.Profit)) / T.Inicial_Balance,
+                        1.0 / (DATE_DIFF(MAX(T.Entry_time), MIN(T.Entry_time), DAY) / 365.25)
+                    ) - 1 AS CAGR,
+                    MIN(T.DrowDown) AS DrawDown, 
+                    COUNT(CASE WHEN Trade_Result = 'Win' THEN 1 END) as Trade_Win, 
+                    COUNT(CASE WHEN Trade_Result = 'Loss' THEN 1 END) as Trade_Loss
+                FROM 
+                    `algolabreport.NewData.Total_Trades` AS T
+               ".$whereAccount."
+                GROUP BY 
+                    T.Email, T.Account, T.Inicial_Balance
+            ),
+            Daily_Status_Count AS (
+                SELECT
+                    Account,
+                    COUNT(CASE WHEN Status = 'Positive' THEN 1 END) AS Positive_Days,
+                    COUNT(CASE WHEN Status = 'Negative' THEN 1 END) AS Negative_Days
+                FROM
+                    Daily_Profit
+                GROUP BY
+                    Account
+            )
+            SELECT 
+                R.User, 
+                R.Account,
+                CAST(R.Inicial_Balance AS FLOAT64) AS Inicial_Balance,
+                CAST(R.Net_PNL AS FLOAT64) AS Net_PNL,
+                R.Q_Trades,
+                R.Annual_Return, 
+                CAST(R.Profit_Factor AS FLOAT64) AS Profit_Factor,
+                R.Avg_Win_Ratio, 
+                CAST(R.Avg_Win_Loss AS FLOAT64) AS Avg_Win_Loss,
+                R.CAGR, 
+                CAST(R.DrawDown AS FLOAT64) AS DrawDown,
+                R.Trade_Win, 
+                R.Trade_Loss,
+                COALESCE(D.Positive_Days, 0) AS Positive_Days,
+                COALESCE(D.Negative_Days, 0) AS Negative_Days, 
+                COALESCE(D.Positive_Days, 0) / NULLIF(COALESCE(D.Positive_Days, 0) + COALESCE(D.Negative_Days, 0), 0) AS Avg_Win_Ratio_Day
+            FROM 
+                Metrics_Account AS R
+            LEFT JOIN
+                Daily_Status_Count AS D
+            ON
+                R.Account = D.Account;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -432,32 +492,20 @@ class BigQueryController extends Controller
     public function getMetrics(Request $request){
         $user = Auth::user()->email;
         if($request->account){
-            $whereAccount = " WHERE Account = '". $request->account. "'";
+            $whereAccount = " WHERE T.Account = '". $request->account. "'";
         }else{
             $whereAccount = "";
         }
         if($request->endDate){
-            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+            $whereDate = " AND T.Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
         }else{
             $whereDate = "";
         }
 
         if($whereAccount){
-            $whereUser = " AND Email = '". $user. "'";
+            $whereUser = " AND T.Email = '". $user. "'";
         }else{
             $whereUser = "";
-        }
-
-        if($request->Market_pos){
-            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
-        }else{
-            $whereMarket_pos = "";
-        }
-
-        if($request->Trade_Result){
-            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
-        }else{
-            $whereTrade_Result = "";
         }
 
         $query = "
@@ -468,11 +516,6 @@ class BigQueryController extends Controller
                 CASE WHEN SUM(Profit) >= 0 THEN 'Positive' ELSE 'Negative' END as Status 
             FROM
                 `algolabreport.NewData.Total_Trades`
-            ".$whereAccount."
-            ".$whereDate."
-            ".$whereUser."
-            ".$whereMarket_pos."
-            ".$whereTrade_Result."
             GROUP BY
                 Account, Entry_date 
         ),
@@ -499,6 +542,9 @@ class BigQueryController extends Controller
                 COUNT(CASE WHEN Trade_Result = 'Loss' THEN 1 END) as Trade_Loss -- Total de transacciones perdedoras.
             FROM
                     `algolabreport.NewData.Total_Trades` AS T
+            ".$whereAccount."
+            ".$whereDate."
+            ".$whereUser."
             GROUP BY
                 T.Email, T.Account, T.Inicial_Balance
         ),

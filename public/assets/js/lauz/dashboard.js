@@ -38,7 +38,6 @@ function getOverviewData() {
             let maxQTrades = 0;
             let maxAnnualReturn = 0;
             let maxProfitFactor = 0;
-            let maxAvgWinRatio = 0;
             let maxAvgWinLoss = 0;
             let maxCAGR = 0;
 
@@ -49,7 +48,6 @@ function getOverviewData() {
                 maxQTrades = data[0].Q_Trades;
                 maxAnnualReturn = data[0].Annual_Return;
                 maxProfitFactor = data[0].Profit_Factor;
-                maxAvgWinRatio = data[0].Avg_Win_Ratio;
                 maxAvgWinLoss = data[0].Avg_Win_Loss;
                 maxCAGR = data[0].CAGR;
                 accountsGlobal = [];
@@ -70,11 +68,8 @@ function getOverviewData() {
                         maxProfitFactor,
                         data[i].Profit_Factor
                     );
-                    maxAvgWinRatio = Math.min(
-                        maxAvgWinRatio,
-                        data[i].Avg_Win_Ratio
-                    );
-                    maxAvgWinLoss = Math.min(
+
+                    maxAvgWinLoss = Math.max(
                         maxAvgWinLoss,
                         data[i].Avg_Win_Loss
                     );
@@ -82,14 +77,13 @@ function getOverviewData() {
 
                     accountsGlobal.push(data[i].Account);
                 }
-
-                maxAvgWinRatio = (maxAvgWinRatio * 100).toFixed(2);
             }
+
             annualReturnElement.innerHTML =
                 '<h6 class="' +
                 getPrimaryDangeClass(maxAnnualReturn) +
                 '">' +
-                formatDecimalNumber(maxAnnualReturn) +
+                formatDecimalNumber(maxAnnualReturn * 100) +
                 "%</h6>";
             drawDownElement.innerHTML =
                 '<h6 class="' +
@@ -119,17 +113,8 @@ function getOverviewData() {
                 '<h6 class="' +
                 getPrimaryDangeClass(maxCAGR) +
                 '">' +
-                formatDecimalNumber(maxCAGR) +
+                formatDecimalNumber(maxCAGR * 100) +
                 "%</h6>";
-
-            /*     let className =
-                maxAvgWinRatio > 30 ? "text-primary" : "text-danger";
-            AvgWinRatioElement.innerHTML =
-                '<h6 class="' + className + '">' + maxAvgWinRatio + "%</h6>";
-
-            progressWinRatioElement.style.width = maxAvgWinRatio + "%";
-            progressWinRatioElement2.style.width =
-                Math.abs(maxAvgWinRatio - 100) + "%"; */
         },
         error: function (xhr, status, error) {},
     });

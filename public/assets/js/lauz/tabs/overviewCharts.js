@@ -142,7 +142,6 @@ function getPNL() {
             tradesForInstrumentLoader.style.display = "none";
         },
         error: function (error) {
-            console.error(error);
             dailyNetCumPNLLoader.style.display = "none";
             dailyNetNetPNLLoader.style.display = "none";
             tradesDirectionLoader.style.display = "none";

@@ -48,7 +48,6 @@ class OverviewTabController extends Controller
         }
 
         $query = "
-           
         WITH Trade_Stats AS (
             SELECT
             Email AS User,

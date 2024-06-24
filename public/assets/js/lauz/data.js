@@ -18,8 +18,6 @@ let endDateGlobal2 = document.querySelector('input[name="endDate2"]');
 let directionSelect = document.querySelector('select[name="direction"]');
 let winningSelect = document.querySelector('select[name="winning"]');
 
-let datosTotalNetPL = [];
-let datosMeses = [];
 const nombresMeses = [
     "Ene",
     "Feb",
@@ -144,11 +142,9 @@ function getAllData(isOnLoad) {
     getPerformanceTable();
     table.ajax.reload();
     tableRecent.ajax.reload();
-    tableOverviewForDay.ajax.reload();
     if (!isOnLoad) {
         //Functions that no need to be executed on load
-        getNetProfit();
-        getMaxDrawdow();
+        getAllDataPeriodTab();
     }
 }
 
@@ -166,6 +162,8 @@ function getNetPL() {
             endDate: endDate,
         },
         success: function (response) {
+            let datosTotalNetPL = [];
+            let datosMeses = [];
             var className =
                 response.totalNetPL > 0 ? "text-primary" : "text-danger";
             totalNetPLElement.innerHTML =
@@ -260,7 +258,8 @@ function getNetPL() {
 
 function formatNumber(number) {
     if (Math.abs(number) >= 1000) {
-        return (number / 1000).toFixed(0) + "K";
+        const rounded = Math.floor(number / 100) / 10;
+        return rounded.toFixed(1).replace(".", ",") + "K";
     } else {
         return formatDecimalNumber(number);
     }
