@@ -15,6 +15,7 @@ const URLS = {
     getMetrics: "/get-metrics",
     getRecentTrades: "/get-recent-trades",
     getOverviewForDay: "/get-overview-day",
+    getTradesDirection: "/get-trades-direction",
 };
 
 const COLORS = {

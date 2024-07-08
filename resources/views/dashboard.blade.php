@@ -176,7 +176,7 @@
       </div>
       <div class="col-sm-12 mt-4 mb-4">
         <div class="card justify-content-center text-center p-4" style="width: 100%; height: auto; background-color: var(--bgDark)">
-          <a href="https://apextraderfunding.com/member/b/4864584f7551/cristianibanezg" target="_blank">
+          <a href="https://atf.com//member//aff//go//cristianibanezg?i=1" target="_blank">
             <img src="{{ asset('assets/img/adds/apex.jpg') }}" class="image ms-3" width="98.5%" alt="" style="border-radius: 10px;">
           </a>
         </div>

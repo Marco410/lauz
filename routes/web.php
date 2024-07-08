@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/get-calendar', [BigQueryController::class, 'getCalendar'])->name('get.calendar');
     Route::get('/get-mfe', [BigQueryController::class, 'getMFE'])->name('get.mfe');
     Route::get('/get-metrics', [BigQueryController::class, 'getMetrics'])->name('get.metrics');
+    Route::get('/get-metrics', [BigQueryController::class, 'getMetrics'])->name('get.metrics');
 
 	
 	
@@ -69,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/get-daily-net-cumulative-pl', [OverviewTabController::class, 'getDailyNetCumulativePL'])->name('get-daily-net-cumulative-pl');
 	Route::get('/get-performance-table', [OverviewTabController::class, 'getPerformanceTable'])->name('get-performance-table');
     Route::get('/get-recent-trades', [OverviewTabController::class, 'getRecentTrades'])->name('get.recent.trades');
+    Route::get('/get-trades-direction', [OverviewTabController::class, 'getTradesForDirection'])->name('get.trades.direction');
 
 
 	Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

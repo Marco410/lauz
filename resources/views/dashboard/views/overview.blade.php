@@ -113,8 +113,8 @@
                       <h6 class="text-primary" style="font-size: 11px" id="percentajeWLongs">- %</h6>
                     </div>
                     <div class="progress"  style="background-color: transparent;">
-                      <div class="progress-bar bg-primary" role="progressbar" id="progressLongs" style="width: 50%; border-radius: 10px 0px 0px 10px; !important"  aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-white" role="progressbar" id="progressLongsL" style="width: 50%; border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" id="progressLongs" style="width: 0%; border-radius: 10px 0px 0px 10px; !important"  aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-white" role="progressbar" id="progressLongsL" style="width: 100%; border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <br>
                     <h6 class="text-primary" >Shorts: <span id="totalShorts">-</span></h6>
@@ -125,8 +125,8 @@
                       <h6 class="text-primary" style="font-size: 11px" id="percentajeShorts" >- %</h6>
                     </div>
                     <div class="progress"  style="background-color: transparent;">
-                      <div class="progress-bar bg-primary" role="progressbar" id="progressShorts" style="width: 50%; border-radius: 10px 0px 0px 10px; !important" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-white" role="progressbar" id="progressShortsL"  style="width: 50%;border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" id="progressShorts" style="width: 0%; border-radius: 10px 0px 0px 10px; !important" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-white" role="progressbar" id="progressShortsL"  style="width: 100%;border-radius: 0px 10px 10px 0px; !important" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>

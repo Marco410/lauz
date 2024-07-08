@@ -30,7 +30,6 @@ let directionShorts = [];
 function getPNL() {
     dailyNetCumPNLLoader.style.display = "inline-block";
     dailyNetNetPNLLoader.style.display = "inline-block";
-    tradesDirectionLoader.style.display = "inline-block";
     tradesForInstrumentLoader.style.display = "inline-block";
 
     const dataPost = {
@@ -60,12 +59,6 @@ function getPNL() {
 
                 dataNetPNL.push(item.NetPNL);
 
-                if (item.Direction === "Long") {
-                    directionLongs.push(item);
-                } else {
-                    directionShorts.push(item);
-                }
-
                 const instrument = item.Instrument;
                 if (!groupedByInstrument[instrument]) {
                     groupedByInstrument[instrument] = [];
@@ -76,59 +69,6 @@ function getPNL() {
             renderCumPNL(labelsCumPNL, dataCumPNL);
             renderNetPNL(labelsCumPNL, dataNetPNL);
 
-            renderTradesForDirection(
-                ["Longs", "Shorts"],
-                [directionLongs.length, directionShorts.length]
-            );
-
-            totalLongsTitle.innerHTML =
-                directionLongs.length + directionShorts.length;
-            totalLongs.innerHTML = directionLongs.length;
-            totalShorts.innerHTML = directionShorts.length;
-
-            let wins = [];
-            let losses = [];
-            let percentajeLongsW = 0;
-            directionLongs.forEach((long) => {
-                if (long.Winning_Losses === "Win") {
-                    wins.push(long);
-                } else {
-                    losses.push(long);
-                }
-            });
-
-            totalWinLongs.innerHTML = `${wins.length} W`;
-            totalLossLongs.innerHTML = `${losses.length} L`;
-            percentajeLongsW = (wins.length / directionLongs.length) * 100;
-            percentajeWLongs.innerHTML = `${percentajeLongsW.toFixed(0)} %`;
-
-            progressLongs.style.width = `${percentajeLongsW.toFixed(0)}%`;
-            progressLongsL.style.width = `${(100 - percentajeLongsW).toFixed(
-                0
-            )}%`;
-
-            let winsShorts = [];
-            let lossesShorts = [];
-
-            directionShorts.forEach((short) => {
-                if (short.Winning_Losses === "Win") {
-                    winsShorts.push(short);
-                } else {
-                    lossesShorts.push(short);
-                }
-            });
-
-            totalWinShorts.innerHTML = `${winsShorts.length} W`;
-            totalLossShorts.innerHTML = `${lossesShorts.length} L`;
-            percentajeShortW =
-                (winsShorts.length / directionShorts.length) * 100;
-            percentajeShorts.innerHTML = `${percentajeShortW.toFixed(0)} %`;
-
-            progressShorts.style.width = `${percentajeShortW.toFixed(0)}%`;
-            progressShortsL.style.width = `${(100 - percentajeShortW).toFixed(
-                0
-            )}%`;
-
             const instruments = Object.keys(groupedByInstrument);
             const totals = instruments.map(
                 (instrument) => groupedByInstrument[instrument].length
@@ -138,13 +78,11 @@ function getPNL() {
 
             dailyNetCumPNLLoader.style.display = "none";
             dailyNetNetPNLLoader.style.display = "none";
-            tradesDirectionLoader.style.display = "none";
             tradesForInstrumentLoader.style.display = "none";
         },
         error: function (error) {
             dailyNetCumPNLLoader.style.display = "none";
             dailyNetNetPNLLoader.style.display = "none";
-            tradesDirectionLoader.style.display = "none";
             tradesForInstrumentLoader.style.display = "none";
         },
     });
@@ -402,5 +340,92 @@ function renderTradesForInstrument(labels, dataset) {
             },
         },
         plugins: [htmlLegendPlugin],
+    });
+}
+
+function getTradesDirection() {
+    tradesDirectionLoader.style.display = "inline-block";
+
+    const dataPost = {
+        account: accountSelected,
+        initDate: initDate,
+        endDate: endDate,
+        Market_pos: directionGlobal,
+        Trade_Result: winningGlobal,
+    };
+
+    $.ajax({
+        url: URLS.getTradesDirection,
+        type: "GET",
+        dataType: "json",
+        data: dataPost,
+        success: function (response) {
+            response.forEach((item) => {
+                if (item.Direction === "Long") {
+                    directionLongs.push(item);
+                } else {
+                    directionShorts.push(item);
+                }
+            });
+
+            renderTradesForDirection(
+                ["Longs", "Shorts"],
+                [directionLongs.length, directionShorts.length]
+            );
+
+            totalLongsTitle.innerHTML =
+                directionLongs.length + directionShorts.length;
+            totalLongs.innerHTML = directionLongs.length;
+            totalShorts.innerHTML = directionShorts.length;
+
+            let wins = [];
+            let losses = [];
+            let percentajeLongsW = 0;
+            let sumWinsLongs = 0;
+            let sumLossLongs = 0;
+            let totalSumLongs = 0;
+            directionLongs.forEach((long) => {
+                sumWinsLongs += long.Win;
+                sumLossLongs += long.Loss;
+            });
+
+            totalSumLongs = sumWinsLongs + sumLossLongs;
+
+            totalWinLongs.innerHTML = `${sumWinsLongs} W`;
+            totalLossLongs.innerHTML = `${sumLossLongs} L`;
+            percentajeLongsW = (sumWinsLongs / totalSumLongs) * 100;
+            percentajeWLongs.innerHTML = `${percentajeLongsW.toFixed(1)} %`;
+
+            progressLongs.style.width = `${percentajeLongsW.toFixed(0)}%`;
+            progressLongsL.style.width = `${(100 - percentajeLongsW).toFixed(
+                0
+            )}%`;
+
+            let sumWinsShorts = 0;
+            let sumLossShorts = 0;
+            let totalSumShorts = 0;
+
+            directionShorts.forEach((short) => {
+                sumWinsShorts += short.Win;
+                sumLossShorts += short.Loss;
+            });
+
+            totalSumShorts = sumWinsShorts + sumLossShorts;
+
+            totalWinShorts.innerHTML = `${sumWinsShorts} W`;
+            totalLossShorts.innerHTML = `${sumLossShorts} L`;
+            percentajeShortW = (sumWinsShorts / totalSumShorts) * 100;
+            percentajeShorts.innerHTML = `${percentajeShortW.toFixed(1)} %`;
+
+            progressShorts.style.width = `${percentajeShortW.toFixed(0)}%`;
+            progressShortsL.style.width = `${(100 - percentajeShortW).toFixed(
+                0
+            )}%`;
+
+            tradesDirectionLoader.style.display = "none";
+        },
+        error: function (error) {
+            tradesDirectionLoader.style.display = "none";
+        },
     });
 }

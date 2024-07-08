@@ -138,6 +138,7 @@ function getAllData(isOnLoad) {
     getNetPL();
     getCalendarNetProfit();
     getPNL();
+    getTradesDirection();
     getMFE();
     getPerformanceTable();
     table.ajax.reload();

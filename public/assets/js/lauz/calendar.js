@@ -32,7 +32,6 @@ function initHeatMap() {
             source: calendarNetProfit,
             x: "t",
             y: "v",
-            groupY: (d) => d[0],
         },
         date: {
             locale: { weekStart: 0 },
@@ -77,16 +76,15 @@ function initHeatMap() {
             Tooltip,
             {
                 radius: 2,
-                text: function (date, value, dayjsDate) {
+                text: function (timestamp, value, dayjsDate) {
+                    const dataPoint = calendarNetProfitMap.get(
+                        dayjsDate.format("YYYY-MM-DD")
+                    );
+                    const trade = dataPoint ? dataPoint.trade : "No trade data";
                     return (
-                        (value
-                            ? value > 0
-                                ? "Good day"
-                                : "Bad Day"
-                            : "No data") +
-                        "(" +
-                        value +
-                        ") on " +
+                        `${
+                            value > 0 ? "Good day" : "Bad day"
+                        }. NetPL: ${value}, Q_Trades: ${trade} on ` +
                         dayjsDate.format("LL")
                     );
                 },
@@ -115,6 +113,7 @@ window.addEventListener("resize", function () {
 
 function getCalendarNetProfit() {
     calendarNetProfit = [];
+    calendarNetProfitMap = new Map();
     calendarData = [];
     startDateCalendar = new Date();
 
@@ -134,10 +133,15 @@ function getCalendarNetProfit() {
         data: dataPost,
         success: function (data) {
             data.forEach((item) => {
-                calendarNetProfit.push({
+                const timestamp = item.EntryTime;
+                const dataPoint = {
                     t: new Date(item.EntryTime + "T00:00:00"),
                     v: item.NetPL,
-                });
+                    trade: item.Q_Trades,
+                };
+
+                calendarNetProfit.push(dataPoint);
+                calendarNetProfitMap.set(timestamp, dataPoint);
 
                 calendarData.push({
                     title: `Date: ${item.EntryTime} \n NetPNL: ${item.NetPL} \n`,

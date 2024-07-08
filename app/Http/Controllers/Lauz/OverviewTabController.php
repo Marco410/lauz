@@ -667,50 +667,43 @@ class OverviewTabController extends Controller
         }
 
         $query = "
-           
         WITH Latest_Trades AS (
-        SELECT 
-            Email AS User,
-            CONCAT(
-                LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0'),
-                '/',
-                LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
-                '/',
-                EXTRACT(YEAR FROM Entry_Time)
-                ) AS Entry_Time,
-         
-            COUNT(*) AS Trade_Count,
-            SUM(CAST(Profit AS FLOAT64)) AS Total_PNL 
-        FROM 
-            `algolabreport.NewData.Total_Trades` AS T
-        ".$whereAccount."
-        ".$whereDate." 
-        ".$whereMarket_pos."
-        ".$whereTrade_Result."
-        GROUP BY 
-            User,Entry_Time
-        ),
-        Top_10_Dates AS (
             SELECT 
+                    Email AS User,
+                    DATE(Entry_Time) AS Entry_Time,
+                    COUNT(*) AS Trade_Count,
+                    SUM(CAST(Profit AS FLOAT64)) AS Total_PNL 
+                FROM 
+                    `algolabreport.NewData.Total_Trades` AS T
+                ".$whereAccount."
+                ".$whereDate." 
+                ".$whereMarket_pos."
+                ".$whereTrade_Result."
+                GROUP BY 
+                    User,Entry_Time
+            ),
+            Top_10_Dates AS (
+                SELECT 
+                    User,
+                    Entry_Time,
+                    Trade_Count,
+                    Total_PNL,
+                    ROW_NUMBER() OVER (ORDER BY Entry_Time DESC) AS Row_Num
+                FROM 
+                    Latest_Trades
+            )
+            SELECT
                 User,
-                Entry_Time,
+                FORMAT_TIMESTAMP('%Y-%m-%d', TIMESTAMP(Entry_Time)) AS Date,
                 Trade_Count,
-                Total_PNL,
-                ROW_NUMBER() OVER (ORDER BY Entry_Time DESC) AS Row_Num
+                Total_PNL
             FROM 
-                Latest_Trades
-        )
-        SELECT
-            User,
-            Entry_Time AS Date,
-            Trade_Count,
-            Total_PNL
-        FROM 
-            Top_10_Dates
-        WHERE 
-            Row_Num <= 10
-        ORDER BY 
-            Entry_Time DESC;
+                Top_10_Dates
+            WHERE 
+                Row_Num <= 10
+            ORDER BY 
+                Entry_Time DESC;
+
         ";
 
         $results = $this->bigQueryService->runQuery($query);
@@ -723,4 +716,63 @@ class OverviewTabController extends Controller
         return response()->json($resultsArray);     
     }
 
+    public function getTradesForDirection(Request $request){   
+        $whereAccount= "";
+
+        if($request->account){
+            $whereAccount = "WHERE Account = '". $request->account. "'";
+        }else{
+            $whereAccount = "";
+        }
+        
+        if($request->endDate){
+            $whereDate = " AND Entry_Time BETWEEN '". $request->initDate ."' AND '". $request->endDate ."' ";
+        }else{
+            $whereDate = "";
+        }
+
+        if($request->Market_pos){
+            $whereMarket_pos = " AND  Market_pos_ = '". $request->Market_pos. "'";
+        }else{
+            $whereMarket_pos = "";
+        }
+
+        if($request->Trade_Result){
+            $whereTrade_Result = " AND  Trade_Result = '". $request->Trade_Result. "'";
+        }else{
+            $whereTrade_Result = "";
+        }
+
+        $query = "
+
+        SELECT
+            Email AS User, 
+            Account,
+            Instrument,
+            Market_pos_ AS Direction, 
+            COUNT(CASE WHEN Trade_Result = 'Win' THEN 1 END) AS Win,
+            COUNT(CASE WHEN Trade_Result = 'Loss' THEN 1 END) AS Loss, 
+            COUNT(Entry_time) AS Q_Trades,
+            COUNT(CASE WHEN Trade_Result = 'Win' THEN 1 END)/COUNT(Entry_time) AS WinRatio,
+            COUNT(CASE WHEN Trade_Result = 'Loss' THEN 1 END)/COUNT(Entry_time) AS LossRatio
+        FROM
+            `algolabreport.NewData.Total_Trades`
+           ".$whereAccount."
+            ".$whereDate." 
+            ".$whereMarket_pos."
+            ".$whereTrade_Result."
+        GROUP BY
+            Email, Account, Instrument, Market_pos_
+            ;
+        ";
+
+        $results = $this->bigQueryService->runQuery($query);
+
+        $resultsArray = [];
+        foreach ($results as $row) {
+            $resultsArray[] = $row;
+        }
+        
+        return response()->json($resultsArray);     
+    }
 }

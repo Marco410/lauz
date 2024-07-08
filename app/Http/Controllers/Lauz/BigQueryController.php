@@ -229,9 +229,8 @@ class BigQueryController extends Controller
             $whereInstrument = "";
         }
 
-
-        $query = "
-            SELECT
+        $queryOld= "
+         SELECT
                 T.User,
                 T.Account,
                 SUM(CAST(T.Net_PNL AS FLOAT64)) AS NetPL,
@@ -269,7 +268,38 @@ class BigQueryController extends Controller
                     EXTRACT(YEAR FROM T.Entry_Time),
                     EXTRACT(MONTH FROM T.Entry_Time)
                 ORDER BY
-                    T.Entry_Time DESC;
+                    T.Entry_Time DESC;";
+
+
+        $query = "
+           SELECT
+                Email AS User, 
+                Account,
+                CONCAT(
+                    EXTRACT(YEAR FROM Entry_Time),
+                    '-',
+                    LPAD(CAST(EXTRACT(MONTH FROM Entry_Time) AS STRING),2,'0'),
+                    '-',
+                    LPAD(CAST(EXTRACT(DAY FROM Entry_Time) AS STRING),2,'0')
+                    ) AS EntryTime,
+                EXTRACT(YEAR FROM Entry_time) AS Year,
+                EXTRACT(MONTH FROM Entry_time) AS Month,
+                EXTRACT(WEEK FROM Entry_time) AS Week,
+                EXTRACT(DAY FROM Entry_time) AS Day,
+                FORMAT_TIMESTAMP('%A', Entry_time) AS Day_Name,
+                COUNT(Entry_time) AS Q_Trades,
+                COUNT(CASE WHEN Profit > 0 THEN Entry_Time END) / COUNT(Entry_Time) AS Avg_Win_Ratio, 
+                SUM(CAST(Profit AS FLOAT64)) AS NetPL
+            FROM
+                `algolabreport.NewData.Total_Trades`
+            ".$whereAccount."
+            ".$whereDate." 
+            ".$whereMarket_pos."
+            ".$whereTrade_Result."
+            ".$whereInstrument."
+            GROUP BY
+                Email, Account, EntryTime, Year, Month, Week, Day, Day_Name
+            ORDER BY EntryTime DESC;
         ";
 
         $results = $this->bigQueryService->runQuery($query);
