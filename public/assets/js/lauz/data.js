@@ -168,6 +168,14 @@ function handleDirectionSelect(e) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'winning' select element.
+ * It updates the selected value in the 'winning' select element, updates the 'winningGlobal' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} e - The event object that triggers the function.
+ * @param {string} winningSelected - The selected value from the 'winning' select element.
+ */
 function handleWinningSelect(e) {
     let winningSelected = e.target.value;
     winningGlobal = winningSelected;
@@ -175,6 +183,12 @@ function handleWinningSelect(e) {
     getAllData(false);
 }
 
+/**
+ * This function fetches and processes all the necessary data for the application.
+ * It calls various other functions to retrieve data from the server and update the UI.
+ *
+ * @param {boolean} isOnLoad - A flag indicating whether the function is called on page load.
+ */
 function getAllData(isOnLoad) {
     getOverviewData();
     getMetricsData();
@@ -300,6 +314,13 @@ function getNetPL() {
     });
 }
 
+/**
+ * Formats a given number by adding a comma separator for thousands and rounding it to two decimal places.
+ * If the absolute value of the number is greater than or equal to 1000, it appends "K" to the formatted number.
+ *
+ * @param {number} number - The number to be formatted.
+ * @returns {string} The formatted number as a string.
+ */
 function formatNumber(number) {
     if (Math.abs(number) >= 1000) {
         const rounded = Math.floor(number / 100) / 10;
@@ -309,6 +330,13 @@ function formatNumber(number) {
     }
 }
 
+/**
+ * Formats a given number by adding a comma separator for thousands and rounding it to two decimal places.
+ * If the absolute value of the number is greater than or equal to 1000, it appends "K" to the formatted number.
+ *
+ * @param {number} number - The number to be formatted.
+ * @returns {string} The formatted number as a string.
+ */
 function formatDecimalNumber(number) {
     return new Intl.NumberFormat("en-US", {
         minimumFractionDigits: 2,
@@ -316,6 +344,16 @@ function formatDecimalNumber(number) {
     }).format(number);
 }
 
+/**
+ * This function takes a number as input and returns a CSS class based on whether the number is positive or negative.
+ * If the number is positive, it returns the "text-primary" CSS class. If the number is negative, it returns the "text-danger" CSS class.
+ *
+ * @param {number} number - The number whose CSS class will be determined based on its sign.
+ * @returns {string} The CSS class representing the primary or danger color based on the sign of the input number.
+ * @example
+ * getPrimaryDangeClass(100);  // Returns "text-primary"
+ * getPrimaryDangeClass(-50); // Returns "text-danger"
+ */
 function getPrimaryDangeClass(number) {
     return number > 0 ? "text-primary" : "text-danger";
 }
@@ -383,6 +421,18 @@ var options = {
     },
 };
 
+/**
+ * Renders a line chart using Chart.js library.
+ * This function takes two arrays as input: 'datosTotalNetPL' and 'datosMeses'.
+ * 'datosTotalNetPL' is an array of numbers representing the total net profit for each month.
+ * 'datosMeses' is an array of strings representing the months for which the total net profit is calculated.
+ * The function creates a new Chart.js line chart with the provided data and options, and destroys any existing chart on the same canvas.
+ * @param {Array} datosTotalNetPL - An array of numbers representing the total net profit for each month.
+ * @param {Array} datosMeses - An array of strings representing the months for which the total net profit is calculated.
+ * @returns {void} - This function does not return a value. It renders a line chart on the canvas with the provided data and options.
+ * @example
+ * renderizarGrafico([100, 200, 150, 250, 300, 200, 250], ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul"]);
+ */
 function renderizarGrafico(datosTotalNetPL, datosMeses) {
     var ctx3 = document.getElementById("chart-line2").getContext("2d");
 

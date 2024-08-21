@@ -14,6 +14,12 @@ const AvgWinRatioElement = document.getElementById("AvgWinRatio");
 const progressWinRatioElement = document.getElementById("progressWinRatio");
 const progressWinRatioElement2 = document.getElementById("progressWinRatio2");
 
+/**
+Fetches and updates the overview data for the selected account and date range.
+@param {string} accountSelected - The selected account for which to fetch the data.
+@param {string} initDate - The initial date of the date range.
+@param {string} endDate - The end date of the date range.
+ */
 function getOverviewData() {
     annualReturnElement.innerHTML = loaderGlobal;
     drawDownElement.innerHTML = loaderGlobal;
@@ -128,6 +134,12 @@ const daysLoss = document.getElementById("daysLoss");
 const progressDays = document.getElementById("progressDays");
 const progressDays2 = document.getElementById("progressDays2");
 
+/**
+Fetches and updates the metrics data for the selected account and date range.
+@param {string} accountSelected - The selected account for which to fetch the data.
+@param {string} initDate - The initial date of the date range.
+@param {string} endDate - The end date of the date range.
+ */
 function getMetricsData() {
     $.ajax({
         url: URLS.getMetrics,

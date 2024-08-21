@@ -9,6 +9,14 @@ const loaderPerformanceTable = document.getElementById(
     "loaderPerformanceTable"
 );
 
+/**
+    This function calculates the average Mean-Absolute-Error (MFE), Mean-Absolute-Error (MAE), average trade, average trades per day, average commission, and average Sharpe Ratio for a specified account, date range, market position, and trade result.
+    @param {string} accountSelected - The selected account for which the performance metrics will be calculated.
+    @param {string} initDate - The initial date for the date range of the performance metrics.
+    @param {string} endDate - The end date for the date range of the performance metrics.
+    @param {string} directionGlobal - The market position for the performance metrics.
+    @param {string} winningGlobal - The trade result for the performance metrics.
+ */
 function getMFE() {
     totalMfe.innerHTML = loaderGlobal;
     totalMae.innerHTML = loaderGlobal;
@@ -64,6 +72,16 @@ function getMFE() {
     });
 }
 
+/**
+    This function retrieves the performance table for the specified account, date range, market position, and trade result.
+    It sends an AJAX request to the server to fetch the performance data and then populates a table with the received data.
+    @param {string} accountSelected - The selected account for which the performance metrics will be calculated.
+    @param {string} initDate - The initial date for the date range of the performance metrics.
+    @param {string} endDate - The end date for the date range of the performance metrics.
+    @param {string} directionGlobal - The market position for the performance metrics.
+    @param {string} winningGlobal - The trade result for the performance metrics.
+    @returns {void} - This function does not return any value. It populates the table with the received data.
+ */
 function getPerformanceTable() {
     loaderPerformanceTable.style.display = "inline-block";
 
@@ -110,6 +128,14 @@ function getPerformanceTable() {
     });
 }
 
+/**
+    This function determines whether to append a dollar sign ($) to the performance label.
+    It returns an empty string if the performance label is "Profit Factor" or "Max. Concsec. Win",
+    otherwise, it returns a dollar sign ($).
+    @param {string} item - The performance label for which the dollar sign should be determined.
+    @returns {string} - An empty string if the performance label is "Profit Factor" or "Max. Concsec. Win",
+    otherwise, a dollar sign ($).
+ */
 function showLabelFunction(item) {
     return item === "Profit Factor" || item === "Max. Concsec. Win" ? "" : "$";
 }
