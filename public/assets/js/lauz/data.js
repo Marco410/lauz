@@ -35,6 +35,15 @@ const nombresMeses = [
 
 getAccounts();
 
+/**
+    This function fetches a list of accounts from the server and populates the select elements with the available accounts.
+    It uses jQuery's $.ajax() method to make a GET request to the specified URL (URLS.accounts).
+    Upon successful retrieval of the data, it iterates through the received accounts and creates an option element for each account.
+    These option elements are then appended to the respective select elements.
+    If an error occurs during the AJAX request, it logs the error to the console.
+    Finally, it sets the accountSelected variable to the first account in the accountsGlobal array.
+    @param {string} URLS.accounts - The URL from which to fetch the list of accounts.
+*/
 function getAccounts() {
     $.ajax({
         url: URLS.accounts,
@@ -82,6 +91,13 @@ endDateGlobal2.addEventListener("change", handleChangeEndDate);
 directionSelect.addEventListener("change", handleDirectionSelect);
 winningSelect.addEventListener("change", handleWinningSelect);
 
+/**
+ * This function handles the change event of the 'accounts' select elements.
+ * It updates the selected value in both select elements, updates the 'accountSelected' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ */
 function handleSelectAccount(event) {
     let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
@@ -91,6 +107,13 @@ function handleSelectAccount(event) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'initDate' input element.
+ * It updates the selected value in both 'initDateGlobal' and 'initDateGlobal2' select elements,
+ * and then updates the 'initDate' variable.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ */
 function handleChangeInitDate(event) {
     let selectedDate = event.target.value;
     initDate = selectedDate;
@@ -98,6 +121,18 @@ function handleChangeInitDate(event) {
     initDateGlobal2.value = initDate;
 }
 
+/**
+ * This function handles the change event of the 'endDate' input element.
+ * It updates the selected value in the 'endDateGlobal2' input element, and then updates the 'endDate' variable.
+ * If an initial date has been selected, it checks if the selected end date is later than the initial date.
+ * If the selected end date is earlier than the initial date, it alerts the user to select a new date.
+ * If the selected end date is later than the initial date, it updates the 'endDateGlobal2' input element with the selected end date.
+ * If no initial date has been selected, it alerts the user to select an initial date.
+ * Finally, it calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ * @param {string} initDate - The selected initial date.
+ */
 function handleChangeEndDate(event) {
     let selectedDate = event.target.value;
     endDate = selectedDate;
@@ -118,6 +153,14 @@ function handleChangeEndDate(event) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'direction' select element.
+ * It updates the selected value in the 'direction' select element, updates the 'directionGlobal' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} e - The event object that triggers the function.
+ * @param {string} selectDirection - The selected value from the 'direction' select element.
+ */
 function handleDirectionSelect(e) {
     let selectDirection = e.target.value;
     directionGlobal = selectDirection;

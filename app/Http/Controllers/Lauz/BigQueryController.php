@@ -20,6 +20,16 @@ class BigQueryController extends Controller
         $this->bigQueryService = $bigQueryService;
     }
 
+    /**
+     * Get the Net Profit for a specified account and date range.
+     *
+     * This function retrieves the net profit for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the net profit based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the net profit data.
+     */
     public function getNetPL(Request $request){
 
         $whereAccount= "";
@@ -49,7 +59,7 @@ class BigQueryController extends Controller
                         WHEN EXTRACT(MINUTE FROM Entry_Time) <= 29 THEN '00'
                         ELSE '30'
                     END) AS Half_Hour,
-                    SUM(CAST(Profit AS FLOAT64)) AS NetPL
+                SUM(CAST(Profit AS FLOAT64)) AS NetPL
             FROM
                 `algolabreport.NewData.Total_Trades`
             ".$whereAccount."
@@ -104,7 +114,16 @@ class BigQueryController extends Controller
     }
 
 
-
+    /**
+     * Get the overview data for a specified account and date range.
+     *
+     * This function retrieves the overview data for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the overview data based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the overview data.
+     */
     public function getOverviewData(Request $request){
         $whereAccount= "";
         if($request->account){
@@ -197,6 +216,16 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);
     }
 
+    /**
+     * Get the calendar data for a specified account and date range.
+     *
+     * This function retrieves the calendar data for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the calendar data based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the calendar data.
+     */
     public function getCalendar(Request $request){
         $whereAccount= "";
         if($request->account){
@@ -312,6 +341,16 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);
     }
 
+    /**
+     * Get the total trades for a specified account and date range from the BigQuery database.
+     *
+     * This function retrieves the total trades for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the total trades based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the total trades data.
+     */
     public function getTotalTrades(Request $request){
         $user = Auth::user()->email;
         if($request->account){
@@ -398,6 +437,17 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);
     }
 
+
+    /**
+     * Get the net profit for a specified account and date range from the BigQuery database.
+     *
+     * This function retrieves the net profit for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the net profit based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the net profit data.
+    */
     public function getNetProfit(Request $request){
         $whereAccount= "";
 
@@ -442,6 +492,17 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);
     }
 
+
+    /**
+    * Get the MFE (Minimum-Favorable-Expected) for a specified account and date range from the BigQuery database.
+    *
+    * This function retrieves the MFE (Minimum-Favorable-Expected) for a specified account and date range from the BigQuery database.
+    * It constructs a SQL query to calculate the MFE based on the provided parameters and executes it using the BigQueryService.
+    * The results are then returned as a JSON response.
+    *
+    * @param Request $request The HTTP request containing the account and date range parameters.
+    * @return \Illuminate\Http\JsonResponse A JSON response containing the MFE data.
+    */
     public function getMFE(Request $request){
         $user = Auth::user()->email;
         if($request->account){
@@ -518,7 +579,16 @@ class BigQueryController extends Controller
         return response()->json($resultsArray);
     }
 
-
+    /**
+     * Get the metrics for a specified account and date range from the BigQuery database.
+     *
+     * This function retrieves the metrics data for a specified account and date range from the BigQuery database.
+     * It constructs a SQL query to calculate the metrics based on the provided parameters and executes it using the BigQueryService.
+     * The results are then returned as a JSON response.
+     *
+     * @param Request $request The HTTP request containing the account and date range parameters.
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the metrics data.
+     */
     public function getMetrics(Request $request){
         $user = Auth::user()->email;
         if($request->account){
