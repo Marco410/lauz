@@ -1,5 +1,14 @@
 let btn = document.getElementById("btn-create-note");
 let token = document.getElementById("token");
+
+/**
+    This function creates a new note using AJAX POST request.
+    It takes no parameters and returns nothing.
+    Upon successful creation, it clears the Quill editor's content,
+    appends a new note card to the "notes-view" element, and displays a success alert.
+    If the creation fails, it displays a failure alert.
+    @returns {void}
+ */
 btn.addEventListener("click", function () {
     $.ajax({
         url: URLS.createNote,

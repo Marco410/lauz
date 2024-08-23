@@ -20,7 +20,8 @@ class OverviewTabController extends Controller
     }
 
 
-    public function getDailyNetCumulativePL(Request $request){   
+    public function getDailyNetCumulativePL(Request $request)
+    {   
         $whereAccount= "";
 
         if($request->account){

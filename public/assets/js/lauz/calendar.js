@@ -5,6 +5,15 @@ let cal = null;
 
 const monthRest = 2;
 let startDate = new Date();
+
+/**
+    Initializes the heatmap visualization based on the provided data.
+    @description This function initializes the heatmap visualization by calculating the appropriate breakpoints and ranges based on the viewport width. It then constructs the heatmap configuration object and paints the heatmap onto the specified element.
+    @param {number} viewportWidth - The current width of the viewport.
+    @param {number} [breakPoint=132] - The breakpoint for adjusting the heatmap configuration based on the viewport width.
+    @param {number} [range=3] - The range for the heatmap data.
+    @returns {void} - This function does not return any value.
+ */
 function initHeatMap() {
     var viewportWidth = window.innerWidth;
     var breakPoint = 132;
@@ -105,12 +114,24 @@ function initHeatMap() {
     }, 700);
 }
 
+/**
+ * This function is responsible for triggering the initialization of the heatmap visualization whenever the window is resized.
+ * It hides the heatmap element and the loading indicator, then calls the `initHeatMap` function to update the heatmap configuration based on the new viewport width.
+ *
+ * @param {Event} event - The event object representing the window resize event.
+ */
 window.addEventListener("resize", function () {
     calHeatmapElement.style.display = "none";
     loaderCalendar.style.display = "inline-block";
     initHeatMap();
 });
 
+/**
+    This function fetches the calendar net profit data from the server and populates the calendarNetProfit array, calendarNetProfitMap map, and calendarData array.
+    It also updates the startDateCalendar and startDate variables based on the fetched data.
+    Finally, it triggers the initialization of the heatmap visualization by calling the initHeatMap function.
+    @param {Object} dataPost - An object containing the parameters for the server request, including account details, date range, market position, trade result, and instrument.
+*/
 function getCalendarNetProfit() {
     calendarNetProfit = [];
     calendarNetProfitMap = new Map();

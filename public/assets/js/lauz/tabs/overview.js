@@ -9,6 +9,14 @@ const loaderPerformanceTable = document.getElementById(
     "loaderPerformanceTable"
 );
 
+/**
+    This function calculates the average Mean-Absolute-Error (MFE), Mean-Absolute-Error (MAE), average trade, average trades per day, average commission, and average Sharpe Ratio for a specified account, date range, market position, and trade result.
+    @param {string} accountSelected - The selected account for which the performance metrics will be calculated.
+    @param {string} initDate - The initial date for the date range of the performance metrics.
+    @param {string} endDate - The end date for the date range of the performance metrics.
+    @param {string} directionGlobal - The market position for the performance metrics.
+    @param {string} winningGlobal - The trade result for the performance metrics.
+ */
 function getMFE() {
     totalMfe.innerHTML = loaderGlobal;
     totalMae.innerHTML = loaderGlobal;
@@ -64,6 +72,16 @@ function getMFE() {
     });
 }
 
+/**
+    This function retrieves the performance table for the specified account, date range, market position, and trade result.
+    It sends an AJAX request to the server to fetch the performance data and then populates a table with the received data.
+    @param {string} accountSelected - The selected account for which the performance metrics will be calculated.
+    @param {string} initDate - The initial date for the date range of the performance metrics.
+    @param {string} endDate - The end date for the date range of the performance metrics.
+    @param {string} directionGlobal - The market position for the performance metrics.
+    @param {string} winningGlobal - The trade result for the performance metrics.
+    @returns {void} - This function does not return any value. It populates the table with the received data.
+ */
 function getPerformanceTable() {
     loaderPerformanceTable.style.display = "inline-block";
 
@@ -110,6 +128,14 @@ function getPerformanceTable() {
     });
 }
 
+/**
+    This function determines whether to append a dollar sign ($) to the performance label.
+    It returns an empty string if the performance label is "Profit Factor" or "Max. Concsec. Win",
+    otherwise, it returns a dollar sign ($).
+    @param {string} item - The performance label for which the dollar sign should be determined.
+    @returns {string} - An empty string if the performance label is "Profit Factor" or "Max. Concsec. Win",
+    otherwise, a dollar sign ($).
+ */
 function showLabelFunction(item) {
     return item === "Profit Factor" || item === "Max. Concsec. Win" ? "" : "$";
 }
@@ -124,6 +150,19 @@ const dataPostRecent = {
     Trade_Result: winningGlobal,
 };
 
+/**
+    This function initializes a DataTable for the recent trades table.
+    It sets various properties such as responsiveness, fixed header, and searching options.
+    It also sets the page length to 3 and configures the ajax request to fetch recent trades data.
+    The ajax request uses the specified URL and data, and upon successful data retrieval, it hides the loader element.
+    The function also sets the layout, order, and columns for the table.
+    @param {string} accountSelected - The selected account for which the recent trades data will be fetched.
+    @param {string} initDate - The initial date for the date range of the recent trades data.
+    @param {string} endDate - The end date for the date range of the recent trades data.
+    @param {string} directionGlobal - The market position for the recent trades data.
+    @param {string} winningGlobal - The trade result for the recent trades data.
+    @returns {void} - This function does not return any value. It initializes the DataTable for the recent trades table.
+ */
 let tableRecent = $("#tableRecentTrades").DataTable({
     responsive: true,
     fixedHeader: true,

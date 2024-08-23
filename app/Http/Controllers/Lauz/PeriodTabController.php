@@ -19,7 +19,20 @@ class PeriodTabController extends Controller
         $this->bigQueryService = $bigQueryService;
     }
 
-
+    /**
+        * Get the net profit for a given account and period.
+        *
+        * @param Request $request The HTTP request containing the account and period parameters.
+        * @return JsonResponse A JSON response containing the net profit data.
+        *
+        * @throws Exception If there is an error running the BigQuery query.
+        *
+        * @docparam param1 name "account" type "string" description "The account for which to retrieve the net profit."
+        * @docparam param2 name "initDate" type "string" description "The start date for the period in YYYY-MM-DD format."
+        * @docparam param3 name "endDate" type "string" description "The end date for the period in YYYY-MM-DD format."
+        * @docparam param4 name "Period" type "string" description "The period for which to retrieve the net profit. Can be one of 'Years', 'Months', 'Weeks', 'Days', or 'Hours'."
+        * @docreturn type "array" description "An array of objects containing the net profit data for the specified account and period."
+    */
     public function getNetProfit(Request $request){   
         $whereAccount= "";
         $profitSelect = " 
@@ -238,6 +251,30 @@ class PeriodTabController extends Controller
         return response()->json($resultsArray);     
     }
 
+    /**
+     * Get the maximum drawdown for a given account and period.
+     *
+     * @param Request $request The HTTP request containing the account and period parameters.
+     * @return JsonResponse A JSON response containing the maximum drawdown data.
+     *
+     * @throws Exception If there is an error running the BigQuery query.
+     *
+     * @docparam param1 name "account" type "string" description "The account for which to retrieve the maximum drawdown."
+     * @docparam param2 name "initDate" type "string" description "The start date for the period in YYYY-MM-DD format."
+     * @docparam param3 name "endDate" type "string" description "The end date for the period in YYYY-MM-DD format."
+     * @docparam param4 name "Period" type "string" description "The period for which to retrieve the maximum drawdown. Can be one of 'Years', 'Months', 'Weeks', 'Days', or 'Hours'."
+     * @docparam param5 name "Day_Name" type "string" description "The name of the day for which the maximum drawdown is calculated."
+     * @docparam param6 name "Entry_date" type "string" description "The date for which the maximum drawdown is calculated."
+     * @docparam param7 name "Total_PNL" type "float" description "The total profit and loss for the given period and account."
+     * @docparam param8 name "Total_Trades" type "float" description "The total number of trades for the given period and account."
+     * @docparam param9 name "Avg_Win_Ratio" type "float" description "The average win ratio for the given period and account."
+     * @docparam param10 name "Profits" type "float" description "The total profits for the given period and account."
+     * @docparam param11 name "Losses" type "float" description "The total losses for the given period and account."
+     * @docparam param12 name "Q_Trades" type "int" description "The total number of trades for the given period and account."
+     * @docparam param13 name "Winning_Days" type "int" description "The total number of days with positive profits for the given period and account."
+     * @docparam param14 name "Losing_Days" type "int" description "The total number of days with negative profits for the given period and account."
+     * @docreturn type "array" description "An array of objects containing the maximum drawdown data for the specified account and period."
+     */
     public function getMaxDrawdown(Request $request){   
         $drowdownSelect = " 
         CONCAT(
@@ -455,7 +492,17 @@ class PeriodTabController extends Controller
         return response()->json($resultsArray);     
     }
 
-
+    /**
+     * Get the list of instruments for the specified account.
+     *
+     * @param Request $request The HTTP request containing the account parameter.
+     * @return JsonResponse A JSON response containing the list of instruments for the specified account.
+     *
+     * @throws Exception If there is an error running the BigQuery query.
+     *
+     * @docparam param1 name "account" type "string" description "The account for which to retrieve the list of instruments."
+     * @docreturn type "array" description "An array of objects containing the list of instruments for the specified account."
+    */
     public function getInstruments(Request $request){
         $whereAccount= "";
 
@@ -487,6 +534,29 @@ class PeriodTabController extends Controller
         return response()->json($resultsArray);    
     }
 
+    /**
+     * Get the overview of the specified account's trading activity for a given day.
+     *
+     * @param Request $request The HTTP request containing the account and day parameters.
+     * @return JsonResponse A JSON response containing the overview of the specified account's trading activity for the given day.
+     *
+     * @throws Exception If there is an error running the BigQuery query.
+     *
+     * @docparam param1 name "account" type "string" description "The account for which to retrieve the trading activity overview."
+     * @docparam param2 name "initDate" type "string" description "The start date for the period in YYYY-MM-DD format."
+     * @docparam param3 name "endDate" type "string" description "The end date for the period in YYYY-MM-DD format."
+     * @docparam param4 name "Day_Name" type "string" description "The name of the day for which the trading activity overview is calculated."
+     * @docparam param5 name "Entry_date" type "string" description "The date for which the trading activity overview is calculated."
+     * @docparam param6 name "Total_PNL" type "float" description "The total profit and loss for the given day and account."
+     * @docparam param7 name "Total_Trades" type "float" description "The total number of trades for the given day and account."
+     * @docparam param8 name "Avg_Win_Ratio" type "float" description "The average win ratio for the given day and account."
+     * @docparam param9 name "Profits" type "float" description "The total profits for the given day and account."
+     * @docparam param10 name "Losses" type "float" description "The total losses for the given day and account."
+     * @docparam param11 name "Q_Trades" type "int" description "The total number of trades for the given day and account."
+     * @docparam param12 name="Winning_Days" type "int" description "The total number of days with positive profits for the given day and account."
+     * @docparam param13 name="Losing_Days" type "int" description "The total number of days with negative profits for the given day and account."
+     * @docreturn type "array" description "An array of objects containing the overview of the specified account's trading activity for the given day."
+     */
     public function getOverviewDay(Request $request){
         if($request->account){
             $whereAccount = "WHERE Account = '". $request->account. "'";

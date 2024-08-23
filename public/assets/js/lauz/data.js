@@ -35,6 +35,15 @@ const nombresMeses = [
 
 getAccounts();
 
+/**
+    This function fetches a list of accounts from the server and populates the select elements with the available accounts.
+    It uses jQuery's $.ajax() method to make a GET request to the specified URL (URLS.accounts).
+    Upon successful retrieval of the data, it iterates through the received accounts and creates an option element for each account.
+    These option elements are then appended to the respective select elements.
+    If an error occurs during the AJAX request, it logs the error to the console.
+    Finally, it sets the accountSelected variable to the first account in the accountsGlobal array.
+    @param {string} URLS.accounts - The URL from which to fetch the list of accounts.
+*/
 function getAccounts() {
     $.ajax({
         url: URLS.accounts,
@@ -82,6 +91,13 @@ endDateGlobal2.addEventListener("change", handleChangeEndDate);
 directionSelect.addEventListener("change", handleDirectionSelect);
 winningSelect.addEventListener("change", handleWinningSelect);
 
+/**
+ * This function handles the change event of the 'accounts' select elements.
+ * It updates the selected value in both select elements, updates the 'accountSelected' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ */
 function handleSelectAccount(event) {
     let selectedValue = event.target.value;
     accountsSelectGlobal.value = selectedValue;
@@ -91,6 +107,13 @@ function handleSelectAccount(event) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'initDate' input element.
+ * It updates the selected value in both 'initDateGlobal' and 'initDateGlobal2' select elements,
+ * and then updates the 'initDate' variable.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ */
 function handleChangeInitDate(event) {
     let selectedDate = event.target.value;
     initDate = selectedDate;
@@ -98,6 +121,18 @@ function handleChangeInitDate(event) {
     initDateGlobal2.value = initDate;
 }
 
+/**
+ * This function handles the change event of the 'endDate' input element.
+ * It updates the selected value in the 'endDateGlobal2' input element, and then updates the 'endDate' variable.
+ * If an initial date has been selected, it checks if the selected end date is later than the initial date.
+ * If the selected end date is earlier than the initial date, it alerts the user to select a new date.
+ * If the selected end date is later than the initial date, it updates the 'endDateGlobal2' input element with the selected end date.
+ * If no initial date has been selected, it alerts the user to select an initial date.
+ * Finally, it calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} event - The event object that triggers the function.
+ * @param {string} initDate - The selected initial date.
+ */
 function handleChangeEndDate(event) {
     let selectedDate = event.target.value;
     endDate = selectedDate;
@@ -118,6 +153,14 @@ function handleChangeEndDate(event) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'direction' select element.
+ * It updates the selected value in the 'direction' select element, updates the 'directionGlobal' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} e - The event object that triggers the function.
+ * @param {string} selectDirection - The selected value from the 'direction' select element.
+ */
 function handleDirectionSelect(e) {
     let selectDirection = e.target.value;
     directionGlobal = selectDirection;
@@ -125,6 +168,14 @@ function handleDirectionSelect(e) {
     getAllData(false);
 }
 
+/**
+ * This function handles the change event of the 'winning' select element.
+ * It updates the selected value in the 'winning' select element, updates the 'winningGlobal' variable,
+ * and then calls the 'getAllData' function with 'false' as the second argument.
+ *
+ * @param {Event} e - The event object that triggers the function.
+ * @param {string} winningSelected - The selected value from the 'winning' select element.
+ */
 function handleWinningSelect(e) {
     let winningSelected = e.target.value;
     winningGlobal = winningSelected;
@@ -132,6 +183,12 @@ function handleWinningSelect(e) {
     getAllData(false);
 }
 
+/**
+ * This function fetches and processes all the necessary data for the application.
+ * It calls various other functions to retrieve data from the server and update the UI.
+ *
+ * @param {boolean} isOnLoad - A flag indicating whether the function is called on page load.
+ */
 function getAllData(isOnLoad) {
     getOverviewData();
     getMetricsData();
@@ -257,6 +314,13 @@ function getNetPL() {
     });
 }
 
+/**
+ * Formats a given number by adding a comma separator for thousands and rounding it to two decimal places.
+ * If the absolute value of the number is greater than or equal to 1000, it appends "K" to the formatted number.
+ *
+ * @param {number} number - The number to be formatted.
+ * @returns {string} The formatted number as a string.
+ */
 function formatNumber(number) {
     if (Math.abs(number) >= 1000) {
         const rounded = Math.floor(number / 100) / 10;
@@ -266,6 +330,13 @@ function formatNumber(number) {
     }
 }
 
+/**
+ * Formats a given number by adding a comma separator for thousands and rounding it to two decimal places.
+ * If the absolute value of the number is greater than or equal to 1000, it appends "K" to the formatted number.
+ *
+ * @param {number} number - The number to be formatted.
+ * @returns {string} The formatted number as a string.
+ */
 function formatDecimalNumber(number) {
     return new Intl.NumberFormat("en-US", {
         minimumFractionDigits: 2,
@@ -273,6 +344,16 @@ function formatDecimalNumber(number) {
     }).format(number);
 }
 
+/**
+ * This function takes a number as input and returns a CSS class based on whether the number is positive or negative.
+ * If the number is positive, it returns the "text-primary" CSS class. If the number is negative, it returns the "text-danger" CSS class.
+ *
+ * @param {number} number - The number whose CSS class will be determined based on its sign.
+ * @returns {string} The CSS class representing the primary or danger color based on the sign of the input number.
+ * @example
+ * getPrimaryDangeClass(100);  // Returns "text-primary"
+ * getPrimaryDangeClass(-50); // Returns "text-danger"
+ */
 function getPrimaryDangeClass(number) {
     return number > 0 ? "text-primary" : "text-danger";
 }
@@ -340,6 +421,18 @@ var options = {
     },
 };
 
+/**
+ * Renders a line chart using Chart.js library.
+ * This function takes two arrays as input: 'datosTotalNetPL' and 'datosMeses'.
+ * 'datosTotalNetPL' is an array of numbers representing the total net profit for each month.
+ * 'datosMeses' is an array of strings representing the months for which the total net profit is calculated.
+ * The function creates a new Chart.js line chart with the provided data and options, and destroys any existing chart on the same canvas.
+ * @param {Array} datosTotalNetPL - An array of numbers representing the total net profit for each month.
+ * @param {Array} datosMeses - An array of strings representing the months for which the total net profit is calculated.
+ * @returns {void} - This function does not return a value. It renders a line chart on the canvas with the provided data and options.
+ * @example
+ * renderizarGrafico([100, 200, 150, 250, 300, 200, 250], ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul"]);
+ */
 function renderizarGrafico(datosTotalNetPL, datosMeses) {
     var ctx3 = document.getElementById("chart-line2").getContext("2d");
 

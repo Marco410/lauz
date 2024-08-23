@@ -18,6 +18,15 @@ class AccountsController extends Controller
         $this->bigQueryService = $bigQueryService;
     }
 
+    /**
+     * Retrieves user accounts data from BigQuery.
+     *
+     * @param Request $request The incoming request object.
+     *
+     * @return \Illuminate\Http\JsonResponse A JSON response containing the user accounts data.
+     *
+     * @throws Exception If an error occurs during the query execution.
+     */
     public function getAccounts(Request $request){   
         $query = "
             SELECT 
@@ -36,7 +45,7 @@ class AccountsController extends Controller
         $resultsArray = [];
         foreach ($results as $row) {
             $resultsArray[] = $row;
-            }
+        }
            
         return response()->json($resultsArray);     
     }

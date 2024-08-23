@@ -13,12 +13,22 @@ use App\Mail\VerifyEmail;
 
 
 class RegisterController extends Controller
-{
+    {
+    /**
+     * Create a new user registration form.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('session.register');
     }
 
+    /**
+     * Store a newly created user in the storage.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $attributes = request()->validate([
@@ -38,31 +48,59 @@ class RegisterController extends Controller
         return redirect('/verify-email');
     }
 
-    public function verifyEmail(){
+    /**
+     * Show the page to verify the email.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function verifyEmail()
+    {
         return view('session.verify-email');
     }
 
-    public function sendVerifyEmail(){
-
+    /**
+     * Send a verification email to the user.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendVerifyEmail()
+    {
         /* $user = User::where('email',request()->email)->first();
         Mail::to(request()->email)->send(new VerifyEmail($user)); */
         return view('session.welcome-lauz');
     }
 
-    public function reSendVerifyEmail(){
+    /**
+     * Resend a verification email to the user.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function reSendVerifyEmail()
+    {
         $user = User::where('email',request()->email)->first();
         Mail::to(request()->email)->send(new VerifyEmail($user));
         session()->flash('success', 'Email was sent successfully.');
         return redirect('/dashboard');
-
     }
 
-    public function goDashboard(){
+    /**
+     * Go to the dashboard.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function goDashboard()
+    {
         return redirect('/dashboard');
     }
 
-    public function userVerify($email){
-
+    /**
+     * Verify the user's email.
+     *
+     * @param string $email
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function userVerify(string $email)
+    {
         $user = User::where('email',$email)->update([
             'email_verify' => 1
         ]);
@@ -71,11 +109,23 @@ class RegisterController extends Controller
         return redirect('/dashboard');
     }
 
-    public function quiz(){
+    /**
+     * Show the quiz form.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function quiz()
+    {
         return view('session.quiz');
     }
 
-    public function storeQuiz(){
+    /**
+     * Store the user's quiz answers.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeQuiz()
+    {
         $attributes = request()->validate([
             'how_long_invest' => ['required'],
             'how_often_invest' => ['required'],
