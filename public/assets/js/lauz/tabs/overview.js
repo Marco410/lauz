@@ -150,6 +150,19 @@ const dataPostRecent = {
     Trade_Result: winningGlobal,
 };
 
+/**
+    This function initializes a DataTable for the recent trades table.
+    It sets various properties such as responsiveness, fixed header, and searching options.
+    It also sets the page length to 3 and configures the ajax request to fetch recent trades data.
+    The ajax request uses the specified URL and data, and upon successful data retrieval, it hides the loader element.
+    The function also sets the layout, order, and columns for the table.
+    @param {string} accountSelected - The selected account for which the recent trades data will be fetched.
+    @param {string} initDate - The initial date for the date range of the recent trades data.
+    @param {string} endDate - The end date for the date range of the recent trades data.
+    @param {string} directionGlobal - The market position for the recent trades data.
+    @param {string} winningGlobal - The trade result for the recent trades data.
+    @returns {void} - This function does not return any value. It initializes the DataTable for the recent trades table.
+ */
 let tableRecent = $("#tableRecentTrades").DataTable({
     responsive: true,
     fixedHeader: true,
