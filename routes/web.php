@@ -2,9 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Lauz\BigQueryController;
 use App\Http\Controllers\Lauz\PeriodTabController;
@@ -93,8 +91,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
-	Route::get('/user-profile', [InfoUserController::class, 'create']);
-	Route::post('/user-profile', [InfoUserController::class, 'store']);
     Route::get('/login', function () {
 		return view('dashboard');
 	})->name('sign-up');
@@ -105,9 +101,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/login', [SessionsController::class, 'create']);
     Route::post('/session', [SessionsController::class, 'store']);
-	Route::get('/login/forgot-password', [ResetController::class, 'create']);
-	Route::post('/forgot-password', [ResetController::class, 'sendEmail']);
-	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 
 });
